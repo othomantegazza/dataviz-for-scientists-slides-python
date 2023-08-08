@@ -6,7 +6,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{r}
+```{python}
 #| include: false
 #| eval: false
 library(tidyverse)
@@ -230,22 +230,22 @@ For the main data visualization, how many layers of information do you notice?
 
 :::
 
-## GGPLOT2
+## Seaborn's Interface
 
 :::: {.columns}
 
 ::: {.column width="50%"}
 
-[GGPLOT2](https://ggplot2.tidyverse.org/) is one of the main tools for declaring graphics in R.
+[Seaborn](https://seaborn.pydata.org/index.html) is one of the main tools for declaring graphics in Python, together with [Pyplot](https://matplotlib.org/stable/tutorials/introductory/pyplot.html) and [Altair](https://altair-viz.github.io/).
 
-It is based on the grammar of graphics.
+[Seaborn's object interface](https://seaborn.pydata.org/tutorial/objects_interface.html) is under active developement and is based on the layered grammar of graphics.
 
 It can be used both for explorative analysis and for publication ready graphs.
 
 :::
 
 ::: {.column width="40%"}
-![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/SVG/ggplot2.svg)
+![](https://seaborn.pydata.org/_images/logo-mark-lightbg.svg){width=400}
 :::
 
 
@@ -253,21 +253,21 @@ It can be used both for explorative analysis and for publication ready graphs.
 
 ## Packages
 
-```{r}
-# Main tidyverse packages;
-# including ggplot2
+```{python}
+# Seaborn Object Interface
 
-library(tidyverse)
+import seaborn.objects as so
 
 # The palmer penguins dataset;
 # that we are going to use for practice
 
-library(palmerpenguins)
+from palmerpenguins import load_penguins
+penguins = load_penguins()
 ```
 
 ::: {.absolute left=0 bottom=270}
 
-Learn more about [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/).
+Learn more about [Palmer Penguins for R](https://allisonhorst.github.io/palmerpenguins/) and [Python](https://pypi.org/project/palmerpenguins/).
 
 
 :::
@@ -278,27 +278,29 @@ Learn more about [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins
 
 A default dataset...
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
-penguins %>% 
-  ggplot()
+(
+    so.Plot(penguins)
+)
 ```
 
 ##
 
 A set of mappings from variables to aesthetics...
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
-penguins %>%  
-  ggplot(
-    aes(
-      x = bill_length_mm,
-      y = bill_depth_mm)
+(
+  so.Plot(
+      data = penguins,
+      x = 'bill_length_mm',
+      y = 'bill_depth_mm'
+      )
   )
 ```
 
@@ -306,17 +308,20 @@ penguins %>%
 
 One or more layers, with geometric object, related to the aesthetic mappings.
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
-penguins %>% 
-  ggplot(
-    aes(
-      x = bill_length_mm,
-      y = bill_depth_mm)
-  ) + 
-  geom_point()
+(
+  so.Plot(
+      data = penguins,
+      x = 'bill_length_mm',
+      y = 'bill_depth_mm'
+      )
+    .add(
+      so.Dot()
+    )
+  )
 ```
 
 ##
@@ -324,18 +329,22 @@ penguins %>%
 More variables mapped to aesthetics and represented in the geometric object.
 
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
-penguins %>% drop_na() %>%
-  ggplot(
-    aes(x = bill_length_mm,
-        y = bill_depth_mm,
-        colour = species,
-        shape = sex)
-  ) + 
-  geom_point()
+(
+  so.Plot(
+      data = penguins,
+      x = 'bill_length_mm',
+      y = 'bill_depth_mm',
+      color = 'species',
+      marker = 'sex'
+      )
+    .add(
+      so.Dot()
+    )
+  )
 ```
 
 ##
@@ -343,39 +352,53 @@ penguins %>% drop_na() %>%
 A layer with a different geometric object and a statistical transformation.
 
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
-penguins %>% drop_na() %>%
-  ggplot(
-    aes(x = bill_length_mm,
-        y = bill_depth_mm,
-        colour = species,
-        shape = sex)
-  ) + 
-  geom_point() +
-  geom_smooth()
+(
+  so.Plot(
+      data = penguins,
+      x = 'bill_length_mm',
+      y = 'bill_depth_mm',
+      color = 'species',
+      marker = 'sex'
+      )
+    .add(
+      so.Dot()
+    )
+    .add(
+      so.Line(),
+      so.PolyFit(order = 1)
+    )
+  )
 ```
 
 
 ##
 
-A layer with a different geometric object and a statistical transformation.
+Map data to the aesthetics of only one layer:
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
-penguins %>% drop_na() %>%
-  ggplot(
-    aes(x = bill_length_mm,
-        y = bill_depth_mm,
-        colour = species,
-        shape = sex)
-  ) + 
-  geom_point() +
-  geom_smooth(method = 'lm')
+(
+  so.Plot(
+      data = penguins,
+      x = 'bill_length_mm',
+      y = 'bill_depth_mm',
+      color = 'species'
+      )
+    .add(
+      so.Dot(),
+      marker = 'sex'
+    )
+    .add(
+      so.Line(),
+      so.PolyFit(order = 1)
+    )
+  )
 ```
 
 
@@ -383,21 +406,29 @@ penguins %>% drop_na() %>%
 
 The facet specification.
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
-penguins %>% drop_na() %>%
-  ggplot(
-    aes(x = bill_length_mm,
-        y = bill_depth_mm,
-        colour = species,
-        shape = sex)
-  ) + 
-  geom_point() +
-  geom_smooth(method = 'lm') +
-  facet_wrap(facets = 'sex',
-             ncol = 1)
+(
+  so.Plot(
+      data = penguins,
+      x = 'bill_length_mm',
+      y = 'bill_depth_mm',
+      color = 'species'
+      )
+    .add(
+      so.Dot(),
+      marker = 'sex'
+    )
+    .add(
+      so.Line(),
+      so.PolyFit(order = 1)
+    )
+    .facet(
+      row='sex'
+    )
+  )
 ```
 
 
@@ -407,54 +438,73 @@ penguins %>% drop_na() %>%
 
 A default dataset...
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
-penguins %>% 
-  ggplot()
+(
+  so.Plot(
+      data = penguins
+  )
+)
 ```
 
 ##
 
 A set of mappings from variables to aesthetics...
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
-penguins %>% 
-  ggplot() +
-  aes(x = bill_length_mm)
+(
+  so.Plot(
+      data = penguins,
+      x = 'bill_length_mm'
+  )
+)
 ```
 
 ##
 
 A layer including geometric objects and a statistical transformation.
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
-penguins %>% 
-  ggplot() +
-  aes(x = bill_length_mm) +
-  geom_histogram()
+(
+  so.Plot(
+      data = penguins,
+      x = 'bill_length_mm'
+  )
+  .add(
+    so.Bar(),
+    so.Hist()
+  )
+)
 ```
 
 ##
 
 More aesthetic mappings.    
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
-penguins %>% 
-  ggplot() +
-  aes(x = bill_length_mm,
-      fill = species) +
-  geom_histogram() 
+(
+  so.Plot(
+      data = penguins,
+      x = 'bill_length_mm',
+      color = 'species'
+  )
+  .add(
+    so.Bar(),
+    so.Hist(),
+    so.Stack()
+  )
+)
 ```
 
 
@@ -462,17 +512,25 @@ penguins %>%
 
 The facet specification.
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
-penguins %>% 
-  ggplot() +
-  aes(x = bill_length_mm,
-      fill = species) +
-  geom_histogram() +
-  facet_wrap(facets = 'species',
-             ncol = 1)
+(
+  so.Plot(
+      data = penguins,
+      x = 'bill_length_mm',
+      color = 'species'
+  )
+  .add(
+    so.Bar(),
+    so.Hist(),
+    so.Stack()
+  )
+  .facet(
+    row='sex'
+  )
+)
 ```
 
 
@@ -480,18 +538,18 @@ penguins %>%
 
 Remove a legend guide that's no longer needed...
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
-penguins %>% 
-  ggplot() +
-  aes(x = bill_length_mm,
-      fill = species) +
-  geom_histogram() +
-  facet_wrap(facets = 'species',
-             ncol = 1) +
-  guides(fill = 'none')
+# penguins %>% 
+#   ggplot() +
+#   aes(x = bill_length_mm,
+#       fill = species) +
+#   geom_histogram() +
+#   facet_wrap(facets = 'species',
+#              ncol = 1) +
+#   guides(fill = 'none')
 ```
 
 ## A Horizontal Stacked Bar Chart
@@ -500,7 +558,7 @@ penguins %>%
 
 A default dataset...
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -512,7 +570,7 @@ penguins %>%
 
 A set of mappings from variables to aesthetics...
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -526,7 +584,7 @@ penguins %>%
 A layer including geometric objects and a statistical transformation.
 
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -541,7 +599,7 @@ penguins %>% drop_na() %>%
 More aesthetic mappings.
 
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -556,7 +614,7 @@ penguins %>% drop_na() %>%
 
 A facet specification.
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -572,7 +630,7 @@ penguins %>% drop_na() %>%
 
 Remove empty bars.
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -590,7 +648,7 @@ penguins %>% drop_na() %>%
 
 Change the position adjustement.
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
