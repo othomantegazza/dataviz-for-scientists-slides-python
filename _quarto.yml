@@ -1,0 +1,23 @@
+project:
+  title: "Data Visualization for Scientists"
+  preview:
+    port: 4200
+  output-dir: docs
+  render: 
+    - "*.qmd"
+  resources: 
+    - img/
+    - fonts/
+  
+format:
+  revealjs:
+    theme: [default, style/custom.scss]
+    template-partials:
+      - style/title-slide.html
+    echo: true
+    footer: "[< HOME](..)"
+
+knitr:
+  opts_chunk: 
+    dev: jpeg
+

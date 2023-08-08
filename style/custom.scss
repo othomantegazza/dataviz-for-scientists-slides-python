@@ -1,0 +1,246 @@
+/*--
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+--*/
+
+
+/*-- scss:functions --*/
+
+
+/*-- scss:defaults --*/
+
+$font-family-sans-serif: Helvetica Neue, Lato, Verdana, sans-serif;
+$font-family-monospace: IBM Plex Mono;
+$presentation-font-size-root: 30px;
+$presentation-h2-font-size: 2.34em;
+$presentation-h3-font-size: 1em;
+
+/*-- scss:rules --*/
+
+/*-- fonts --*/
+ 
+@font-face {
+  font-family:  Noto Serif;
+  src: url("../../../../../fonts/NotoSerif-VariableFont_wdth,wght.ttf");
+  font-style: normal;
+}
+
+@font-face {
+  font-family:  IBM Plex Mono;
+  src: url("../../../../../fonts/IBMPlexMono-Light.ttf");
+  font-weight: 300 399;
+  font-style: normal;
+}
+
+@font-face {
+  font-family:  IBM Plex Mono;
+  src: url("../../../../../fonts/IBMPlexMono-LightItalic.ttf");
+  font-weight: 300 399;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Lato;
+  src: url("../../../../../fonts/Lato-Bold.ttf");
+  font-weight: 400 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Lato;
+  src: url("../../../../../fonts/Lato-Light.ttf");
+  font-weight: 200 399;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Lato;
+  src: url("../../../../../fonts/Lato-BoldItalic.ttf");
+  font-weight: 400 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Lato;
+  src: url("../../../../../fonts/Lato-LightItalic.ttf");
+  font-weight: 200 399;
+  font-style: italic;
+}
+
+/*-- variables --*/ 
+ 
+ :root {
+    --title-font: Noto Serif, Serif;
+    /*--  --accent-color-opaque: #9e019e33; --*/
+    --body-font: Helvetica Neue, Lato, Verdana, sans-serif;
+    --h2-color: #f44702;
+    --h2-color-execrise: #60a595;
+    --accent-color-opaque:  #f4470255;
+    --h2-font-size: 70px;
+    --body-font-weight: 300;
+    
+}
+
+/*-- title slides --*/
+
+/*-- SLIDE CONTOUR LINE
+section.present {
+  border-width: 1px;
+  border-style: solid;
+  border-color: grey;
+}
+--*/
+
+/*-- title slides --*/
+
+.reveal .head-slide {
+   font-family: var(--body-font);
+   background-color:  #f7f147;
+ }
+
+.reveal h1.title {
+  font-family: var(--title-font);
+  font-weight: 400;
+  font-size: 100px;
+  text-align: left;
+  margin-bottom: 50px;
+  line-height: 1.3;
+ }
+ 
+ #title {
+  color: var(--h2-color); 
+ }
+ 
+ p#subtitle, p.author {
+   text-align: left;
+   max-width: 900px;
+   font-weight: var(--body-font-weight);
+ }
+ 
+p#subtitle {
+   margin-bottom: 100px;
+   margin-top: 0px;  
+ }
+
+p.author {
+  float: left;
+  padding: 0px;
+}
+
+/*-- body --*/
+
+p {
+  margin: 12px 15px 12px 0px !important;
+  font-weight: var(--body-font-weight);
+}
+
+div.column {
+  padding-right: 15px;
+}
+
+ul, ol {
+  font-weight: var(--body-font-weight);
+}
+
+.reveal h2 {
+  font-family: var(--title-font) !important;
+  font-weight: 400 !important;
+  color: var(--h2-color) !important;
+  font-size: var(--h2-font-size);
+  margin-bottom: 30px !important;
+}
+
+.reveal h3 {
+ margin: 0px 15px 12px 0px !important;
+}
+
+section.no-title-slide h2 {
+  margin: 0px !important;
+}
+
+code.sourceCode {
+  padding: 5px 0px 5px 0px !important;
+}
+
+.list {
+  max-width: 750px;
+}
+
+img {
+  margin: 0px !important;
+}
+
+/*-- code --*/
+
+div.sourceCode {
+  width: fit-content;
+}
+
+.reveal pre.sourceCode {
+  display: block;
+  width: fit-content;
+}
+
+code {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.25em;
+  width: fit-content;
+  display: block;
+}
+
+/*-- caption --*/
+
+div.caption {
+  margin: 0px 0px 30px 0px !important;
+}
+
+.caption p, .caption ul, .caption ol {
+  font-size: .7em;
+  text-indent: 0px !important;
+  margin: 0px 0px 20px 0px !important;
+}
+
+.caption ul, .caption ol {
+  padding: 0px 0px 0px 20px;
+}
+
+.caption p:last-child {
+  margin: 0px 0px 0px 0px !important;
+}
+
+.caption.rev p, .caption.rev ul, .caption.rev ol {
+  text-align: right;
+  list-style-position: inside;
+}
+
+/*-- code cell --*/
+
+.reveal div.sourceCode {
+  border: 0px;
+}
+
+/*-- exercise --*/
+
+section[id*=exercise] h2 {
+  color:var(--h2-color-execrise) !important;  
+}
+
+/*-- footer --*/
+
+.footer p {
+  margin: 0px !important;
+}
+
+.footer p a {
+  color: black !important;
+  text-decoration: underline;
+  font-size: 22px;
+}
+
+/*-- else --*/
+
+.fa-bar {
+ color: black; 
+}

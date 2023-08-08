@@ -1,0 +1,13 @@
+This work is licenced by Otho Mantegazza under the CC BY-NC-SA 4.0 license.
+
+The text of the license can be found at this link: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+
+All non-original images are not included in the above license. They are included for fair use as examples for teaching purposes, and they have to be considered under their original license.
+
+The fonts in the folder fonts/ are under licensed under the Open Font License by their original commissioners:
+
+- IBM plex MONO ⇒ IBM
+- Noto Serif ⇒ Google
+- Lato ⇒ tyPoland / Google 
+
+The dataset `secret-message.csv` was modified from: [Wang L, Czedik-Eysenberg A, Mertz RA, Si Y, Tohge T et al. (2014)](https://www.ebi.ac.uk/gxa/experiments/E-CURD-26/Results) and is available under  Creative Commons Attribution 4.0 International License.

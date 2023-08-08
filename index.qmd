@@ -1,0 +1,58 @@
+---
+format: html
+---
+
+
+# Day 1 
+
+## Morning
+
+R
+
+## Afternoon
+
+
+
+1. [Instant Knowledge](200-instant-data.html)
+2. [Quick history of Dataviz](210-history.html)
+3. [The Grammar of Graphics](220-gg.html)
+4. [Exploratory Data Analysis](230-eda.html)
+
+# Day2
+
+## Morning
+
+5. [Better Graphs - Part I](310-better-graphs.html)
+6. [Better Graphs - Part II](320-better-graphs-2.html)
+
+
+# Test
+
+
+```{python}
+import seaborn.objects as so
+from palmerpenguins import load_penguins 
+```
+
+```{python}
+penguins = load_penguins()
+```
+
+```{python}
+penguins
+```
+
+```{python}
+(
+    so.Plot(
+      penguins,
+      x="bill_length_mm",
+      y="bill_depth_mm",
+      edgecolor="sex",
+      edgewidth="body_mass_g"
+    )
+    .add(so.Dot(color = ".8"))
+)
+
+```
+

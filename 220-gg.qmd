@@ -1,0 +1,627 @@
+---
+title: "A Grammar for Graphics"
+subtitle: "A collection of terms and concepts to declare data visualization systematically"
+author: "Otho Mantegazza"
+editor_options:  
+  chunk_output_type: console
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+theme_set(
+  theme_gray(base_size = 15) +
+    theme(legend.position = "bottom",
+          legend.box="vertical",
+          legend.spacing = unit(2, 'mm'),
+          legend.margin = margin(1,1,1,1),
+          plot.margin = margin(0,1,1,1)
+          )
+)
+```
+
+
+## {background-image="img/minard-russian-campaign.jpg" background-size="contain" background-repeat="no-repeat"}
+
+## Fonts
+
+```{r}
+systemfonts::system_fonts() %>% pull(family)
+```
+
+
+## Can you Describe a Graph?
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+If we find a way to describe graphs systematically, then we can design and develop them more easily.
+
+Most technical graphs can be declared with a system of rules called "Grammar of Grapihcs".
+
+This system of rules is the basis for many data visualization packages, such as [ggplot2](https://ggplot2.tidyverse.org/), [Seaborn](https://seaborn.pydata.org/) and [Altair](https://altair-viz.github.io/).
+
+:::
+
+::::
+
+## {background-image="img/layered-grammar.svg" background-size="contain" background-repeat="no-repeat"}
+
+::: {.caption .rev .absolute right=850 bottom=70}
+
+[A LAYERED GRAMMAR OF GRAPHICS](https://vita.had.co.nz/papers/layered-grammar.html)
+
+:::
+
+## A Grammar for Graphics
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+The "Grammar of Graphics" was developed by [Leeland Wilkinson](https://en.wikipedia.org/wiki/Leland_Wilkinson).
+
+It was later [extended](https://vita.had.co.nz/papers/layered-grammar.html) by Hadley Wickham, who started encoding it in the R package [ggplot2](https://ggplot2.tidyverse.org/).
+
+::: 
+
+:::: 
+
+## A Grammar for Graphics
+
+:::: {.columns}
+
+::: {.column width="70%"}
+
+The layered grammar of grapics states that:
+
+- A default dataset and set of mappings from variables to aesthetics.
+- One or more layers, with each layer having one geometric object, one statistical transformation, one position adjustment, and optionally, one dataset and set of aesthetic mappings.
+- One scale for each aesthetic mapping used.
+- A coordinate system.
+- The facet specification.
+
+:::
+ 
+::::
+
+## Aesthetics
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+The [word aesthetic](https://en.wikipedia.org/wiki/Aesthetics#Etymology) is derived from the Ancient Greek αἰσθητικός (aisthētikós, "perceptive, sensitive, pertaining to sensory perception"), which in turn comes from αἰσθάνομαι (aisthánomai, "I perceive, sense, learn") and is related to αἴσθησις (aísthēsis, "perception, sensation"). [Wikipedia]
+
+:::
+
+::: {.column width="45%"}
+
+![](img/miles-davis.jpg)
+*[Miles Davis](https://commons.wikimedia.org/wiki/File:Miles_Davis,_Howard_McGhee,_September_1947_(Gottlieb_05711).jpg)*
+:::
+
+::::
+
+## Let's Describe Graphs
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+Let's describe three historical graphs in terms of the Grammar of Graphics.
+
+1. How are data mapped to aesthetics?
+2. What statistical transformation is applied?
+3. Which geometric object is used?
+4. What is the coordinate system?
+5. Are the data split in facets?
+
+:::
+ 
+::::
+
+## 
+
+![](img/robert-plots-history-of-the-weather.png){.absolute top=0 right=350 height="750"}
+
+::: {.caption .absolute left=740 top=0}
+
+Describe the weather history by Robert Plot.
+
+- Aesthetics Mapping: 
+  - x: atmospheric pressure
+  - y: day of the month
+- Statistical Trasformation:
+  - none / identity
+- Geometric Object:
+  - stepped line
+- Coordinate System:
+  - cartesian
+- Facets:
+  - by month
+
+:::
+
+##
+
+![](img/1779-lambert-table.jpg){.absolute top=0 right=0 height="550"}
+
+::: {.caption .rev .absolute right=720 top=0}
+
+Describe this semigraph by Lambert.
+
+- Aesthetics Mapping: 
+  - x: ...
+  - y: ...
+- Statistical Trasformation:
+  - ...
+- Geometric Object:
+  - ...
+- Coordinate System:
+  - ...
+- Facets:
+  - ...
+
+:::
+
+## {background-image="img/1858-nightingale-mortality.jpg" background-size="cover" background-repeat="no-repeat"}
+
+##
+
+::: {.absolute left=0 top=0}
+
+Describe the radial histogram by Nightingale 
+
+[previous page]
+
+- Aesthetics Mapping: 
+  - x: ...
+  - y: ...
+- Statistical Trasformation:
+  - ...
+- Geometric Object:
+  - ...
+- Coordinate System:
+  - ...
+- Facets:
+  - ...
+
+:::
+
+## Let's Describe Graphs
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+Just one more.
+
+Let's challenge ourselves a bit more.
+
+Now describe the web based data visualization on the next page. Is a weather map taken from the beautiful app [Windy](https://www.windy.com/).
+
+Can you do it with the Grammar of Graphics as before? How many layers of information can you notice?
+
+:::
+
+::::
+
+## {background-image="img/windy.jpg" background-size="cover" background-repeat="no-repeat"}
+
+##
+
+::: {.caption .absolute left=0 top=0}
+
+Describe the weather map by the app [Windy](https://www.windy.com/).
+
+[previous page]
+
+- Aesthetics Mapping: 
+  - x: ...
+  - y: ...
+- Statistical Trasformation:
+  - ...
+- Geometric Object:
+  - ...
+- Coordinate System:
+  - ...
+- Facets:
+  - ...
+  
+For the main data visualization, how many layers of information do you notice?
+
+:::
+
+## GGPLOT2
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+[GGPLOT2](https://ggplot2.tidyverse.org/) is one of the main tools for declaring graphics in R.
+
+It is based on the grammar of graphics.
+
+It can be used both for explorative analysis and for publication ready graphs.
+
+:::
+
+::: {.column width="40%"}
+![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/SVG/ggplot2.svg)
+:::
+
+
+::::
+
+## Packages
+
+```{r}
+# Main tidyverse packages;
+# including ggplot2
+
+library(tidyverse)
+
+# The palmer penguins dataset;
+# that we are going to use for practice
+
+library(palmerpenguins)
+```
+
+::: {.absolute left=0 bottom=270}
+
+Learn more about [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/).
+
+
+:::
+
+## A Scatterplot...
+
+## 
+
+A default dataset...
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+penguins %>% 
+  ggplot()
+```
+
+##
+
+A set of mappings from variables to aesthetics...
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+penguins %>%  
+  ggplot(
+    aes(
+      x = bill_length_mm,
+      y = bill_depth_mm)
+  )
+```
+
+##
+
+One or more layers, with geometric object, related to the aesthetic mappings.
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+penguins %>% 
+  ggplot(
+    aes(
+      x = bill_length_mm,
+      y = bill_depth_mm)
+  ) + 
+  geom_point()
+```
+
+##
+
+More variables mapped to aesthetics and represented in the geometric object.
+
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+penguins %>% drop_na() %>%
+  ggplot(
+    aes(x = bill_length_mm,
+        y = bill_depth_mm,
+        colour = species,
+        shape = sex)
+  ) + 
+  geom_point()
+```
+
+##
+
+A layer with a different geometric object and a statistical transformation.
+
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+penguins %>% drop_na() %>%
+  ggplot(
+    aes(x = bill_length_mm,
+        y = bill_depth_mm,
+        colour = species,
+        shape = sex)
+  ) + 
+  geom_point() +
+  geom_smooth()
+```
+
+
+##
+
+A layer with a different geometric object and a statistical transformation.
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+penguins %>% drop_na() %>%
+  ggplot(
+    aes(x = bill_length_mm,
+        y = bill_depth_mm,
+        colour = species,
+        shape = sex)
+  ) + 
+  geom_point() +
+  geom_smooth(method = 'lm')
+```
+
+
+##
+
+The facet specification.
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+penguins %>% drop_na() %>%
+  ggplot(
+    aes(x = bill_length_mm,
+        y = bill_depth_mm,
+        colour = species,
+        shape = sex)
+  ) + 
+  geom_point() +
+  geom_smooth(method = 'lm') +
+  facet_wrap(facets = 'sex',
+             ncol = 1)
+```
+
+
+## A Histogram
+
+## 
+
+A default dataset...
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+penguins %>% 
+  ggplot()
+```
+
+##
+
+A set of mappings from variables to aesthetics...
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+penguins %>% 
+  ggplot() +
+  aes(x = bill_length_mm)
+```
+
+##
+
+A layer including geometric objects and a statistical transformation.
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+penguins %>% 
+  ggplot() +
+  aes(x = bill_length_mm) +
+  geom_histogram()
+```
+
+##
+
+More aesthetic mappings.    
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+penguins %>% 
+  ggplot() +
+  aes(x = bill_length_mm,
+      fill = species) +
+  geom_histogram() 
+```
+
+
+##
+
+The facet specification.
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+penguins %>% 
+  ggplot() +
+  aes(x = bill_length_mm,
+      fill = species) +
+  geom_histogram() +
+  facet_wrap(facets = 'species',
+             ncol = 1)
+```
+
+
+##
+
+Remove a legend guide that's no longer needed...
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+penguins %>% 
+  ggplot() +
+  aes(x = bill_length_mm,
+      fill = species) +
+  geom_histogram() +
+  facet_wrap(facets = 'species',
+             ncol = 1) +
+  guides(fill = 'none')
+```
+
+## A Horizontal Stacked Bar Chart
+
+## 
+
+A default dataset...
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+penguins %>% 
+  ggplot()
+```
+
+##
+
+A set of mappings from variables to aesthetics...
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+penguins %>% 
+  ggplot() +
+  aes(y = species)
+```
+
+##
+
+A layer including geometric objects and a statistical transformation.
+
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+penguins %>% drop_na() %>% 
+  ggplot() +
+  aes(y = species) +
+  geom_bar()
+```
+
+##
+
+More aesthetic mappings.
+
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+penguins %>% drop_na() %>% 
+  ggplot() +
+  aes(y = species,
+      fill = sex) +
+  geom_bar()
+```
+
+##
+
+A facet specification.
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+penguins %>% drop_na() %>% 
+  ggplot() +
+  aes(y = species,
+      fill = sex) +
+  geom_bar() +
+  facet_grid(rows = 'island')
+```
+
+##
+
+Remove empty bars.
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+penguins %>% drop_na() %>% 
+  ggplot() +
+  aes(y = species,
+      fill = sex) +
+  geom_bar() +
+  facet_grid(rows = 'island',
+             scales = 'free_y',
+             space = 'free')
+```
+
+##
+
+Change the position adjustement.
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+penguins %>% drop_na() %>% 
+  ggplot() +
+  aes(y = species,
+      fill = sex) +
+  geom_bar(position = 'dodge') +
+  facet_grid(rows = 'island',
+             scales = 'free_y',
+             space = 'free')
+```
+
+## Exercise
+
+:::: {.columns}
+
+::: {.column width="70%"}
+
+Learn about the [visual models available in ggplot](https://ggplot2.tidyverse.org/reference/index.html#layers) and use them to explore the [Palmer Penguins dataset](https://allisonhorst.github.io/palmerpenguins/).
+
+
+For each visual model that you use:
+
+- Describe it in term of the  Grammar of Graphics.
+- Explain what it shows about the data, which pattern it  highlights, what impression it gives us about the patterns in the data.
+
+:::
+
+::::

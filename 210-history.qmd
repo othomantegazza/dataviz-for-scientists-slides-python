@@ -1,0 +1,497 @@
+---
+title: "A Bit of History"
+subtitle: "Where did visual representation of information come from? How long has it been around?"
+author: "Otho Mantegazza"
+editor_options: 
+  chunk_output_type: console
+---
+
+## {background-image="img/quipu.jpg" background-size="cover" background-repeat="no-repeat"}
+
+## Wiliam Playfair (1759 – 1823)
+
+:::: {.columns}
+
+::: {.column width="37%"}
+In [his words](https://en.wikipedia.org/wiki/William_Playfair), commenting on how data were becoming ever more aboundant in life, and how data visualization (statistical diagrams) could help:
+
+*"And it is hoped,that with the assistance of these Charts, such information will be got,
+without the fatigue and trouble of studying the particulars of which it is composed."*
+
+:::
+
+::: {.column width="60%"}
+![](img/playfair-timeseries-small.png)
+:::
+
+::::
+
+## But...
+
+:::: {.columns}
+::: {.column width="45%"}
+
+Maybe we've always known how to represent information visually, because that's the first and most intuitive way to do it.
+
+:::
+::::
+
+##
+
+![](img/hierogyph-cursive.jpg){.absolute top=0 right=350 height="700"}
+
+::: {.caption .absolute left=710 top=0}
+
+CURSIVE HIEROGLYPHS
+
+Year: ~1250 BC
+
+Photo: British Museum
+
+*Hieroglyphs originated as logographyc symbols, and later evolved in syllabic and alphabetic elements, like these ones on the [Papirus of Ani](https://en.wikipedia.org/wiki/Papyrus_of_Ani).*
+
+:::
+
+##
+
+![](img/mappa-bedolina.jpg){.absolute top=0 right=350 height="700"}
+
+::: {.caption .absolute left=710 bottom=0}
+
+BEDOLINA MAP
+
+Year: ~1000 BC
+
+Photo: [Luca Giarelli / CC-BY-SA 3.0](https://commons.wikimedia.org/wiki/File:Composizione_geometrica_chiamata_mappa_di_Bedolina_-_Bedolina_R_1_-_Capo_di_Ponte_(Foto_Luca_Giarelli).jpg)
+
+*The [Bedolina Map](https://en.wikipedia.org/wiki/Bedolina_Map) is one of the most ancient topographical map. It contains around 109 figures of paths, warriors, animals, and wooden huts.*
+
+:::
+
+##
+
+![](img/terracotta-storytelling.png){.absolute top=0 left=350 height="700"}
+
+::: {.caption .rev .absolute right=700 bottom=0}
+
+TERRACOTTA LEKYTHOS
+
+Year: ~420 BC
+
+Photo: [MET Museum](https://images.metmuseum.org/CRDImages/gr/original/DP297374.jpg)
+
+*Mythological stories where [told visually](https://www.metmuseum.org/art/collection/search/253351) on terracotta flasks in Ancient Greece; such as this one, telling of Theseus and Hippolyte fighting Greeks and Amazons*
+
+:::
+
+## Abstraction
+
+:::: {.columns}
+::: {.column width="45%"}
+### Visual display of information
+
+The graphical display of information, of words, of stories, of topology, has been part of human history as soon as the first pictures on rocks where drawn; and we know that they date back at least 50.000 years, probably more.
+:::
+::: {.column width="45%"}
+### Visual Abstraction
+
+But data visualization requires some level of visual abstraction. We are not only drawing what we can see about the world. We are representing data visually, using abstract rules to draw something that did not exist before, and to leverage our visual perception to understand something that wasn't visual before.
+:::
+::::
+
+## But...
+
+:::: {.columns}
+::: {.column width="45%"}
+
+Visual and graphical representation of phenomena and data that are not inherently visual, existed well before the statistical diagrams of William Playfair. Can you think of some?
+
+:::
+::::
+
+##
+
+![](img/clay-nippur.jpg){.absolute top=0 left=350 height="700"}
+
+::: {.caption .rev .absolute right=700 bottom=0}
+
+CLAY MAP OF NIPPUR
+
+Year: ~1400 BC
+
+Photo: [Hilprecht, H. V.](https://archive.org/details/cu31924019176217)
+
+*In [ancient Babylonia](https://en.wikipedia.org/wiki/Babylonia), maps were accurately drawn on clay tablets.*
+
+Is a map an abstraction? One have to argue that what's represented in a map is definitely observable in real life, at least in theory. Though, very few of the people drawing maps had the chance to. They relied on measurements and data, representing them on the cartesian plane.
+
+:::
+
+##
+
+![](img/song-dinasty-map.JPG){.absolute top=0 right=350 height="700"}
+
+::: {.caption .absolute left=710 top=0}
+
+SONG DINASTY MAP
+
+Year: 1137 AD
+
+Media: Impression of Carved Stone 
+
+*The [Yu Ji Tu](https://en.wikipedia.org/wiki/File:Song_Dynasty_Map.JPG) (Map of the Tracks of Yu the Great) represents the coastal line and rivers of China in a gridded cartesian plane, with elevated precision.*
+
+:::
+
+## 
+
+![](img/neumes.jpg){.absolute top=0 right=350 width="700"}
+
+::: {.caption .absolute left=710 bottom=0}
+
+MUSICAL NEUMES
+
+Year: ~900 AD
+
+Topic: Gregorian Chant
+
+*[Musical Neumes](https://en.wikipedia.org/wiki/Neume#Western_plainchant) are one of the earliest graphical representation of music, drawing over vowels would represent the pitch and modulation in which the text shouldx be sung.*
+
+:::
+
+##
+
+![](img/chopin-prelude.jpg){.absolute top=0 left=0 width="1000"}
+
+::: {.caption .absolute left=0 bottom=0}
+
+::: {.columns}
+
+::: {.column width="30%"}
+
+STAFF MUSICAL NOTATION
+
+Year: Current
+
+:::
+
+::: {.column width="30%"}
+
+*The [staff musical notation](https://en.wikipedia.org/wiki/Staff_(music)), was developed in the last 1000 years. It represents graphically pitch timing and modulation of music, across 5 parallel lines.*
+
+:::
+::: {.column width="30%"}
+
+Colud it be one of the first way to abstract data and then represent them graphically in a new way?
+
+:::
+
+:::
+
+:::
+
+##
+
+![](img/chopin-prelude-annos.jpg){.absolute bottom=0 left=0 width=1300 style="max-width:max-content;max-height:max-content;"}
+
+## {background-image="img/schubert-score.png" background-size="contain" background-repeat="no-repeat"}
+
+## The Century of Science
+
+:::: {.columns}
+::: {.column width="45%"}
+
+In the 17^th^ Century, interest for the natural sciences and disciplines such as astronomy, geography, physics, demographic, grew exponentially.
+
+In that period, data visualization as we know i, was born under the name of "Statistical Diagrams".
+
+:::
+::::
+
+## Two Builing Blocks
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+### Geometry and Coordinates
+
+Analytical Geometry started with the work on the [Cartesian System](https://en.wikipedia.org/wiki/Cartesian_coordinate_system).
+
+In a plane, the cartesian system is a coordinate system that specifies each point univocally as a pair of real numbers, the distances from two perpendicular axes.
+
+It was invented in parallel by Descartes and Fermat in 17^th^ centurty.
+:::
+
+::: {.column width="45%"}
+
+### Probablility and Statistics
+
+When people started to look with growing interest to the natural sciences a question rose: how can we improve our measurements? What can we expect from them.
+
+Like this, [statistical approaches](https://en.wikipedia.org/wiki/History_of_statistics) were deployed first to reduce measurement errors in empirical measurements from Tycho Brahe. At the same time, Pascal and Fermat developed the first [probability theory](https://en.wikipedia.org/wiki/Probability#History).
+
+:::
+
+::::
+
+##
+
+![](img/lagren-1644.jpg){.absolute top=30 left=0 width="800"}
+
+::: {.caption .absolute left=0 bottom=0}
+
+::: {.columns}
+
+::: {.column width="30%"}
+
+LONGITUDINAL DISTANCE TOLEDO-ROME
+
+Author: [Michael van Langren](https://en.wikipedia.org/wiki/Michael_van_Langren)
+
+Year: 1640
+
+:::
+
+::: {.column width="30%"}
+
+*This [Longitudinal Distance Chart](https://commons.wikimedia.org/wiki/File:Grados_de_la_Longitud.jpg) represents separate measurements of the distance between Toledo and Rome. Each measurement is a labelled point on a x-axis of a one-dimensinal chart. All measurements overestimate the real distance, which is at ~16˚.*
+
+:::
+::: {.column width="30%"}
+
+This chart contains so many ideas and concepts at once. The idea that measurements contain an error, that they can be repeated and pooled to infer this error, that they can be represented graphically to inspect this error using visual perception. 
+
+The x-axis is well defined and labelled, the points show each single measurement, and are labelled also, the title is inserted in the empty space.
+
+:::
+
+:::
+
+:::
+
+
+##
+
+![](img/huygen-survival.png){.absolute top=0 left=350 height="700"}
+
+::: {.caption .rev .absolute right=700 bottom=0}
+
+SURVIVAL PLOT
+
+Year:  1669
+
+Author: [Christiaan Huygens](https://en.wikipedia.org/wiki/Christiaan_Huygens)
+
+*This density plot shows the age on the x-axis and the survival probability on the y-axis. Hygens estimated Survival probabilities from John Gaunt's life expectancy data in London.*
+
+The graphs doesn't show data points but an empirical probability density.
+
+:::
+
+##
+
+![](img/robert-plots-history-of-the-weather.png){.absolute top=0 right=350 height="750"}
+
+::: {.caption .absolute left=710 bottom=0}
+
+WEATHER HISTORY
+
+Year: 1685
+
+Author: [Robert Plot](https://es.wikipedia.org/wiki/Robert_Plot)
+
+*A  vertical line plot of the barometrical pressure in Oxford for the year 1684.*
+
+This 2-dimensional line plot shows the data for each day of one solar year in two lines of facets.
+
+:::
+
+##
+
+![](img/1779-lambert-table.jpg){.absolute top=0 right=0 height="550"}
+
+::: {.caption .rev .absolute right=700 bottom=0}
+
+GRAPHIC TABLE
+
+Year:  1737
+
+Author: [Johann Heinrich Lambert](https://en.wikipedia.org/wiki/Johann_Heinrich_Lambert)
+
+*The temperature is represented on the x axis, while the y axis represents the month of the year. Lambert binned the data by this two variables, and counted how many days fell into each bin.*
+
+Lambert positioned number in space based on the mappings of the x and y axis. Today we are used to map a color intensity to the count numeric value, in what would become a heatmap.
+
+:::
+
+##
+
+![](img/1782-fourcroy-geometric-proportional.jpg){.absolute top=0 left=370 height="700"}
+
+::: {.caption .rev .absolute right=700 bottom=0} 
+
+TABLEAU POLÉMETRIQUE
+
+Year: 1782
+
+Author: [Charles-René de Fourcroy de Ramecourt](https://en.wikipedia.org/wiki/Charles-Ren%C3%A9_de_Fourcroy).
+
+*In [this polymetric table](https://commons.wikimedia.org/wiki/File:Tableau_Pol%C3%A9ometrique,_1782.jpg) the area of each polygon is proportional to the population of the main European cities.*
+
+This is one of the first treemaps, in which the area of polygons is mapped to data, and then the polygons are fit in space of the page.
+
+:::
+
+##
+
+![](img/1816-trabert-weather.jpg){.absolute top=0 left=0 height="700"}
+
+::: {.caption .absolute left=660 top=0}
+
+WEATHER MAP
+
+Year:  1816
+
+Author: [Heinrich Wilhelm Brandes](https://en.wikipedia.org/wiki/Heinrich_Wilhelm_Brandes)
+
+*The first weather map, showing data collected from 1783. Brandes overlayed isobar lines over the map of Europe.*
+
+This map introduces isolines, which are lines that connect points with the same value over a continuous gradient.
+
+:::
+
+##
+
+![](img/1826-dubin-choropleth.jpg){.absolute top=0 left=370 height="700"}
+
+::: {.caption .rev .absolute right=710 bottom=0}
+
+CHOROPLETH MAP
+
+Year: 1826
+
+Author: [Charles Dupin](https://en.wikipedia.org/wiki/Charles_Dupin).
+
+*Dupin used shades of dark to overlay the level of education, stratified by region, on the administrative map of France. This approach is now known as choropleth map.*
+
+In [this choropleth map](https://commons.wikimedia.org/wiki/File:Carte_figurative_de_l'instruction_populaire_de_la_France.jpg), the darker the region the higher is the average education level.
+:::
+
+## The Golden Age
+
+
+:::: {.columns}
+::: {.column width="45%"}
+
+In the 19^th^ century, statistics took a key role in science, economics and policy making.
+
+This is a golden age for data visualization, in which imaginative, beautiful, informative charts were produced to foster progress and decision making. 
+
+:::
+::::
+
+## {background-image="img/1858-nightingale-mortality.jpg" background-size="cover" background-repeat="no-repeat"}
+
+##
+
+![](img/1858-nightingale-mortality-first-half.jpg){.absolute top=0 left=370 height="700"}
+
+::: {.caption .rev .absolute right=700 top=0}
+
+RADIAL HISTOGRAM
+
+Year: 1858
+
+Author: [Florence Nightingale](https://en.wikipedia.org/wiki/Florence_Nightingale).
+
+*Nightingale used [this radial stacked histogram](https://commons.wikimedia.org/wiki/File:Nightingale-mortality.jpg) to show hospital death causes in the Crimean war of 1854-1855*
+
+Aimed a the Queen Victoria and policy makers, this chart showed a peak of deaths from infectious diseases (light blue) during winter months in military hospitals. Florence Nightingale regarded these deaths as preventable, and used this chart to argue for the need of basic sanitation practices, such as air circulation.
+
+:::
+
+##
+
+![](img/1900-dubois-amalgamation.jpg){.absolute top=0 right=400 height="700"}
+
+::: {.caption .absolute left=660 top=0}
+
+COMMEMORATION OF AFRICAN AMERICANS
+
+Year:  1900
+
+Author: [W. E. B. Dubois](https://en.wikipedia.org/wiki/W._E._B._Du_Bois)
+
+*Time is represented on the y-axis; the size of the path on the x-axis represents populations size. The colors show how to ethnic groups slowly mix together*
+
+an American-born Ghanaian sociologist, socialist, historian, and Pan-Africanist civil rights activist. At the universal exposition of Paris, in 1990 he collected [photos and charts](https://commons.wikimedia.org/wiki/Category:American_Negro_Exhibit_at_the_Exposition_Universelle_(1900)) on the life of african americans, to challenge stereotypes.
+
+:::
+
+##
+
+![](img/1900-dubois-overview.jpg){.absolute top=0 right=400 height="700"}
+
+::: {.caption .absolute left=660 top=0}
+
+COMMEMORATION OF AFRICAN AMERICANS
+
+Year:  1900
+
+Author: [W. E. B. Dubois](https://en.wikipedia.org/wiki/W._E._B._Du_Bois)
+
+[Dubois' work](https://commons.wikimedia.org/wiki/Category:American_Negro_Exhibit_at_the_Exposition_Universelle_(1900)) of data visualization for information and storytelling is a great example of clear and easy-to-read charts prepared with an assertive and impactful style. 
+
+:::
+
+
+## {background-image="img/1990-dubois-georgia.jpg" background-size="contain" background-repeat="no-repeat"}
+
+## From 1900 On
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+In the first half of the 20th century, data visualization was relegated to a secondary role to numerical statistical summaries.
+
+In the second half of the century, instead, John Tukey revived it. Until today, graphics remained one of the main tool in the hand of data analysts.
+
+:::
+
+:::
+
+## From 1900 On
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+Today, with the web based resurgence of graphics and typography, data visualization is a scientific tool, a form of communication and a form of art.
+
+:::
+
+::::
+
+## Visual Communication
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+Visual communication is the oldest form of graphical communication. It predates phonems and other abstract forms of writing.
+
+Visual communication is a powerful tool for storytelling, it's intuitive, and it relies on our skills to process broad visual inputs quickly and in parallel.
+
+:::
+::: {.column width="45%"}
+
+Since visual communication is intuitive, it delivers (almost) immediate messages. This immediacy makes it potentially misleading. The responsability for making it clear and not ambiguous is yours (the author).
+
+Data visualization is a part of the broader discipline of visual and graphical communication. Let this whole field inspire you.
+
+:::
+
+::::
+

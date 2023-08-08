@@ -1,0 +1,258 @@
+---
+title: "Instant Knowledge"
+subtitle: "Data visualization makes the content of data immediately  understandable, that's why we use it."
+author: "Otho Mantegazza"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#| include: false
+library(dplyr)
+library(magrittr)
+library(tidyr)
+library(tibble)
+library(ggplot2)
+library(readr)
+library(here)
+```
+
+## Show Don't Tell {.scrollable}
+
+:::: columns
+
+::: {.column width="60%"}
+
+```{r}
+#| echo: false
+hobbes <- 
+  here('data', 'hobbes.csv') %>% 
+  read_csv() %>% 
+  select(x, y)
+
+calvin <-
+  here('data', 'calvin.csv') %>% 
+  read_csv() %>% 
+  select(x, y) %>% 
+  mutate(y = y*1.3,
+         x = x*1.3,
+         x = x - 20,
+         y = y+300)
+
+tiger_attack <- 
+  bind_rows(calvin, hobbes) %>% 
+  sample_n(size = n()) %>% 
+  filter(x < 900) %>% 
+  mutate(y = y %>% {
+    scales::rescale(
+      x = .,
+      to = c(range(.)[2], range(.)[1]),
+      from = range(.))
+  })
+
+tiger_attack %>% 
+  print(n = Inf)
+```
+
+:::
+
+::: {.column width="35%"}
+
+On the left hand column, I've printed around 2500 data points.
+
+There's a very peculiar content hidden in those data.
+
+Is this enough to convince you that we, human, are very bad at
+recognizing pattern from raw data; if data are presented to us in alphanumeric form?
+
+:::
+
+::::
+
+## Show Don't Tell
+
+
+:::: columns
+
+::: {.column width="60%"}
+
+Summary stats of x:
+
+```{r}
+#| echo: false
+tiger_attack$x %>% summary()
+```
+
+Summary stats of y:
+
+```{r}
+#| echo: false
+tiger_attack$y %>% summary()
+```
+
+Correlation between x, y:
+
+```{r}
+#| echo: false
+tiger_attack %>% 
+  {
+    cor(.$x, .$y)
+  } %>% 
+  print()
+```
+
+:::
+
+::: {.column width="35%"}
+
+Do summary statistics help?
+
+In general they do, but in this case?
+
+:::
+
+::::
+
+## Show Don’t Tell
+
+
+:::: columns
+
+::: {.column width="77%"}
+
+```{r}
+#| echo: false
+#| fig-height: 7
+
+grey <- 'grey80'
+
+p0 <- 
+  tiger_attack %>% 
+  ggplot(aes(x = x,
+             y = y)) +
+  coord_fixed() +
+  scale_y_continuous(limits = c(0, NA),
+                     expand = expansion(mult = 0, add = 0)) +
+  scale_x_continuous(limits = c(0, NA),
+                     expand = expansion(mult = 0, add = 0)) +
+  theme_minimal()
+
+
+p0 +
+  geom_smooth(method = 'lm') 
+```
+
+:::
+
+::: {.column width="20%"}
+
+What if I use a graph, showing the trend of the data.
+
+:::
+
+::::
+
+## Show Don’t Tell
+
+
+:::: columns
+
+::: {.column width="77%"}
+
+```{r}
+#| echo: false
+#| fig-height: 7
+p1 <-
+  p0 +
+  geom_smooth(method = 'lm', colour = grey)
+  
+p1 +
+  geom_smooth(method = 'lm', formula = y ~ poly(x, 2))
+```
+
+
+:::
+
+::: {.column width="20%"}
+
+What if I use a graph, showing the trend of the data. 
+
+Making the trend line more nuanced.
+
+:::
+
+::::
+
+## Show Don’t Tell
+
+:::: columns
+
+::: {.column width="77%"}
+
+```{r}
+#| echo: false
+#| fig-height: 7
+p2 <- 
+  p1 +
+  geom_smooth(method = 'lm', formula = y ~ poly(x, 2), colour = grey)
+
+p2 +
+  geom_smooth(method = 'lm', formula = y ~ poly(x, 5))
+
+```
+
+
+:::
+
+::: {.column width="20%"}
+
+What if I use a graph, showing the trend of the data.
+
+Making the trend line more nuanced.
+
+Even more....
+
+:::
+
+::::
+
+## Show Don’t Tell
+
+
+:::: columns
+
+::: {.column width="77%"}
+
+
+```{r}
+#| echo: false
+#| fig-height: 7
+
+p3 <- 
+  p2 +
+  geom_smooth(method = 'lm', formula = y ~ poly(x, 5), colour = grey)
+
+p3 +
+  geom_point(size = .7)
+```
+
+:::
+
+::: {.column width="20%"}
+
+What if I display as many data points as possible in a graph?
+
+(in this case all of them)
+
+:::
+
+::::
+
+## 
+
+![](img/ch1.jpg){.absolute top="5"}
+
+![](img/ch2.jpg){.fragment .absolute top="60" left="400" height="500"}
+
+![](img/ch3.jpg){.fragment .absolute
+style="top:220px; transform:rotate(340deg)"}

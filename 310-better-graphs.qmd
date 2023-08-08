@@ -1,0 +1,1110 @@
+---
+title: "Better Graphs - I"
+subtitle: "How to use graphical variables effectively."
+author: "Otho Mantegazza"
+editor_options:  
+  chunk_output_type: console
+knitr:
+  opts_chunk: 
+    dev: jpeg
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(palmerpenguins)
+library(paletteer)
+library(ggrepel)
+
+base_size <- 15
+size_scale <- 2.8455 # text in plots vs. text in labels
+
+theme_base <- 
+    theme(
+    plot.margin = margin(10,5,5,5),
+    axis.text.x = element_text(hjust = 0),
+    axis.text.y = element_text(vjust = 0),
+    axis.ticks = element_line(),
+    axis.title = element_blank(),
+    axis.line = element_line(),
+    legend.position = "bottom"
+  )
+
+a <- theme_set(
+  theme_minimal(
+    base_size = base_size,
+  ) +
+    theme_base
+)
+
+map_to_circle_area <- function(val, max, max_out = 1) {
+  r <- sqrt(val/pi)
+  max_r <- sqrt(max/ pi)
+  r <- scales::rescale(r, from = c(0, max_r), to = c(0, max_out))
+  return(r)
+}
+  
+```
+
+
+##
+
+![](img/1967-bertin-retinal-variables.jpg){.absolute top=0 left=0 width="1000"}
+
+::: {.caption .absolute left=760 top=340}
+
+AUTHOR: Jaques Bertin
+
+YEAR: 1967
+
+BOOK: The Semiology of Graphics
+
+*Examples of planar and retinal variables.*
+
+:::
+
+## Graphical Variables
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+When you draw a data visualization on a two dimensional screen, you map values from data variables to graphical variables:
+
+- Planar Variables: *x, y*.
+- Retinal Variables: *colour hue, color value, shape, orientation, size, area, texture*.
+
+In terms of the grammar of graphics, the graphical variables are the aesthetics that you map yor data to.
+
+:::
+
+:::
+
+## Planar Variables
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+The x and y planar variables are largely perceived as a quantitative linear space. And they are great for representing **quantitative** and **qualitative** data.
+
+The planar variables are the x and y coordinates on your planar screen, which readily translate to the x and y positions in your graph.
+
+(f you use cartesian coordinates or to a transformed version of them if you use more elaborate coordinate systems)
+
+
+```{r}
+#| eval: false
+#| include: false
+diamonds %>%
+  ggplot() +
+  aes(x = carat,
+      y = price) +
+  geom_point(alpha = .05) +
+  geom_smooth() +
+  scale_x_continuous(expand = expansion(0, 0),
+                     limits = c(.2, .75)) +
+  scale_y_continuous(expand = expansion(0, 0),
+                     limits = c(0, 2500)) 
+
+ggsave(filename = 'img/planar-variables-raw.png',
+       width = 10,
+       height = 10)
+```
+
+![](img/planar-variables.png){.absolute top=110 left=500 width=600}
+
+:::
+
+:::
+
+## Planar Variables
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+You can place **qualitative** variables both in the x and y variable. In this case the x might stop being the independent variable, and the y stops being the response.
+
+Often there is no clear hypothetical relationship of cause effect between two variables, in that case you can invert the x and the y freely.
+
+:::
+
+:::
+
+![](img/planar-variables-categorical.png){.absolute top=110 left=500 width=600}
+
+```{r}
+#| include: false
+#| eval: false
+diamonds %>%
+    mutate(cut = fct_reorder(.f = cut, .x = carat)) %>% 
+  ggplot() +
+  aes(x = carat,
+      y = cut) +
+  geom_boxplot(size = 1.5) +
+  scale_x_continuous(position = "top") 
+
+ggsave(filename = 'img/planar-variables-categorical-raw.png',
+       width = 10,
+       height = 7)
+```
+
+
+## Retinal Variables
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+
+The retinal variables are all those other graphical variables, that cannot be interpreted directly as a position on the screen's x and y.
+
+The most important retinal variables are *colour hue, color value, shape, orientation, size, area, texture*. 
+
+Each one has its own peculiarities and its own rules about how it can be used best.
+
+:::
+
+:::
+
+## Colour
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+Colours can be mapped both to categorical and continuous variables.
+
+With some caveats, colours are a multidimensional space:
+
+- Not perceived in a fully linear way.
+- Perceived in different ways by different people.
+
+:::
+
+:::
+
+```{r}
+#| include: false
+#| eval: false
+diamonds %>%
+  ggplot() +
+  aes(x = carat,
+      y = price) +
+  geom_bin_2d(binwidth = c(0.01, 50)) +
+  scale_x_continuous(expand = expansion(0, 0),
+                     limits = c(.2, .75)
+                     ) +
+  scale_y_continuous(expand = expansion(0, 0),
+                     limits = c(0, 2500)
+  ) +
+  scale_fill_viridis_c(
+    direction = -1,
+    option = 'G'
+  ) +
+  guides(
+    fill = guide_colourbar(barwidth = 20, barheight = 1)
+  )
+
+ggsave(filename = 'img/retinal-variables-colours-1-raw.png',
+       width = 10,
+       height = 12)
+```
+
+![](img/retinal-variables-colours-1.png){.absolute top=110 left=500 width=500}
+
+## Color Spaces
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+If you find it hard to plan colours, don't worry, colours are complex for everyone.
+
+On a screen, colours are **defined** as [three hexadecimal strings](https://duckduckgo.com/?q=color+picker), that combine 256 levels of red, green and blue.
+
+:::
+
+:::
+
+![](img/color-hex.png){.absolute top=110 left=550}
+
+## Color Spaces
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+Colors are perceived non linearly, and the model of how colors are perceived by people gets constantly updated. The most used model is [CIECAM02](https://en.wikipedia.org/wiki/CIECAM02).
+
+What shoud interest you is:
+
+- HUE: what we call colour.
+- LIGHTNESS: how close to black?
+- SATURATION: how close to gray?
+
+
+:::
+
+:::
+
+![](img/hue-lightness-saturation.png){.absolute top=135 left=550}
+
+## Categorical Variables
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+You can use colours to encode for categorical variables.
+
+If the categorical variable is not ordered you should modulate the colors hue, with also small changes to saturation and lightness.
+
+Always check if your colour palette is accessible by colour blind people.
+
+:::
+
+:::
+
+```{r}
+#| include: false
+#| eval: false
+
+library(palmerpenguins)
+library(paletteer)
+
+penguins %>% 
+  ggplot() +
+  aes(x = bill_length_mm,
+      y = bill_depth_mm,
+      colour = species) +
+  geom_point(size  =4) +
+  scale_color_paletteer_d("awtools::mpalette")
+
+ggsave(filename = 'img/retinal-v-color-categorical-raw.png',
+       width = 10,
+       height = 11)
+```
+
+![](img/retinal-v-color-categorical.png){.absolute top=110 left=500 width=550 style="z-index: -1;"}
+
+## Continous Variables
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+Using colours to encode continuous variables is somehow easier.
+
+- Check that your colour palette is colour-blind friendly.
+- Check that lightness and saturation change consistently with the data.
+- You can modulate the hue resembling colours of natural phenomena; such as clouds, sunsets, rivers...
+
+:::
+
+:::
+
+![](img/retinal-variables-colours-1.png){.absolute top=110 left=500 width=500 style="z-index: -1;"}
+
+## Colour Perception
+
+![](img/colour-blind-perception.png){.absolute top=100 left=0}
+
+::: {.absolute left=0 bottom=70}
+
+::: {.columns}
+
+::: {.column width="49%"}
+
+If you check that your palette are friendly to colour blind people, you can also detect unwanted patterns perception patterns.
+
+:::
+
+::: {.column width="45%"}
+
+You can use [Firefox accessibility tools](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/simulation/index.html) to simulate colour blind perception.
+
+:::
+
+:::
+
+:::
+
+## Good Colour Palettes
+
+![](img/colour-palette-categorical.png){.absolute top=170 left=0}
+![](img/colour-palette-continuous.png){.absolute top=170 left=485}
+
+::: {.columns}
+
+::: {.column width="45%"}
+### Categorical
+
+<br>
+
+<br>
+
+In categorical palettes, you should be able to distinguish colours, even in small plotting characters.
+
+Check if colours are different, even when plotted in black and white. Otherwise consider using and additional graphical variable to encode the information.
+
+:::
+
+::: {.column width="45%"}
+### Quantitative
+
+<br>
+
+<br>
+
+Continuous colour palette should be perceived linearly and univocally throughout the spectra. Check that this is true also for color blindness and black and white.
+
+You should handle **ordered categorical variables** as if they were quantitative, not categorical.
+
+
+:::
+
+:::
+
+## Good Colour Palettes
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+Remember, data viusalization is processed intuitively by the readers.
+
+Colours have meaning. Don't represent ice coverage in red, don't represent the warming of the ocean in blue, ask yourself if your colour palette is appropriate for the topic your data are about.
+
+:::
+
+:::
+
+## Colours in R
+
+![](img/colour-paletteer-tokyo.png){.absolute top=0 left=500 style="z-index: -1;"}
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+There are plenty of colour palette available in R, so it's unlikely that you'll have to design your own.
+
+It's more likely that you'll have to be able to choose a good one.
+
+The [palette gallery](https://pmassicotte.github.io/paletteer_gallery/#discrete-palettes) from the [paletteer](https://emilhvitfeldt.github.io/paletteer/) package is a great place to start.
+
+:::
+
+:::
+
+
+##
+
+![](img/2018-warming_stripes-ed-hawkins.png){.absolute top=0 left=0}
+
+::: {.caption .absolute left=0 bottom=0}
+
+::: {.columns}
+
+::: {.column width="31%"}
+
+WARMING STRIPES
+
+Year: 2018
+
+Author: Ed Hawkins
+
+Source: [Climate Lab Book](https://en.wikipedia.org/wiki/File:20181204_Warming_stripes_(global,_WMO,_1850-2018)_-_Climate_Lab_Book_(Ed_Hawkins).png)
+
+:::
+
+::: {.column width="31%"}
+
+*Researcher Ed Hawkins was searching for an intuitive way to represent global warming.*
+
+*He designed the concept of climate stripes, removing everything that's not a direct mapping of data from an heatmap of average temperature.*
+
+:::
+::: {.column width="31%"}
+
+On the x axis, each stripe is a year, from the year when the first data recording is available reliably.
+
+The colour represents the relative change in temperature.
+
+The y axis is not mapped to the data.
+
+:::
+
+:::
+
+:::
+
+## Exercise
+
+Check the climate stripes with a tool to simulate colour blind vision. Are the climate stripes colour blind friendly? Motivate your anwser.
+
+
+## Colours in R
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+Like any other graphical variables, colours in ggplot2 can be encoded with the family of functions:
+
+- scale_colour_*()
+- scale_fill_*()
+
+Check the documentation on [the ggplot2 book](https://ggplot2-book.org/scales.html).
+
+:::
+
+:::
+
+## Colours in R - Continuous
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+diamonds %>%
+  ggplot() +
+  aes(x = carat,
+      y = price) +
+  geom_bin_2d(
+    binwidth = c(0.01, 50)
+  ) +
+  scale_x_continuous(
+    expand = expansion(0, 0),
+    limits = c(.2, .75)
+  ) +
+  scale_y_continuous(
+    expand = expansion(0, 0),
+    limits = c(0, 2500)
+  ) +
+  guides(
+    fill = guide_colourbar(
+      barwidth = 13,
+      barheight = 1)
+  )
+```
+
+## Colours in R - Continuous
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "12-15"
+diamonds %>%
+  ggplot() +
+  aes(x = carat,
+      y = price) +
+  geom_bin_2d(
+    binwidth = c(0.01, 50)
+  ) +
+  scale_x_continuous(
+    expand = expansion(0, 0),
+    limits = c(.2, .75)
+  ) +
+  scale_y_continuous(
+    expand = expansion(0, 0),
+    limits = c(0, 2500)
+  ) +
+  scale_fill_viridis_c(
+    direction = -1,
+    option = 'G'
+  ) +
+  guides(
+    fill = guide_colourbar(
+      barwidth = 13,
+      barheight = 1)
+  )
+```
+
+## Colours in R - Categorical
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+penguins %>% 
+  ggplot() +
+  aes(x = bill_length_mm,
+      y = bill_depth_mm,
+      colour = species) +
+  geom_point(size  = 4) 
+```
+
+## Colours in R - Categorical
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "7-9"
+penguins %>% 
+  ggplot() +
+  aes(x = bill_length_mm,
+      y = bill_depth_mm,
+      colour = species) +
+  geom_point(size  = 4) +
+  scale_color_paletteer_d(
+    "awtools::mpalette"
+  )
+```
+
+## Shape 
+
+![](img/shapes-examples.png){.absolute top=110 left=500  style="z-index: -1;"}
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+You can use [point shapes](https://ggplot2.tidyverse.org/articles/ggplot2-specs.html#point) to encode **categorical** information.
+
+Shapes are simple and easy to understand.
+
+They can't be used to represent quantitative data. They could be used for ordered categorical data, but I'd advise against this practice.
+
+:::
+
+:::
+
+## Shape
+
+```{r}
+#| eval: false
+penguins %>% 
+  ggplot() +
+  aes(x = bill_length_mm,
+      y = bill_depth_mm,
+      shape = species) +
+  geom_point(size  = 4,
+             stroke = 2) +
+  scale_shape(solid = FALSE)
+```
+
+```{r}
+#| include: false
+#| eval: false
+ggsave(
+  filename = 'img/retinal-shapes-raw.png',
+       width = 10,
+       height = 11)
+```
+
+![](img/retinal-shapes.png){.absolute top=110 left=500 width=550 style="z-index: -1;"}
+
+## Shape
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "5-11"
+penguins %>% 
+  ggplot() +
+  aes(x = bill_length_mm,
+      y = bill_depth_mm,
+      # you can use both
+      # shape and colour
+      # together
+      # to represent the 
+      # same variable:
+      shape = species,
+      fill = species) +
+  geom_point(size  = 3,
+             stroke = 1) +
+  scale_shape_manual(
+    values = c(21, 24, 22)
+    )
+```
+
+## Size and Area
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+Linear size and area are often mapped to quantitative values, such as absolute measurements and percentages.
+
+Size is often used together with colour to display a quantiative value stratified by a qualitative factor.
+
+:::
+
+:::
+
+## Size - Bar Chart
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "4-8"
+# color and clarity of diamonds
+# are ordered categorical 
+# variables
+diamonds %>%
+  ggplot() +
+  aes(y = color,
+      fill = clarity) +
+  geom_bar() +
+  scale_x_continuous(
+    expand = expansion(
+      mult = c(0, .01)
+    )
+  ) 
+```
+
+
+## Size - Bar Chart
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "4-8"
+# You can show percentages
+# instead of the
+# absolute count
+diamonds %>% 
+  ggplot() +
+  aes(y = color,
+      fill = clarity) +
+  geom_bar(position = 'fill') +
+  scale_x_continuous(
+    expand = expansion(
+      mult = c(0, .01)
+    )
+  )
+```
+
+## Size - Bar Chart
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+When we use a barolot, we  map the data to the length of the bars, not to the area.
+
+The area of the bars is directly proportional to the data values.
+
+Though, conceptually, if we would be mapping the data to  the bars' area instead of their length, we could no represent negative values.
+
+:::
+
+:::
+
+## Area - Pie Chart
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "3-7"
+diamonds %>%
+  filter(color == "J") %>% 
+  ggplot() +
+  aes(x = color,
+      fill = clarity) +
+  geom_bar(position = 'fill') +
+  coord_polar(theta = "y") +
+  scale_y_reverse(
+    expand = expansion(
+      mult = c(0, 0)
+    )
+  ) +
+  theme_void(
+    base_size = base_size
+  ) +
+  theme(
+    legend.position = "bottom",
+    plot.margin = margin(10,5,5,5)
+    )
+```
+
+## Area - Pie Chart
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+Pie charts get a bad reputation for not being a nuanced analytical graphs.
+
+Anyway pie charts are effective at representing percentages, and they outscore barcharts when the number of slices is high.
+
+Can you describe the pie chart from the previous page in terms of the grammar of graphics?
+
+:::
+
+:::
+
+## Area of Circles and Shapes
+
+![](img/retinal-variable-circle-area.svg){.absolute top=110 left=500 width=450}
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+You can encode a continuous variable in the area of the circles in a scatterplot, or in the area the plotting character of your choice.
+
+Our perception is not as good at comparing areas, so use this retinal variable with parsimony.
+
+You can map data to the radius of circles or to the area directly. Mapping data to the area directly might be slightly better, although neither chioice is optimal, 
+
+:::
+
+:::
+
+## Area of Circles
+
+```{r}
+#| include: false
+set.seed(8)
+```
+
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "1,6-12,24-28"
+msleep %>% 
+  drop_na(
+    bodywt, brainwt,
+    name, sleep_rem
+  ) %>% 
+  ggplot() +
+  aes(x = bodywt,
+      y = brainwt,
+      size = sleep_rem) +
+  geom_point(
+    alpha = .8
+  ) +
+  geom_text_repel(
+    data = . %>% 
+      sample_frac(.08),
+    aes(label = name),
+    size = base_size/size_scale,
+    min.segment.length = 0,
+    direction = 'y',
+    nudge_y = 1.2,
+    hjust = 1,
+    colour = '#f44702'
+  ) +
+  scale_x_log10() +
+  scale_y_log10() +
+  scale_size(
+    limits = c(0, NA)
+    )
+```
+
+## Radius of Circles
+
+```{r}
+#| include: false
+set.seed(8)
+```
+
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "1,6-12,24-28"
+msleep %>% 
+  drop_na(
+    bodywt, brainwt,
+    name, sleep_rem
+  ) %>% 
+  ggplot() +
+  aes(x = bodywt,
+      y = brainwt,
+      size = sleep_rem) +
+  geom_point(
+    alpha = .8
+  ) +
+  geom_text_repel(
+    data = . %>% 
+      sample_frac(.08),
+    aes(label = name),
+    size = base_size/size_scale,
+    min.segment.length = 0,
+    direction = 'y',
+    nudge_y = 1.2,
+    hjust = 1,
+    colour = '#f44702'
+  ) +
+  scale_x_log10() +
+  scale_y_log10() +
+  scale_radius(
+    limits = c(0, NA)
+    )
+```
+
+
+## Area As Uncertainty
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+A light coloured area is often used to encode for a measurement of uncertainty or dispersion of the data.
+
+For example, the confidence interval of a regression model, or the prediction of how a natural phenomena will evolve in space and time.
+
+How to represent uncertainty intuituvely, is an active field of research.
+
+:::
+
+:::
+
+## Area As Uncertainty
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: ""
+msleep %>%
+  ggplot() +
+  aes(
+    x = bodywt,
+    y = brainwt
+  ) +
+  geom_point() +
+  geom_smooth(
+    method = lm,
+    colour = '#f44702'
+  ) +
+  scale_x_log10() +
+  scale_y_log10()
+```
+
+## Area As Uncertainty
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: ""
+mpg %>% 
+  ggplot() +
+  aes(
+    x = displ,
+    y = hwy
+  ) +
+  geom_point(
+    alpha = .7
+  ) +
+  geom_smooth(
+    colour = '#f44702'
+  ) 
+```
+
+```{r}
+#| eval: false 
+p <- 
+  mpg %>% 
+  ggplot() +
+  aes(
+    x = displ,
+    y = hwy
+  ) +
+  geom_point(
+    alpha = .7
+  ) +
+  geom_smooth(
+    colour = '#f44702'
+  ) 
+
+ggsave(
+  filename = 'img/uncertainty-area.svg',
+  plot = p
+)
+```
+
+## Area As Uncertainty
+
+![](img/uncertainty-area.jpg){.absolute top=140 left=500 width=500}
+
+##
+
+![](img/uncertainty-cone.jpg){.absolute top=0 left=0 width=700}
+
+::: {.caption .absolute left=730 top=0}
+
+HURRICANE PROBABILITY CONE
+
+Year: Current
+
+Website: [NOAA - Hurricane Center](https://www.nhc.noaa.gov/aboutcone.shtml)
+
+*The cone shows the forcasted path of the hurricane, from its current position. The size of the cone grows with the uncertainty in the path's forecast*
+
+There's evidence that we intuitively associate the size of the cone to the forecasted size of the hurricane, not to the uncertainty of its path.
+
+:::
+
+## Area As Uncertainty
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+How to represent uncertainty is an active area of research.
+
+You can check [Dr. Lace Padilla's Work](https://psyarxiv.com/ebd6r/), for an overview of the best practices and the latest findings.
+
+:::
+
+:::
+
+## Orientation
+
+![](img/orientation.jpg){.absolute top=140 left=700}
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+The orientation of plotting characters is used to show the vectorial orientation of dimensions such as wind or other types of movements on a map.
+
+The orientation of plotting characters is often used combined with their length, to show intensity and direction.
+
+:::
+
+:::
+
+## Orientation
+
+![](img/orientation.jpg){.absolute top=140 left=700}
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+In ggplot there is no way to control the orientation of a plotting character directly. So you'll have to use a segments, calculating their start and end points from data.
+
+:::
+
+:::
+
+## Orientation
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "4,6-24"
+load('data/wind.data.RData')
+wind <- wind.data
+rm(wind.data)
+wind %>%
+  filter(lon > -7) %>%
+  ggplot() +
+  aes(
+    x = lon,
+    y = lat,
+    xend = (
+      lon + cos(
+        dir*pi/180
+      )/5
+    ),
+    yend = (
+      lat + sin(
+        dir*pi/180
+      )/5
+    )
+  ) +
+  geom_segment(
+    arrow = arrow(
+      length = unit(1, 'mm')
+    )
+  ) +
+  scale_x_continuous(
+    expand = expansion(
+      mult = c(.01, .01))
+  ) +
+  scale_y_continuous(
+    expand = expansion(
+      mult = c(.01, .01))
+  ) +
+  coord_map() +
+  theme(
+    plot.margin = margin(
+      0, 0, 0, 0
+    )
+    )
+```
+
+## Orientation and Size
+
+```{r orientation-size}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "8,13"
+wind %>%
+  filter(lon > -7) %>%
+  ggplot() +
+  aes(
+    x = lon,
+    y = lat,
+    xend = (
+      lon + speed*cos(
+        dir*pi/180
+      )/20
+    ),
+    yend = (
+      lat + speed*sin(
+        dir*pi/180
+      )/20
+    )
+  ) +
+  geom_segment(
+    arrow = arrow(
+      length = unit(1, 'mm')
+    )
+  ) +
+  scale_x_continuous(
+    expand = expansion(
+      mult = c(.01, .01))
+  ) +
+  scale_y_continuous(
+    expand = expansion(
+      mult = c(.01, .01))
+  ) +
+  coord_map() +
+  theme(
+    plot.margin = margin(
+      0 ,0 ,0, 0
+    )
+  )
+```
+
+## Orientation and Size
+
+![](img/orientation-labels.svg){.absolute top=130 left=0 width=400}
+![](310-better-graphs_files/figure-revealjs/orientation-size-1.jpeg){.absolute top=110 left=550 width=500}
+
+## Texture
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+The texture is often used to distinguish various types of lines.
+
+It can also be used to fill shapes in a semiquantitative way. This aspect fell in disuse, but it can be a good choice for printer-friendly visualization.
+
+:::
+
+:::
+
+

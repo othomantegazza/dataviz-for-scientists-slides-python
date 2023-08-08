@@ -1,0 +1,760 @@
+---
+title: "Exploratory Data Analysis"
+subtitle: "It is important to understand what you can do before you learn to measure how well you seem to have done it. (John Tukey)"
+author: "Otho Mantegazza"
+editor_options:  
+  chunk_output_type: console
+knitr:
+  opts_chunk: 
+    dev: jpeg
+---
+
+## 
+
+```{r}
+#| include: false
+library(tidyverse)
+theme_set(
+  theme_gray(base_size = 15) +
+    theme(
+      legend.position = "bottom",
+      legend.box="vertical",
+      legend.spacing = unit(2, 'mm'),
+      legend.margin = margin(1,1,1,1),
+      plot.margin = margin(0,1,1,1)
+    )
+) 
+```
+
+
+![](img/tukey-boxplot.jpg){.absolute top=0 right=0 height="750"}
+
+::: {.caption .rev .absolute right=850 bottom=0}
+
+BOXPLOT
+
+Year: 1977
+
+Author: John Tukey
+
+Book: Exploratory Data Analysis
+
+*The Boxplot is one of the main visual models used to explore data. It shows Summary Quantile Statistics and outlier for a stratified set of data.* 
+
+:::
+
+## Exploratory Data Analysis
+
+:::: {.columns}
+
+::: {.column width="45%"}
+### Investigative Work 
+
+Exploratory data analysis, as stated by Tukey, is the investigative work on data.
+
+When you explore data, you leave no stone unturned. Relying on graphical methods, robust summary statistic and dimension reduction, you quickly gain insights in all possible patterns, correlations and cause-effect relationships that are in the data. In technical terms, you generate hypothesis.
+
+
+:::
+
+::: {.column width="45%"}
+### Confirmation
+
+After you have done your investigative work, you should switch from inspector to judge and test your hypothesis with inference and tests.
+
+But there's no point in testing the statistical relevance of poorly formulated hypotheses. Exploratory Data Analysis is fundamental in modern statistics, because it allows to formulate the best hypothesis possible.
+:::
+
+::::
+
+## Visual Immediacy
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+When you explore data, you have to turn them into insightful formats. Most of the time this involves turning data into grafical and visual shapes.
+
+:::
+
+::::
+
+##
+
+![](img/tukey-stem-and-leaf.jpg){.absolute top=0 left=350 height="700"}
+
+::: {.caption .rev .absolute right=700 bottom=0}
+
+STEM AND LEAF
+
+Year: 1977
+
+Author: John Tukey
+
+Book: Exploratory Data Analysis
+
+*A graphical intuitive representation of car prices.*
+
+A big part Tukey's book "Exploratory Data Analysis" relies on graphical representation of data that you can draw yourself with pen and paper. Luckily today you can use powerful software designed for data exploration purpose, such as the [Tidyverse](https://www.tidyverse.org/). 
+
+:::
+
+## Semantics
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+If you want to represent data intuitively, first you have to learn terms that allow you to describe the structure of a dataset semantically.
+
+The [Tidy Data Theory](https://tidyr.tidyverse.org/articles/tidy-data.html) lets us do just that.
+
+::: 
+
+::::
+
+##
+
+![](img/tidy-data-theory.jpg ){.absolute top=50 left=0 width="1000"}
+
+::: {.caption .absolute left=0 bottom=0}
+
+::: {.columns}
+
+::: {.column width="31%"}
+
+TIDY DATA THEORY
+
+Year: 2014
+
+Author: Hadley Wickham
+
+Paper: [Tidy Data](https://doi.org/10.18637/jss.v059.i10)
+
+:::
+
+::: {.column width="31%"}
+
+*A common framework to organize data semantically: if you organize data based on their structure, it's easier for you to make sense of them, to realize what data you have and what's missing.*
+
+*If you organize data with a common framework, it's also easier to share them with others.*
+
+:::
+::: {.column width="30%"}
+
+- Each column is a variable.
+- Each row is an observation.
+- Each cell is a value.
+- Each dataset is one observational unit.
+:::
+
+:::
+
+:::
+
+## EDA
+
+::: {.columns}
+
+::: {.column width="31%"}
+
+
+Visualize
+
+Summarize
+
+Stratify 
+
+Transform
+
+https://r4ds.hadley.nz/eda
+
+:::
+
+::: {.column width="33%"}
+
+```{r}
+# Main tidyverse packages;
+# including ggplot2
+
+library(tidyverse)
+
+# The palmer penguins dataset;
+# that we are going to use for practice
+
+library(palmerpenguins)
+```
+
+:::
+
+:::
+
+## One variable summaries
+
+## Histogram
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+penguins %>% 
+  ggplot() +
+  aes(x = bill_depth_mm) +
+  geom_histogram()
+```
+
+## Histogram
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "4-7"
+penguins %>% 
+  ggplot() +
+  aes(x = bill_depth_mm) +
+  # The number of bins is arbitrary
+  # different bins can highlight
+  # different patterns
+  geom_histogram(bins = 10) 
+```
+
+## Histogram
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "8-10"
+penguins %>% 
+  ggplot() +
+  aes(x = bill_depth_mm) +
+  # The number of bins is arbitrary
+  # different bins can highlight
+  # different patterns
+  geom_histogram(bins = 10) +
+  # You can add a rug under the plot
+  # to show the data
+  geom_rug(alpha = .1)
+```
+
+## Exercise 
+
+::: {.columns}
+
+::: {.column width="50%"}
+
+Describe an histogram in terms of the grammar of graphics.
+
+Which step do you have to define explicitely? Which step are defined implicitely by ggplot2?
+
+:::
+
+:::
+
+## Density
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "4"
+penguins %>% 
+  ggplot() +
+  aes(x = bill_depth_mm) +
+  geom_density() +
+  # You can add a rug under the plot
+  # to show the data
+  geom_rug(alpha = .1)
+```
+
+## Density
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "4-6"
+penguins %>% 
+  ggplot() +
+  aes(x = bill_depth_mm) +
+  # You can adjust how much
+  # the line responds to data
+  geom_density(adjust = 1/5) +
+  # You can add a rug under the plot
+  # to show the data
+  geom_rug(alpha = .1)
+```
+
+## Boxplot
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+penguins %>% 
+  ggplot() +
+  aes(x = species,
+      y = bill_depth_mm) +
+  geom_boxplot()
+```
+
+## Boxplot
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "5-7"
+penguins %>% 
+  ggplot() +
+  aes(x = species,
+      y = bill_depth_mm,
+      fill = island) +
+  # You can use colours to 
+  # further stratify the data
+  geom_boxplot()
+```
+
+## Two variables
+
+
+## Scatterplot
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+diamonds %>%
+  ggplot() +
+  aes(x = x, 
+      y = price) +
+  geom_point()
+```
+
+## Scatterplot
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "2-4"
+diamonds %>%
+  # remove points with
+  # unlikely values
+  filter(x > 0) %>% 
+  ggplot() +
+  aes(x = x, 
+      y = price) +
+  geom_point()
+```
+
+## Scatterplot
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "8-9"
+diamonds %>%
+  # remove points with
+  # unlikely values
+  filter(x > 0) %>% 
+  ggplot() +
+  aes(x = x, 
+      y = price) +
+  # avoid overplotting
+  geom_point(alpha = .1)
+```
+
+## Scatterplot
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "10-11"
+diamonds %>%
+  # remove points with
+  # unlikely values
+  filter(x > 0) %>% 
+  ggplot() +
+  aes(x = x, 
+      y = price) +
+  # avoid overplotting
+  geom_point(alpha = .1) +
+  # add a smoothed summary
+  geom_smooth()
+```
+
+## Scatterplot
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "11-18"
+diamonds %>%
+  # remove points with
+  # unlikely values
+  filter(x > 0) %>% 
+  ggplot() +
+  aes(x = x, 
+      y = price) +
+  # avoid overplotting
+  geom_point(alpha = .1) +
+  # add a smoothed summary
+  # with a specific model
+  geom_smooth(
+    method = lm,
+    formula = "y ~ poly(x, 2)"
+    ) +
+  scale_y_continuous(
+    limits = c(NA, 19000)
+    )
+```
+
+## Scatterplot
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "9-10"
+diamonds %>%
+  # remove points with
+  # unlikely values
+  filter(x > 0) %>% 
+  ggplot() +
+  aes(x = x, 
+      y = price) +
+  # avoid overplotting
+  # use color to stratify
+  geom_point(aes(colour = cut),
+      alpha = .1) +
+  # add a smoothed summary
+  # with a specific model
+  geom_smooth(
+    method = lm,
+    formula = "y ~ poly(x, 2)"
+    ) +
+  scale_y_continuous(
+    limits = c(NA, 19000)
+    ) +
+  guides(
+    colour = guide_legend(
+      override.aes = list(
+        alpha = 1)))
+```
+
+## Scatterplot
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "18-21"
+diamonds %>%
+  # remove points with
+  # unlikely values
+  filter(x > 0) %>% 
+  ggplot() +
+  aes(x = x, 
+      y = price) +
+  # avoid overplotting
+  # use color to stratify
+  geom_point(aes(colour = cut),
+      alpha = .1) +
+  # add a smoothed summary
+  # with a specific model
+  geom_smooth(
+    method = lm,
+    formula = "y ~ poly(x, 2)"
+    ) +
+  # Use facets to 
+  # stratify the data
+  facet_wrap(facets = 'cut',
+             ncol = 2) +
+  scale_y_continuous(
+    limits = c(NA, 19000)
+    ) +
+  guides(
+    colour = guide_legend(
+      override.aes = list(
+        alpha = 1)))
+```
+
+## Exercise
+
+::: {.columns}
+
+::: {.column width="50%"}
+
+Describe the faceted scatterplot, that you can find on the previous page) in terms of the grammar of graphics.
+
+How many layers are there?
+
+Which step do you have to define explicitely? Which step are defined implicitely by ggplot2?
+
+:::
+
+:::
+
+## Residual Plot
+
+We can use statistical models to explore data.
+
+```{r}
+library(tidymodels)
+```
+
+
+## Residual Plot
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+diamonds %>%
+  filter(x > 0) %>% 
+  ggplot() +
+  aes(x = x, 
+      y = price) +
+  geom_point()
+```
+
+## Residual Plot
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "6-12"
+diamonds %>%
+  filter(x > 0) %>%  
+  ggplot() +
+  aes(x = x, 
+      y = price) +
+  geom_point(alpha = .05) +
+  # add a smoothed summary
+  # with a specific model
+  geom_smooth(
+    method = lm,
+    formula = "y ~ poly(x, 2)"
+    )
+```
+
+## Residual Plot
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+d_clean <- 
+  diamonds %>% 
+  filter(x > 0)
+
+# We can define a model
+# before plotting
+linear_reg() %>% 
+  fit(price ~ poly(x, 2),
+      data = d_clean)
+```
+
+## Residual Plot
+
+```{r}
+#| fig-width: 5
+#| fig-height: 6
+d_fit <- linear_reg() %>% 
+  fit(price ~ poly(x, 2),
+      data = d_clean) 
+
+# extract model residuals
+(d_fit <- d_fit %>% 
+  augment(new_data = d_clean))
+```
+
+## Residual Plot
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "6-15"
+d_fit <- linear_reg() %>% 
+  fit(price ~ poly(x, 2),
+      data = d_clean) %>% 
+  augment(new_data = d_clean)
+
+# We can use models to trans-
+# form data and inspect
+# patterns
+d_fit %>% 
+  ggplot() +
+  aes(x = x,
+      y = .resid) +
+  geom_point(alpha = .05) +
+  geom_hline(yintercept = 0,
+             colour = 'blue')
+```
+
+## Residual Plot
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "16-19"
+d_fit <- linear_reg() %>% 
+  fit(price ~ poly(x, 2),
+      data = d_clean) %>% 
+  augment(new_data = d_clean)
+
+# We can use models to trans-
+# form data and inspect
+# patterns
+d_fit %>% 
+  ggplot() +
+  aes(x = x,
+      y = .resid) +
+  geom_point(alpha = .05) +
+  geom_hline(yintercept = 0,
+             colour = 'blue') +
+  # You can also stratify
+  # transformed data
+  facet_wrap(facets = 'cut',
+             ncol = 2)
+```
+
+## Heatmap
+
+## Heatmap
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "13-18"
+d_fit <- linear_reg() %>% 
+  fit(price ~ poly(x, 2),
+      data = d_clean) %>% 
+  augment(new_data = d_clean)
+
+# We can use models to trans-
+# form data and inspect
+# patterns
+d_fit %>% 
+  ggplot() +
+  aes(x = x,
+      y = .resid) +
+  stat_bin2d(
+    aes(
+      fill = after_stat(count)
+    ),
+    geom = 'tile'
+  ) +
+  geom_hline(yintercept = 0,
+             colour = 'blue') +
+  scale_fill_continuous(
+    guide = guide_colorbar(
+      barwidth = 15
+    )
+  )
+```
+
+## Heatmap
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "21-27" 
+d_fit <- linear_reg() %>% 
+  fit(price ~ poly(x, 2),
+      data = d_clean) %>% 
+  augment(new_data = d_clean)
+
+# We can use models to trans-
+# form data and inspect
+# patterns
+d_fit %>% 
+  ggplot() +
+  aes(x = x,
+      y = .resid) +
+  stat_bin2d(
+    aes(
+      fill = after_stat(count)
+    ),
+    geom = 'tile'
+  ) +
+  geom_hline(yintercept = 0,
+             colour = 'blue') +
+  # use colors intuitively
+  scale_fill_viridis_c(
+    direction = -1,
+    option = 'G',
+    guide = guide_colorbar(
+      barwidth = 15
+    ))
+```
+
+## Pairs
+
+```{r}
+library(GGally)
+```
+
+## Pairs
+
+```{r pairs}
+#| output: false
+#| fig-width: 12
+#| fig-height: 10
+diamonds %>%
+  ggpairs(
+    lower = list(
+      continuous = wrap(
+        "points", alpha = 0.05
+      )
+    )
+  )
+```
+
+## 
+
+![](230-eda_files/figure-revealjs/pairs-1.jpeg){.absolute top=5 left=50 height="800"}
+
+## Exercise - Detective Hat
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+*A very bad criminal organization, have hidden a message for one of his hitmen in [this file](https://github.com/othomantegazza/dataviz-for-scientists-slides/blob/main/data/secret-message.csv).*
+
+*You have intercepted the file, but you must decode the message. You don't have much time to stop a catastrophe. Work fast!*
+
+More details in the next page →
+
+:::
+
+::::
+
+## Exercise - Detective Hat
+
+:::: {.columns}
+
+::: {.column width="80%"}
+
+The aim of this exercise is to let you practice making many exploratory graphs, quickly. 
+
+Visualize the content of [this dataset](https://github.com/othomantegazza/dataviz-for-scientists-slides/blob/main/data/secret-message.csv) in different ways, until you find the secret message. Be fast, you have a lot of data to explore.
+
+Be essential. You, right here, right now, are the only person that needs to undestand these graphs. Do not waste your time making the graphs nicer, change only what you need to change to understand them better.
+
+Show the data. The message is often well hidden, if you summarize the data too much, they might get lost.
+
+:::
+
+::::
