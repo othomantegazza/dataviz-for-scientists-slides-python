@@ -562,8 +562,11 @@ A default dataset...
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
-penguins %>% 
-  ggplot()
+(
+  so.Plot(
+      data = penguins
+  )
+)
 ```
 
 ##
@@ -574,9 +577,12 @@ A set of mappings from variables to aesthetics...
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
-penguins %>% 
-  ggplot() +
-  aes(y = species)
+(
+  so.Plot(
+      data = penguins,
+      y = 'species'
+  )
+)
 ```
 
 ##
@@ -588,10 +594,16 @@ A layer including geometric objects and a statistical transformation.
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
-penguins %>% drop_na() %>% 
-  ggplot() +
-  aes(y = species) +
-  geom_bar()
+(
+  so.Plot(
+      data = penguins,
+      y = 'species'
+  )
+  .add(
+    so.Bar(),
+    so.Hist()
+  )
+)
 ```
 
 ##
@@ -603,11 +615,18 @@ More aesthetic mappings.
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
-penguins %>% drop_na() %>% 
-  ggplot() +
-  aes(y = species,
-      fill = sex) +
-  geom_bar()
+(
+  so.Plot(
+      data = penguins,
+      y = 'species',
+      color = 'sex'
+  )
+  .add(
+    so.Bar(),
+    so.Hist(),
+    so.Dodge()
+  )
+)
 ```
 
 ##
@@ -618,12 +637,21 @@ A facet specification.
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
-penguins %>% drop_na() %>% 
-  ggplot() +
-  aes(y = species,
-      fill = sex) +
-  geom_bar() +
-  facet_grid(rows = 'island')
+(
+  so.Plot(
+      data = penguins,
+      y = 'species',
+      color = 'sex'
+  )
+  .add(
+    so.Bar(),
+    so.Hist(),
+    so.Stack()
+  )
+  .facet(
+    row = 'island'
+  )
+)
 ```
 
 ##
@@ -634,14 +662,22 @@ Remove empty bars.
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
-penguins %>% drop_na() %>% 
-  ggplot() +
-  aes(y = species,
-      fill = sex) +
-  geom_bar() +
-  facet_grid(rows = 'island',
-             scales = 'free_y',
-             space = 'free')
+(
+  so.Plot(
+      data = penguins,
+      y = 'species',
+      color = 'sex'
+  )
+  .add(
+    so.Bar(),
+    so.Hist(),
+    so.Stack()
+  )
+  .facet(
+    row = 'island'
+  )
+  .share(y = False)
+)
 ```
 
 ##
@@ -652,14 +688,22 @@ Change the position adjustement.
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
-penguins %>% drop_na() %>% 
-  ggplot() +
-  aes(y = species,
-      fill = sex) +
-  geom_bar(position = 'dodge') +
-  facet_grid(rows = 'island',
-             scales = 'free_y',
-             space = 'free')
+(
+  so.Plot(
+      data = penguins,
+      y = 'species',
+      color = 'sex'
+  )
+  .add(
+    so.Bar(),
+    so.Hist(),
+    so.Dodge()
+  )
+  .facet(
+    row = 'island'
+  )
+  .share(y = False)
+)
 ```
 
 ## Exercise
@@ -668,7 +712,7 @@ penguins %>% drop_na() %>%
 
 ::: {.column width="70%"}
 
-Learn about the [visual models available in ggplot](https://ggplot2.tidyverse.org/reference/index.html#layers) and use them to explore the [Palmer Penguins dataset](https://allisonhorst.github.io/palmerpenguins/).
+Learn about the [visual models available in Seaborn](https://seaborn.pydata.org/api.html) and use them to explore the [Palmer Penguins dataset](https://allisonhorst.github.io/palmerpenguins/), that you can import into python [using the palmerpenguins package](https://pypi.org/project/palmerpenguins/).
 
 
 For each visual model that you use:
