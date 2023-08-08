@@ -23,13 +23,6 @@ theme_set(
 
 ## {background-image="img/minard-russian-campaign.jpg" background-size="contain" background-repeat="no-repeat"}
 
-## Fonts
-
-```{r}
-systemfonts::system_fonts() %>% pull(family)
-```
-
-
 ## Can you Describe a Graph?
 
 :::: {.columns}
