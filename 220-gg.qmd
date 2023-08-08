@@ -8,6 +8,7 @@ editor_options:
 
 ```{r}
 #| include: false
+#| eval: false
 library(tidyverse)
 theme_set(
   theme_gray(base_size = 15) +
@@ -56,6 +57,8 @@ This system of rules is the basis for many data visualization packages, such as 
 The "Grammar of Graphics" was developed by [Leeland Wilkinson](https://en.wikipedia.org/wiki/Leland_Wilkinson).
 
 It was later [extended](https://vita.had.co.nz/papers/layered-grammar.html) by Hadley Wickham, who started encoding it in the R package [ggplot2](https://ggplot2.tidyverse.org/).
+
+Recently, a new API in the style of ggplot2 was included in a new version of [Seaborn](https://seaborn.pydata.org/tutorial/objects_interface.html), for Python, 
 
 ::: 
 
