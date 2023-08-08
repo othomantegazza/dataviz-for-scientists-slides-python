@@ -6,22 +6,6 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{python}
-#| include: false
-#| eval: false
-library(tidyverse)
-theme_set(
-  theme_gray(base_size = 15) +
-    theme(legend.position = "bottom",
-          legend.box="vertical",
-          legend.spacing = unit(2, 'mm'),
-          legend.margin = margin(1,1,1,1),
-          plot.margin = margin(0,1,1,1)
-          )
-)
-```
-
-
 ## {background-image="img/minard-russian-campaign.jpg" background-size="contain" background-repeat="no-repeat"}
 
 ## Can you Describe a Graph?
@@ -533,24 +517,6 @@ The facet specification.
 )
 ```
 
-
-##
-
-Remove a legend guide that's no longer needed...
-
-```{python}
-#| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-# penguins %>% 
-#   ggplot() +
-#   aes(x = bill_length_mm,
-#       fill = species) +
-#   geom_histogram() +
-#   facet_wrap(facets = 'species',
-#              ncol = 1) +
-#   guides(fill = 'none')
-```
 
 ## A Horizontal Stacked Bar Chart
 
