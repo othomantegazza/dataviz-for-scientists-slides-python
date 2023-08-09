@@ -239,12 +239,10 @@ It can be used both for explorative analysis and for publication ready graphs.
 
 ```{python}
 # Seaborn Object Interface
-
 import seaborn.objects as so
 
 # The palmer penguins dataset;
 # that we are going to use for practice
-
 from palmerpenguins import load_penguins
 penguins = load_penguins()
 ```
@@ -265,6 +263,7 @@ A default dataset...
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "2"
 (
     so.Plot(penguins)
     .layout(size=(5, 6))
@@ -278,6 +277,7 @@ A set of mappings from variables to aesthetics...
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "3-4"
 (
   so.Plot(
       data = penguins,
@@ -295,6 +295,7 @@ One or more layers, with geometric object, related to the aesthetic mappings.
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "7-9"
 (
   so.Plot(
       data = penguins,
@@ -316,6 +317,7 @@ More variables mapped to aesthetics and represented in the geometric object.
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "6-7"
 (
   so.Plot(
       data = penguins,
@@ -339,6 +341,7 @@ A layer with a different geometric object and a statistical transformation.
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "12-15"
 (
   so.Plot(
       data = penguins,
@@ -366,6 +369,7 @@ Map data to the aesthetics of only one layer:
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "4-6,10"
 (
   so.Plot(
       data = penguins,
@@ -393,6 +397,7 @@ The facet specification.
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "16-18"
 (
   so.Plot(
       data = penguins,
@@ -440,6 +445,7 @@ A set of mappings from variables to aesthetics...
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "4"
 (
   so.Plot(
       data = penguins,
@@ -456,6 +462,7 @@ A layer including geometric objects and a statistical transformation.
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "6-9"
 (
   so.Plot(
       data = penguins,
@@ -471,11 +478,12 @@ A layer including geometric objects and a statistical transformation.
 
 ##
 
-More aesthetic mappings.    
+More aesthetic mappings, and a position adjustment.    
 
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "5,10"
 (
   so.Plot(
       data = penguins,
@@ -499,6 +507,7 @@ The facet specification.
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "12-14"
 (
   so.Plot(
       data = penguins,
@@ -542,6 +551,7 @@ A set of mappings from variables to aesthetics...
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "4"
 (
   so.Plot(
       data = penguins,
@@ -559,6 +569,7 @@ A layer including geometric objects and a statistical transformation.
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "6-9"
 (
   so.Plot(
       data = penguins,
@@ -574,12 +585,12 @@ A layer including geometric objects and a statistical transformation.
 
 ##
 
-More aesthetic mappings.
-
+More aesthetic mappings, and a position adjustment.
 
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "5,10"
 (
   so.Plot(
       data = penguins,
@@ -589,7 +600,7 @@ More aesthetic mappings.
   .add(
     so.Bar(),
     so.Hist(),
-    so.Dodge()
+    so.Stack()
   )
   .layout(size=(5, 6))
 )
@@ -602,6 +613,7 @@ A facet specification.
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "12-14"
 (
   so.Plot(
       data = penguins,
@@ -627,6 +639,7 @@ Remove empty bars.
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "15"
 (
   so.Plot(
       data = penguins,
@@ -653,6 +666,7 @@ Change the position adjustement.
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "10"
 (
   so.Plot(
       data = penguins,
@@ -668,9 +682,7 @@ Change the position adjustement.
     row = 'island'
   )
   .share(y = False)
-  .layout(
-    size=(5, 6)
-    )
+  .layout(size=(5, 6))
 )
 ```
 
