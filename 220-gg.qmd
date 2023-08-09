@@ -264,10 +264,10 @@ A default dataset...
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
+#| classes: "side-fig"
 (
     so.Plot(penguins)
+    .layout(size=(5, 6))
 )
 ```
 
@@ -277,14 +277,14 @@ A set of mappings from variables to aesthetics...
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
+#| classes: "side-fig"
 (
   so.Plot(
       data = penguins,
       x = 'bill_length_mm',
       y = 'bill_depth_mm'
       )
+    .layout(size=(5, 6))
   )
 ```
 
@@ -294,8 +294,7 @@ One or more layers, with geometric object, related to the aesthetic mappings.
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
+#| classes: "side-fig"
 (
   so.Plot(
       data = penguins,
@@ -305,6 +304,7 @@ One or more layers, with geometric object, related to the aesthetic mappings.
     .add(
       so.Dot()
     )
+    .layout(size=(5, 6))
   )
 ```
 
@@ -315,8 +315,7 @@ More variables mapped to aesthetics and represented in the geometric object.
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
+#| classes: "side-fig"
 (
   so.Plot(
       data = penguins,
@@ -328,6 +327,7 @@ More variables mapped to aesthetics and represented in the geometric object.
     .add(
       so.Dot()
     )
+    .layout(size=(5, 6))
   )
 ```
 
@@ -338,8 +338,7 @@ A layer with a different geometric object and a statistical transformation.
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
+#| classes: "side-fig"
 (
   so.Plot(
       data = penguins,
@@ -355,6 +354,7 @@ A layer with a different geometric object and a statistical transformation.
       so.Line(),
       so.PolyFit(order = 1)
     )
+    .layout(size=(5, 6))
   )
 ```
 
@@ -365,8 +365,7 @@ Map data to the aesthetics of only one layer:
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
+#| classes: "side-fig"
 (
   so.Plot(
       data = penguins,
@@ -382,6 +381,7 @@ Map data to the aesthetics of only one layer:
       so.Line(),
       so.PolyFit(order = 1)
     )
+    .layout(size=(5, 6))
   )
 ```
 
@@ -392,8 +392,7 @@ The facet specification.
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
+#| classes: "side-fig"
 (
   so.Plot(
       data = penguins,
@@ -412,6 +411,7 @@ The facet specification.
     .facet(
       row='sex'
     )
+    .layout(size=(5, 6))
   )
 ```
 
@@ -424,12 +424,12 @@ A default dataset...
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
+#| classes: "side-fig"
 (
   so.Plot(
       data = penguins
   )
+  .layout(size=(5, 6))
 )
 ```
 
@@ -439,13 +439,13 @@ A set of mappings from variables to aesthetics...
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
+#| classes: "side-fig"
 (
   so.Plot(
       data = penguins,
       x = 'bill_length_mm'
   )
+  .layout(size=(5, 6))
 )
 ```
 
@@ -455,8 +455,7 @@ A layer including geometric objects and a statistical transformation.
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
+#| classes: "side-fig"
 (
   so.Plot(
       data = penguins,
@@ -466,6 +465,7 @@ A layer including geometric objects and a statistical transformation.
     so.Bar(),
     so.Hist()
   )
+  .layout(size=(5, 6))
 )
 ```
 
@@ -475,8 +475,7 @@ More aesthetic mappings.
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
+#| classes: "side-fig"
 (
   so.Plot(
       data = penguins,
@@ -488,6 +487,7 @@ More aesthetic mappings.
     so.Hist(),
     so.Stack()
   )
+  .layout(size=(5, 6))
 )
 ```
 
@@ -498,8 +498,7 @@ The facet specification.
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
+#| classes: "side-fig"
 (
   so.Plot(
       data = penguins,
@@ -514,6 +513,7 @@ The facet specification.
   .facet(
     row='sex'
   )
+  .layout(size=(5, 6))
 )
 ```
 
@@ -526,12 +526,12 @@ A default dataset...
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
+#| classes: "side-fig"
 (
   so.Plot(
       data = penguins
   )
+  .layout(size=(5, 6))
 )
 ```
 
@@ -541,13 +541,13 @@ A set of mappings from variables to aesthetics...
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
+#| classes: "side-fig"
 (
   so.Plot(
       data = penguins,
       y = 'species'
   )
+  .layout(size=(5, 6))
 )
 ```
 
@@ -558,8 +558,7 @@ A layer including geometric objects and a statistical transformation.
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
+#| classes: "side-fig"
 (
   so.Plot(
       data = penguins,
@@ -569,6 +568,7 @@ A layer including geometric objects and a statistical transformation.
     so.Bar(),
     so.Hist()
   )
+  .layout(size=(5, 6))
 )
 ```
 
@@ -579,8 +579,7 @@ More aesthetic mappings.
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
+#| classes: "side-fig"
 (
   so.Plot(
       data = penguins,
@@ -592,6 +591,7 @@ More aesthetic mappings.
     so.Hist(),
     so.Dodge()
   )
+  .layout(size=(5, 6))
 )
 ```
 
@@ -601,8 +601,7 @@ A facet specification.
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
+#| classes: "side-fig"
 (
   so.Plot(
       data = penguins,
@@ -617,6 +616,7 @@ A facet specification.
   .facet(
     row = 'island'
   )
+  .layout(size=(5, 6))
 )
 ```
 
@@ -626,8 +626,7 @@ Remove empty bars.
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
+#| classes: "side-fig"
 (
   so.Plot(
       data = penguins,
@@ -643,6 +642,7 @@ Remove empty bars.
     row = 'island'
   )
   .share(y = False)
+  .layout(size=(5, 6))
 )
 ```
 
@@ -652,8 +652,7 @@ Change the position adjustement.
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
+#| classes: "side-fig"
 (
   so.Plot(
       data = penguins,
@@ -669,6 +668,9 @@ Change the position adjustement.
     row = 'island'
   )
   .share(y = False)
+  .layout(
+    size=(5, 6)
+    )
 )
 ```
 
@@ -689,3 +691,9 @@ For each visual model that you use:
 :::
 
 ::::
+
+
+<!--- js dependencies -->
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="js/fix-figures.js"></script>
+
