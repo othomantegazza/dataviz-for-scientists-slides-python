@@ -275,8 +275,7 @@ Which step do you have to define explicitely? Which step are defined implicitely
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
+#| classes: "side-fig"
 (
   so.Plot(
       data = penguins,
@@ -294,8 +293,7 @@ Which step do you have to define explicitely? Which step are defined implicitely
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
+#| classes: "side-fig"
 #| code-line-numbers: "5-7"
 (
   so.Plot(
@@ -318,8 +316,7 @@ Which step do you have to define explicitely? Which step are defined implicitely
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
+#| classes: "side-fig"
 #| code-line-numbers: "5-7"
 (
   so.Plot(
@@ -344,8 +341,7 @@ Which step do you have to define explicitely? Which step are defined implicitely
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
+#| classes: "side-fig"
 #| code-line-numbers: "5-7"
 (
   so.Plot(
