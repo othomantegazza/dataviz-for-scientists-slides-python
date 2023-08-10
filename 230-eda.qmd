@@ -201,7 +201,7 @@ penguins = load_penguins()
       x = 'bill_depth_mm'
   )
   .add(
-    so.Bar(),
+    so.Bars(),
     # The number of bins is arbitrary
     # different bins can highlight
     # different patterns  or noise
@@ -225,7 +225,7 @@ penguins = load_penguins()
       color = 'sex'
   )
   .add(
-    so.Bar(),
+    so.Bars(),
     so.Hist(bins = 30),
     so.Stack()
   )
@@ -247,7 +247,7 @@ penguins = load_penguins()
       color = 'sex'
   )
   .add(
-    so.Bar(),
+    so.Bars(),
     so.Hist(bins = 30),
     so.Stack()
   )
