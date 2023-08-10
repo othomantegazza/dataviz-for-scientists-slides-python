@@ -271,34 +271,102 @@ Which step do you have to define explicitely? Which step are defined implicitely
 
 :::
 
-## Boxplot
+## Stripchart
 
 ```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
-penguins %>% 
-  ggplot() +
-  aes(x = species,
-      y = bill_depth_mm) +
-  geom_boxplot()
+(
+  so.Plot(
+      data = penguins,
+      x = 'bill_depth_mm',
+      y = 'species'
+  )
+  .add(
+    so.Dots()
+  )
+  .layout(size=(5, 6))
+)
 ```
 
-## Boxplot
+## Stripchart
 
 ```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
 #| code-line-numbers: "5-7"
-penguins %>% 
-  ggplot() +
-  aes(x = species,
-      y = bill_depth_mm,
-      fill = island) +
-  # You can use colours to 
-  # further stratify the data
-  geom_boxplot()
+(
+  so.Plot(
+      data = penguins,
+      x = 'bill_depth_mm',
+      y = 'species'
+  )
+  .add(
+    so.Dots(),
+    # jitter the points
+    # to reduce overplotting
+    so.Jitter()
+
+  )
+  .layout(size=(5, 6))
+)
+```
+
+## Stripchart
+
+```{python}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "5-7"
+(
+  so.Plot(
+      data = penguins,
+      x = 'bill_depth_mm',
+      y = 'species'
+  )
+  .add(
+    so.Dots(),
+    so.Jitter()
+  )
+  # Show the median
+  .add(
+    so.Dash(),
+    so.Agg('median')
+  )
+  .layout(size=(5, 6))
+)
+```
+
+## Stripchart
+
+```{python}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "5-7"
+(
+  so.Plot(
+      data = penguins,
+      x = 'bill_depth_mm',
+      y = 'species',
+      # stratify by sex
+      color = 'sex'
+  )
+  .add(
+    so.Dots(),
+    so.Jitter(),
+    so.Dodge()
+  )
+  .add(
+    so.Dash(),
+    so.Agg('median'),
+    so.Dodge()
+  )
+  .layout(size=(5, 6))
+)
 ```
 
 ## Two variables
