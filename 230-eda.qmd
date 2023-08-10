@@ -419,20 +419,28 @@ diamonds = load_dataset('diamonds')
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-#| code-line-numbers: "10-11"
-diamonds %>%
-  # remove points with
-  # unlikely values
-  filter(x > 0) %>% 
-  ggplot() +
-  aes(x = x, 
-      y = price) +
-  # avoid overplotting
-  geom_point(alpha = .1) +
-  # add a smoothed summary
-  geom_smooth()
+#| classes: "side-fig"
+(
+  so.Plot(
+    data = diamonds.query(
+      'x > 0'
+      ),
+    x = 'x',
+    y = 'price'
+  )
+  .add(
+    so.Dots()
+  )
+  # add a data summary
+  .add(
+    so.Line(
+      color = '#000000'
+      ),
+    so.PolyFit(
+      order = 2
+      )
+  )
+)
 ```
 
 ## Scatterplot
