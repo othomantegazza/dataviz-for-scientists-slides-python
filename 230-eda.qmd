@@ -4,28 +4,9 @@ subtitle: "It is important to understand what you can do before you learn to mea
 author: "Otho Mantegazza"
 editor_options:  
   chunk_output_type: console
-knitr:
-  opts_chunk: 
-    dev: jpeg
 ---
 
 ## 
-
-```{r}
-#| include: false
-library(tidyverse)
-theme_set(
-  theme_gray(base_size = 15) +
-    theme(
-      legend.position = "bottom",
-      legend.box="vertical",
-      legend.spacing = unit(2, 'mm'),
-      legend.margin = margin(1,1,1,1),
-      plot.margin = margin(0,1,1,1)
-    )
-) 
-```
-
 
 ![](img/tukey-boxplot.jpg){.absolute top=0 right=0 height="750"}
 
@@ -173,17 +154,17 @@ https://r4ds.hadley.nz/eda
 
 ::: {.column width="33%"}
 
-```{r}
-# Main tidyverse packages;
-# including ggplot2
-
-library(tidyverse)
+```{python}
+# Seaborn Object Interface
+import seaborn.objects as so
 
 # The palmer penguins dataset;
 # that we are going to use for practice
-
-library(palmerpenguins)
+from palmerpenguins import load_penguins
+penguins = load_penguins()
 ```
+
+
 
 :::
 
@@ -193,49 +174,87 @@ library(palmerpenguins)
 
 ## Histogram
 
-```{r}
+```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-penguins %>% 
-  ggplot() +
-  aes(x = bill_depth_mm) +
-  geom_histogram()
+#| classes: "side-fig"
+(
+  so.Plot(
+      data = penguins,
+      x = 'bill_depth_mm'
+  )
+  .add(
+    so.Bar(),
+    so.Hist()
+  )
+  .layout(size=(5, 6))
+)
 ```
 
 ## Histogram
 
-```{r}
+```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-#| code-line-numbers: "4-7"
-penguins %>% 
-  ggplot() +
-  aes(x = bill_depth_mm) +
-  # The number of bins is arbitrary
-  # different bins can highlight
-  # different patterns
-  geom_histogram(bins = 10) 
+#| classes: "side-fig"
+(
+  so.Plot(
+      data = penguins,
+      x = 'bill_depth_mm'
+  )
+  .add(
+    so.Bar(),
+    # The number of bins is arbitrary
+    # different bins can highlight
+    # different patterns  or noise
+    so.Hist(bins = 30)
+  )
+  .layout(size=(5, 6))
+)
+``` 
+
+## Histogram
+
+```{python}
+#| output-location: column
+#| classes: "side-fig"
+(
+  so.Plot(
+      data = penguins,
+      x = 'bill_depth_mm',
+      # You can stratify
+      # by sex
+      color = 'sex'
+  )
+  .add(
+    so.Bar(),
+    so.Hist(bins = 30),
+    so.Stack()
+  )
+  .layout(size=(5, 6))
+)
 ```
 
 ## Histogram
 
-```{r}
+```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-#| code-line-numbers: "8-10"
-penguins %>% 
-  ggplot() +
-  aes(x = bill_depth_mm) +
-  # The number of bins is arbitrary
-  # different bins can highlight
-  # different patterns
-  geom_histogram(bins = 10) +
-  # You can add a rug under the plot
-  # to show the data
-  geom_rug(alpha = .1)
+#| classes: "side-fig"
+(
+  so.Plot(
+      data = penguins,
+      x = 'bill_depth_mm',
+      # You can stratify
+      # by sex
+      color = 'sex'
+  )
+  .add(
+    so.Bar(),
+    so.Hist(bins = 30),
+    so.Stack()
+  )
+  # and by species
+  .facet(row = "species")
+  .layout(size=(5, 6))
+)
 ```
 
 ## Exercise 
@@ -252,43 +271,9 @@ Which step do you have to define explicitely? Which step are defined implicitely
 
 :::
 
-## Density
-
-```{r}
-#| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-#| code-line-numbers: "4"
-penguins %>% 
-  ggplot() +
-  aes(x = bill_depth_mm) +
-  geom_density() +
-  # You can add a rug under the plot
-  # to show the data
-  geom_rug(alpha = .1)
-```
-
-## Density
-
-```{r}
-#| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-#| code-line-numbers: "4-6"
-penguins %>% 
-  ggplot() +
-  aes(x = bill_depth_mm) +
-  # You can adjust how much
-  # the line responds to data
-  geom_density(adjust = 1/5) +
-  # You can add a rug under the plot
-  # to show the data
-  geom_rug(alpha = .1)
-```
-
 ## Boxplot
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -301,7 +286,7 @@ penguins %>%
 
 ## Boxplot
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -321,7 +306,7 @@ penguins %>%
 
 ## Scatterplot
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -334,7 +319,7 @@ diamonds %>%
 
 ## Scatterplot
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -351,7 +336,7 @@ diamonds %>%
 
 ## Scatterplot
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -369,7 +354,7 @@ diamonds %>%
 
 ## Scatterplot
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -389,7 +374,7 @@ diamonds %>%
 
 ## Scatterplot
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -416,7 +401,7 @@ diamonds %>%
 
 ## Scatterplot
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -449,7 +434,7 @@ diamonds %>%
 
 ## Scatterplot
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -504,14 +489,14 @@ Which step do you have to define explicitely? Which step are defined implicitely
 
 We can use statistical models to explore data.
 
-```{r}
+```{python}
 library(tidymodels)
 ```
 
 
 ## Residual Plot
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -525,7 +510,7 @@ diamonds %>%
 
 ## Residual Plot
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -546,7 +531,7 @@ diamonds %>%
 
 ## Residual Plot
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -563,7 +548,7 @@ linear_reg() %>%
 
 ## Residual Plot
 
-```{r}
+```{python}
 #| fig-width: 5
 #| fig-height: 6
 d_fit <- linear_reg() %>% 
@@ -577,7 +562,7 @@ d_fit <- linear_reg() %>%
 
 ## Residual Plot
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -601,7 +586,7 @@ d_fit %>%
 
 ## Residual Plot
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -631,7 +616,7 @@ d_fit %>%
 
 ## Heatmap
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -665,7 +650,7 @@ d_fit %>%
 
 ## Heatmap
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -701,13 +686,13 @@ d_fit %>%
 
 ## Pairs
 
-```{r}
+```{python}
 library(GGally)
 ```
 
 ## Pairs
 
-```{r pairs}
+```{python}
 #| output: false
 #| fig-width: 12
 #| fig-height: 10
@@ -758,3 +743,8 @@ Show the data. The message is often well hidden, if you summarize the data too m
 :::
 
 ::::
+
+
+<!--- js dependencies -->
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="js/fix-figures.js"></script>
