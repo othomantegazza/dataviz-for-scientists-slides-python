@@ -155,6 +155,9 @@ https://r4ds.hadley.nz/eda
 ::: {.column width="33%"}
 
 ```{python}
+# all functions to manipulate data
+import pandas as pd
+
 # Seaborn Object Interface
 import seaborn.objects as so
 
@@ -367,53 +370,49 @@ Which step do you have to define explicitely? Which step are defined implicitely
 
 ## Two variables
 
-
-## Scatterplot
+Lets's use the diamonds dataset.
 
 ```{python}
-#| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-diamonds %>%
-  ggplot() +
-  aes(x = x, 
-      y = price) +
-  geom_point()
+from seaborn import load_dataset
+diamonds = load_dataset('diamonds')
 ```
 
 ## Scatterplot
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-#| code-line-numbers: "2-4"
-diamonds %>%
-  # remove points with
-  # unlikely values
-  filter(x > 0) %>% 
-  ggplot() +
-  aes(x = x, 
-      y = price) +
-  geom_point()
+#| classes: "side-fig"
+(
+  so.Plot(
+    data = diamonds,
+    x = 'x',
+    y = 'price'
+  )
+  .add(
+    so.Dots()
+  )
+)
 ```
 
 ## Scatterplot
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-#| code-line-numbers: "8-9"
-diamonds %>%
-  # remove points with
-  # unlikely values
-  filter(x > 0) %>% 
-  ggplot() +
-  aes(x = x, 
-      y = price) +
-  # avoid overplotting
-  geom_point(alpha = .1)
+#| classes: "side-fig"
+(
+  so.Plot(
+    # remove points with
+    # unlikely values
+    data = diamonds.query(
+      'x > 0'
+      ),
+    x = 'x',
+    y = 'price'
+  )
+  .add(
+    so.Dots()
+  )
+)
 ```
 
 ## Scatterplot
