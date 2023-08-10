@@ -389,8 +389,9 @@ diamonds = load_dataset('diamonds')
     y = 'price'
   )
   .add(
-    so.Dots()
+    so.Dot(alpha = .05)
   )
+  .layout(size=(5, 6))
 )
 ```
 
@@ -410,8 +411,9 @@ diamonds = load_dataset('diamonds')
     y = 'price'
   )
   .add(
-    so.Dots()
+    so.Dot(alpha = .05)
   )
+  .layout(size=(5, 6))
 )
 ```
 
@@ -429,7 +431,9 @@ diamonds = load_dataset('diamonds')
     y = 'price'
   )
   .add(
-    so.Dots()
+    so.Dot(
+      alpha=0.01
+    )
   )
   # add a data summary
   .add(
@@ -440,6 +444,7 @@ diamonds = load_dataset('diamonds')
       order = 2
       )
   )
+  .layout(size=(5, 6))
 )
 ```
 
@@ -447,97 +452,67 @@ diamonds = load_dataset('diamonds')
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-#| code-line-numbers: "11-18"
-diamonds %>%
-  # remove points with
-  # unlikely values
-  filter(x > 0) %>% 
-  ggplot() +
-  aes(x = x, 
-      y = price) +
-  # avoid overplotting
-  geom_point(alpha = .1) +
-  # add a smoothed summary
-  # with a specific model
-  geom_smooth(
-    method = lm,
-    formula = "y ~ poly(x, 2)"
-    ) +
-  scale_y_continuous(
-    limits = c(NA, 19000)
+#| classes: "side-fig"
+(
+  so.Plot(
+    data = diamonds.query(
+      'x > 0'
+      ),
+    x = 'x',
+    y = 'price'
+  )
+  .add(
+    so.Dot(
+      alpha=0.01
     )
+  )
+  .add(
+    so.Line(
+      color = '#000000'
+      ),
+    so.PolyFit(
+      order = 2
+      )
+  )
+  # use limits to cut fit
+  .limit(y = (0, 20000))
+  .layout(size=(5, 6))
+)
 ```
 
 ## Scatterplot
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-#| code-line-numbers: "9-10"
-diamonds %>%
-  # remove points with
-  # unlikely values
-  filter(x > 0) %>% 
-  ggplot() +
-  aes(x = x, 
-      y = price) +
-  # avoid overplotting
-  # use color to stratify
-  geom_point(aes(colour = cut),
-      alpha = .1) +
-  # add a smoothed summary
-  # with a specific model
-  geom_smooth(
-    method = lm,
-    formula = "y ~ poly(x, 2)"
-    ) +
-  scale_y_continuous(
-    limits = c(NA, 19000)
-    ) +
-  guides(
-    colour = guide_legend(
-      override.aes = list(
-        alpha = 1)))
-```
-
-## Scatterplot
-
-```{python}
-#| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-#| code-line-numbers: "18-21"
-diamonds %>%
-  # remove points with
-  # unlikely values
-  filter(x > 0) %>% 
-  ggplot() +
-  aes(x = x, 
-      y = price) +
-  # avoid overplotting
-  # use color to stratify
-  geom_point(aes(colour = cut),
-      alpha = .1) +
-  # add a smoothed summary
-  # with a specific model
-  geom_smooth(
-    method = lm,
-    formula = "y ~ poly(x, 2)"
-    ) +
-  # Use facets to 
-  # stratify the data
-  facet_wrap(facets = 'cut',
-             ncol = 2) +
-  scale_y_continuous(
-    limits = c(NA, 19000)
-    ) +
-  guides(
-    colour = guide_legend(
-      override.aes = list(
-        alpha = 1)))
+#| classes: "side-fig"
+(
+  so.Plot(
+    data = diamonds.query(
+      'x > 0'
+      ),
+    x = 'x',
+    y = 'price'
+  )
+  .add(
+    so.Dot(
+      alpha=0.01
+    )
+  )
+  .add(
+    so.Line(
+      color = '#000000'
+      ),
+    so.PolyFit(
+      order = 2
+      )
+  )
+  .facet(
+    row="cut",
+    wrap = 3
+  )
+  .limit(y = (0, 20000))
+  .layout(size=(5, 6))
+)
 ```
 
 ## Exercise
