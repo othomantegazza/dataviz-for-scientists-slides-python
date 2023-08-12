@@ -649,64 +649,23 @@ In a heatmap we map a numerical value to a color. Heatmaps can be used both with
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+sns.histplot(
+  data=diamonds,
+  x='x',
+  y='price'
+)
 ```
 
-## Heatmap
+## Pairs
+
+
+## Pairs
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-#| code-line-numbers: "21-27" 
-d_fit <- linear_reg() %>% 
-  fit(price ~ poly(x, 2),
-      data = d_clean) %>% 
-  augment(new_data = d_clean)
-
-# We can use models to trans-
-# form data and inspect
-# patterns
-d_fit %>% 
-  ggplot() +
-  aes(x = x,
-      y = .resid) +
-  stat_bin2d(
-    aes(
-      fill = after_stat(count)
-    ),
-    geom = 'tile'
-  ) +
-  geom_hline(yintercept = 0,
-             colour = 'blue') +
-  # use colors intuitively
-  scale_fill_viridis_c(
-    direction = -1,
-    option = 'G',
-    guide = guide_colorbar(
-      barwidth = 15
-    ))
-```
-
-## Pairs
-
-```{python}
-library(GGally)
-```
-
-## Pairs
-
-```{python}
-#| output: false
-#| fig-width: 12
-#| fig-height: 10
-diamonds %>%
-  ggpairs(
-    lower = list(
-      continuous = wrap(
-        "points", alpha = 0.05
-      )
-    )
-  )
+sns.pairplot(
+  data = diamonds
+)
 ```
 
 ## 
