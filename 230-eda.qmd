@@ -577,6 +577,7 @@ import statsmodels.formula.api as smf
     row = 'species',
     wrap = 2
     )
+  .layout(size=(5, 6))
 )
 ```
 
@@ -647,34 +648,7 @@ In a heatmap we map a numerical value to a color. Heatmaps can be used both with
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-#| code-line-numbers: "13-18"
-d_fit <- linear_reg() %>% 
-  fit(price ~ poly(x, 2),
-      data = d_clean) %>% 
-  augment(new_data = d_clean)
-
-# We can use models to trans-
-# form data and inspect
-# patterns
-d_fit %>% 
-  ggplot() +
-  aes(x = x,
-      y = .resid) +
-  stat_bin2d(
-    aes(
-      fill = after_stat(count)
-    ),
-    geom = 'tile'
-  ) +
-  geom_hline(yintercept = 0,
-             colour = 'blue') +
-  scale_fill_continuous(
-    guide = guide_colorbar(
-      barwidth = 15
-    )
-  )
+#| classes: "side-fig"
 ```
 
 ## Heatmap
