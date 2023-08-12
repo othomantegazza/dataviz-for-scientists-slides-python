@@ -133,20 +133,20 @@ Paper: [Tidy Data](https://doi.org/10.18637/jss.v059.i10)
 
 :::
 
-## EDA
+## Exploratory Data Analysis
 
 ::: {.columns}
 
 ::: {.column width="31%"}
 
 
-Visualize
+- Visualize
 
-Summarize
+- Summarize
 
-Stratify 
+- Stratify 
 
-Transform
+- Transform
 
 https://r4ds.hadley.nz/eda
 
@@ -533,63 +533,82 @@ Which step do you have to define explicitely? Which step are defined implicitely
 
 ## Residual Plot
 
-We can use statistical models to explore data.
+::: {.columns}
+
+::: {.column width="47%"}
+
+
+We can use statistical models to transform data and to make more evident, visually, the patterns contained in the data.
+
+We can also use visual exploration of the output of statistical model, to see if the model fit the data properly.
+
+:::
+
+::: {.column width="47%"}
 
 ```{python}
-library(tidymodels)
+import statsmodels.formula.api as smf
 ```
 
+:::
+
+:::
 
 ## Residual Plot
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-diamonds %>%
-  filter(x > 0) %>% 
-  ggplot() +
-  aes(x = x, 
-      y = price) +
-  geom_point()
-```
-
-## Residual Plot
-
-```{python}
-#| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-#| code-line-numbers: "6-12"
-diamonds %>%
-  filter(x > 0) %>%  
-  ggplot() +
-  aes(x = x, 
-      y = price) +
-  geom_point(alpha = .05) +
-  # add a smoothed summary
-  # with a specific model
-  geom_smooth(
-    method = lm,
-    formula = "y ~ poly(x, 2)"
+#| classes: "side-fig"
+(
+  so.Plot(
+    data=penguins,
+    x='bill_length_mm',
+    y='bill_depth_mm'
+  )
+  .add(
+    so.Dots(),
+    color = 'sex'
+  )
+  .add(
+    so.Line(),
+    so.PolyFit(order = 1)
+  )
+  .facet(
+    row = 'species',
+    wrap = 2
     )
+)
 ```
 
 ## Residual Plot
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-d_clean <- 
-  diamonds %>% 
-  filter(x > 0)
-
 # We can define a model
 # before plotting
-linear_reg() %>% 
-  fit(price ~ poly(x, 2),
-      data = d_clean)
+fit = smf.ols(
+    'bill_depth_mm ~ bill_length_mm + species',
+      data = penguins
+).fit()
+
+penguins_fit = penguins.assign(fitted_bill_depth = fit.fittedvalues)
+```
+
+
+```{python}
+#| output-location: column
+# We can define a model
+# before plotting
+d_fit <- 
+  linear_reg() %>% 
+  fit(bill_depth_mm ~ 
+        bill_length_mm + 
+        species,
+      data = penguins)
+
+# extract model residuals
+(d_fit <- d_fit %>% 
+  augment(new_data = penguins))
 ```
 
 ## Residual Plot
