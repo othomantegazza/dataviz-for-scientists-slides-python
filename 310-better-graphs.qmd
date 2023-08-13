@@ -311,6 +311,8 @@ It's more likely that you'll have to be able to choose a good one.
 
 The [Seaborn's tutorial](https://seaborn.pydata.org/tutorial/color_palettes.html) on how to choose a colour palette, is a great place to start.
 
+Look also at [Matplotlib's palette guide](https://matplotlib.org/stable/tutorials/colors/colormaps.html), and at the blog post presenting the [viridis](https://bids.github.io/colormap/) and [batlow](https://www.fabiocrameri.ch/colourmaps/) perceptually uniform color maps. 
+
 :::
 
 :::
@@ -362,18 +364,16 @@ The y axis is not mapped to the data.
 Check the climate stripes with a tool to simulate colour blind vision. Are the climate stripes colour blind friendly? Motivate your anwser.
 
 
-## Colours in R
+## Colours in Seaborn
 
 ::: {.columns}
 
 ::: {.column width="45%"}
 
-Like any other graphical variables, colours in ggplot2 can be encoded with the family of functions:
+Seaborns has many function to explore, set and generate color palettes:
 
-- scale_colour_*()
-- scale_fill_*()
-
-Check the documentation on [the ggplot2 book](https://ggplot2-book.org/scales.html).
+- [set_palette()](https://seaborn.pydata.org/generated/seaborn.set_palette.html) to set a color palette.
+- [color_palette()](https://seaborn.pydata.org/generated/seaborn.color_palette.html#seaborn.color_palette) to explore the existing color palettes, or to build new ones.
 
 :::
 
