@@ -1,7 +1,7 @@
 ---
 title: "Exploratory Data Analysis"
 subtitle: "It is important to understand what you can do before you learn to measure how well you seem to have done it. (John Tukey)"
-author: "Otho Mantegazza"
+author: "Otho Mantegazza _ Dataviz for Scientist _ Part 2.3"
 editor_options:  
   chunk_output_type: console
 ---
