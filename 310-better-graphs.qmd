@@ -366,81 +366,83 @@ diamonds = load_dataset('diamonds')
 #| classes: "side-fig"
 
 # set the right size for the figure
-sns.set(rc={
-  'figure.figsize':(5,6)
+sns.set(
+  rc={
+    'figure.figsize':(5,6)
   })
 
 sns.histplot(
-  data=diamonds,
+  data=(diamonds
+    .query('carat <= 3')),
   x='carat',
   y='price',
   cbar=True
 )
 ```
 
-## Colours in R - Continuous
+## Colours in Seaborn - Continuous
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-#| code-line-numbers: "12-15"
-diamonds %>%
-  ggplot() +
-  aes(x = carat,
-      y = price) +
-  geom_bin_2d(
-    binwidth = c(0.01, 50)
-  ) +
-  scale_x_continuous(
-    expand = expansion(0, 0),
-    limits = c(.2, .75)
-  ) +
-  scale_y_continuous(
-    expand = expansion(0, 0),
-    limits = c(0, 2500)
-  ) +
-  scale_fill_viridis_c(
-    direction = -1,
-    option = 'G'
-  ) +
-  guides(
-    fill = guide_colourbar(
-      barwidth = 13,
-      barheight = 1)
-  )
+#| classes: "side-fig"
+
+# set the right size for the figure
+sns.set(
+  rc={
+    'figure.figsize':(5,6)
+  })
+
+sns.histplot(
+  data=(diamonds
+    .query('carat <= 3')),
+  x='carat',
+  y='price',
+  cbar=True,
+  # change color palette
+  cmap='dark:#0A9_r'
+)
 ```
 
-## Colours in R - Categorical
+## Colours in Seaborn - Categorical
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-penguins %>% 
-  ggplot() +
-  aes(x = bill_length_mm,
-      y = bill_depth_mm,
-      colour = species) +
-  geom_point(size  = 4) 
+#| classes: "side-fig"
+(
+  so.Plot(
+    data = penguins,
+    x = 'bill_length_mm',
+    y = 'bill_depth_mm',
+    color = 'species'
+ )
+ .add(
+  so.Dot()
+ )
+)
 ```
 
-## Colours in R - Categorical
+## Colours in Seaborn - Categorical
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-#| code-line-numbers: "7-9"
-penguins %>% 
-  ggplot() +
-  aes(x = bill_length_mm,
-      y = bill_depth_mm,
-      colour = species) +
-  geom_point(size  = 4) +
-  scale_color_paletteer_d(
-    "awtools::mpalette"
-  )
+#| classes: "side-fig"
+(
+  so.Plot(
+    data = penguins,
+    x = 'bill_length_mm',
+    y = 'bill_depth_mm',
+    color = 'species'
+ )
+ .add(
+  so.Dot()
+ )
+ # Set the color scale manually
+ .scale(color = [
+  '#007a49',
+  '#fdcb55',
+  '#3f98d4'
+ ])
+)
 ```
 
 ## Shape 
