@@ -527,9 +527,7 @@ diamonds = load_dataset('diamonds')
 
 Describe the faceted scatterplot, that you can find on the previous page in terms of the grammar of graphics.
 
-How many layers are there?
-
-Which step do you have to define explicitely? Which step are defined implicitely by ggplot2?
+Which step do you have to define explicitely? Which step are defined implicitely by Seaborn?
 
 :::
 
@@ -542,7 +540,7 @@ Which step do you have to define explicitely? Which step are defined implicitely
 ::: {.column width="47%"}
 
 
-We can use statistical models to transform data and to make more evident, visually, the patterns contained in the data.
+We can transform the data with statistical models to highlight the patterns that are hidden in them.
 
 We can also use visual exploration of the output of statistical model, to see if the model fit the data properly.
 
@@ -551,6 +549,8 @@ We can also use visual exploration of the output of statistical model, to see if
 ::: {.column width="47%"}
 
 ```{python}
+# import a framework 
+# for statistical inference
 import statsmodels.formula.api as smf
 ```
 
@@ -634,19 +634,39 @@ penguins_fit = (
 
 ## Seaborn Standard Interface
 
+::: {.columns}
+
+::: {.column width="47%"}
+
 Some visual model are not yet implemented in the object interface. 
 
 To make heatmaps or pair plots we have to use Seaborn's standard API.
+
+:::
+
+::: {.column width="47%"}
 
 ```{python}
 import seaborn as sns
 ```
 
+:::
+
+:::
+
 ## Heatmap
 
-Heatmap are useful to explore dense datasets, with high change of overplotting.
+::: {.columns}
 
-In a heatmap we map a numerical value to a color. Heatmaps can be used both with categorical x and y axes, or binned continous axes
+::: {.column width="47%"}
+
+Heatmap are useful for exploring big datasets, where many observation are similar to one another. To avoid overplotting, on those datasets, you can turn scatterplots into heatmaps.
+
+In a heatmap we map a numerical value to a color. Heatmaps can be used both with categorical x and y axes, or binned continous axes.
+
+:::
+
+:::
 
 ## Heatmap
 
