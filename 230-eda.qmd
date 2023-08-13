@@ -662,7 +662,7 @@ import seaborn as sns
 
 Heatmap are useful for exploring big datasets, where many observation are similar to one another. To avoid overplotting, on those datasets, you can turn scatterplots into heatmaps.
 
-In a heatmap we map a numerical value to a color. Heatmaps can be used both with categorical x and y axes, or binned continous axes.
+In a heatmap we map a quantitative value to a color. Heatmaps can be used both with categorical x and y axes, or binned continous axes.
 
 :::
 
@@ -673,28 +673,99 @@ In a heatmap we map a numerical value to a color. Heatmaps can be used both with
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+
+# set the right size for the figure
+sns.set(rc={
+  'figure.figsize':(5,6)
+  })
+
 sns.histplot(
   data=diamonds,
-  x='x',
-  y='price'
+  x='carat',
+  y='price',
+  cbar=True
 )
 ```
 
+## Heatmap
+
+```{python}
+#| output-location: column
+#| classes: "side-fig"
+
+sns.set(rc={
+  'figure.figsize':(5,6)
+  })
+
+sns.histplot(
+  # remove outliers
+  data=(diamonds
+    .query('carat <= 3')),
+  x='carat',
+  y='price',
+  cbar=True, 
+)
+```
+
+
 ## Pairs
 
+::: {.columns}
+
+::: {.column width="47%"}
+
+If you want to get a quick overview of 
+
+:::
+
+:::
 
 ## Pairs
 
 ```{python}
-#| output-location: column 
+#| output-location: column
+#| classes: "hide-fig"
+
+sns.set(
+  font_scale=2
+  )
+
 sns.pairplot(
   data = diamonds
 )
+
+# Figure on the next slide
 ```
 
 ## 
 
-![](230-eda_files/figure-revealjs/pairs-1.jpeg){.absolute top=5 left=50 height="800"}
+![](230-eda_files/figure-revealjs/cell-24-output-1.png){.absolute top=5 left=50 height="800"}
+
+## Pairs
+
+```{python}
+#| output-location: column
+#| classes: "hide-fig"
+
+sns.set(
+  font_scale=2
+  )
+
+sns.pairplot(
+  data = diamonds,
+  # improve pairs look
+  kind='hist',
+  plot_kws=dict(bins = 10),
+  diag_kws=dict(bins = 10),
+  corner= True
+)
+
+# Figure on the next slide
+```
+
+## 
+
+![](230-eda_files/figure-revealjs/cell-25-output-1.png){.absolute top=5 left=50 height="800"}
 
 ## Exercise - Detective Hat
 
