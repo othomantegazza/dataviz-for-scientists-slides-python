@@ -752,7 +752,7 @@ sns.pairplot(
 ```{python}
 #| output-location: column
 #| classes: "hide-fig"
-#| code-line-numbers: "7-11"
+#| code-line-numbers: "7-11,14"
 
 sns.set(
   font_scale=2
