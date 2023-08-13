@@ -418,6 +418,7 @@ sns.histplot(
  .add(
   so.Dot()
  )
+ .layout(size=(5, 6))
 )
 ```
 
@@ -442,6 +443,7 @@ sns.histplot(
   '#fdcb55',
   '#3f98d4'
  ])
+ .layout(size=(5, 6))
 )
 ```
 
@@ -453,7 +455,7 @@ sns.histplot(
 
 ::: {.column width="45%"}
 
-You can use [point shapes](https://ggplot2.tidyverse.org/articles/ggplot2-specs.html#point) to encode **categorical** information.
+You can use [marker shapes](https://seaborn.pydata.org/tutorial/properties.html) to encode **categorical** information.
 
 Shapes are simple and easy to understand.
 
@@ -467,24 +469,21 @@ They can't be used to represent quantitative data. They could be used for ordere
 
 ```{python}
 #| eval: false
-penguins %>% 
-  ggplot() +
-  aes(x = bill_length_mm,
-      y = bill_depth_mm,
-      shape = species) +
-  geom_point(size  = 4,
-             stroke = 2) +
-  scale_shape(solid = FALSE)
+#| classes: "side-fig"
+(
+  so.Plot(
+    data = penguins,
+    x = 'bill_length_mm',
+    y = 'bill_depth_mm',
+    marker = 'species'
+ )
+ .add(
+  so.Dot()
+ )
+ .layout(size=(5, 6))
+)
 ```
 
-```{python}
-#| include: false
-#| eval: false
-ggsave(
-  filename = 'img/retinal-shapes-raw.png',
-       width = 10,
-       height = 11)
-```
 
 ![](img/retinal-shapes.png){.absolute top=110 left=500 width=550 style="z-index: -1;"}
 
@@ -492,25 +491,94 @@ ggsave(
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-#| code-line-numbers: "5-11"
-penguins %>% 
-  ggplot() +
-  aes(x = bill_length_mm,
-      y = bill_depth_mm,
-      # you can use both
-      # shape and colour
-      # together
-      # to represent the 
-      # same variable:
-      shape = species,
-      fill = species) +
-  geom_point(size  = 3,
-             stroke = 1) +
-  scale_shape_manual(
-    values = c(21, 24, 22)
+#| classes: "side-fig"
+(
+  so.Plot(
+    data = penguins,
+    x = 'bill_length_mm',
+    y = 'bill_depth_mm',
+    marker = 'species'
+ )
+ .add(
+  so.Dot()
+ )
+ # map markers manually
+ .scale(
+  marker = [
+    'o',
+    '^',
+    's'
+  ]
+ )
+ .layout(size=(5, 6))
+)
+```
+
+## Shape
+
+```{python}
+#| output-location: column
+#| classes: "side-fig"
+(
+  so.Plot(
+    data = penguins,
+    x = 'bill_length_mm',
+    y = 'bill_depth_mm',
+    marker = 'species'
+ )
+ .add(
+  # empty shapes  
+  so.Dot(
+    fill = False,
+    stroke = 1.5
     )
+ )
+ .scale(
+  marker = [
+    'o',
+    '^',
+    's'
+  ]
+ )
+ .layout(size=(5, 6))
+)
+```
+
+## Shape
+
+```{python}
+#| output-location: column
+#| classes: "side-fig"
+(
+  so.Plot(
+    data = penguins,
+    x = 'bill_length_mm',
+    y = 'bill_depth_mm',
+    marker = 'species',
+    # double encode species
+    # with shape and colour
+    color = 'species'
+ )
+ .add(
+  so.Dot(
+    stroke = 1.5,
+    fill = False
+    ),
+ )
+ .scale(
+  marker = [
+    'o',
+    '^',
+    's'
+  ],
+  color = [
+  '#007a49',
+  '#fdcb55',
+  '#3f98d4'
+ ]
+ )
+ .layout(size=(5, 6))
+)
 ```
 
 ## Size and Area
