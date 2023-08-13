@@ -353,13 +353,29 @@ import seaborn as sns
 # that we are going to use for practice
 from palmerpenguins import load_penguins
 penguins = load_penguins()
+
+# The diamonds dataset
+from seaborn import load_dataset
+diamonds = load_dataset('diamonds')
 ```
 
 ## Colours in Seaborn - Continuous
 
 ```{python}
 #| output-location: column
+#| classes: "side-fig"
 
+# set the right size for the figure
+sns.set(rc={
+  'figure.figsize':(5,6)
+  })
+
+sns.histplot(
+  data=diamonds,
+  x='carat',
+  y='price',
+  cbar=True
+)
 ```
 
 ## Colours in R - Continuous
