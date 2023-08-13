@@ -197,6 +197,7 @@ penguins = load_penguins()
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "8-11"
 (
   so.Plot(
       data = penguins,
@@ -204,9 +205,9 @@ penguins = load_penguins()
   )
   .add(
     so.Bars(),
-    # The number of bins is arbitrary
-    # different bins can highlight
-    # different patterns  or noise
+    # The number of bins is arbitrary.
+    # Different number of bins can 
+    # highlight different patterns
     so.Hist(bins = 30)
   )
   .layout(size=(5, 6))
@@ -218,6 +219,7 @@ penguins = load_penguins()
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "5-7"
 (
   so.Plot(
       data = penguins,
@@ -240,6 +242,7 @@ penguins = load_penguins()
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "14-15"
 (
   so.Plot(
       data = penguins,
@@ -296,7 +299,7 @@ Which step do you have to define explicitely? Which step are defined implicitely
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
-#| code-line-numbers: "5-7"
+#| code-line-numbers: "9-11"
 (
   so.Plot(
       data = penguins,
@@ -308,7 +311,6 @@ Which step do you have to define explicitely? Which step are defined implicitely
     # jitter the points
     # to reduce overplotting
     so.Jitter()
-
   )
   .layout(size=(5, 6))
 )
@@ -319,7 +321,7 @@ Which step do you have to define explicitely? Which step are defined implicitely
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
-#| code-line-numbers: "5-7"
+#| code-line-numbers: "11-15"
 (
   so.Plot(
       data = penguins,
@@ -344,7 +346,7 @@ Which step do you have to define explicitely? Which step are defined implicitely
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
-#| code-line-numbers: "5-7"
+#| code-line-numbers: "6-7"
 (
   so.Plot(
       data = penguins,
@@ -399,6 +401,7 @@ diamonds = load_dataset('diamonds')
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "3-7"
 (
   so.Plot(
     # remove points with
@@ -421,6 +424,7 @@ diamonds = load_dataset('diamonds')
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "12-21"
 (
   so.Plot(
      data = diamonds.query(
@@ -430,11 +434,10 @@ diamonds = load_dataset('diamonds')
     y = 'price'
   )
   .add(
-    so.Dot(
-      alpha=0.01
-    )
+    so.Dot(alpha=.05)
   )
-  # add a data summary
+  # add an approximative
+  # data summary
   .add(
     so.Line(
       color = '#000000'
@@ -453,6 +456,7 @@ diamonds = load_dataset('diamonds')
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "13,14,24"
 (
   so.Plot(
    data = diamonds.query(
@@ -487,6 +491,7 @@ diamonds = load_dataset('diamonds')
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "23-28"
 (
   so.Plot(
    data = diamonds.query(
@@ -499,7 +504,6 @@ diamonds = load_dataset('diamonds')
     so.Dot(
       alpha=0.1
     ),
-    # map and additional variable
     color = 'clarity'
   )
   .add(
@@ -510,6 +514,8 @@ diamonds = load_dataset('diamonds')
       order = 4
       )
   )
+  # use facets to stratify
+  # by cut
   .facet(
     row="cut",
     wrap = 3
@@ -609,7 +615,7 @@ penguins_fit = (
 
 ```{python}
 #| output-location: column
-#| classes: "side-fig"
+#| code-line-numbers: "6-8"
 (
   so.Plot(
     data=penguins_fit,
@@ -746,6 +752,7 @@ sns.pairplot(
 ```{python}
 #| output-location: column
 #| classes: "hide-fig"
+#| code-line-numbers: "7-11"
 
 sns.set(
   font_scale=2
