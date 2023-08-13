@@ -4,48 +4,7 @@ subtitle: "How to use graphical variables effectively."
 author: "Otho Mantegazza"
 editor_options:  
   chunk_output_type: console
-knitr:
-  opts_chunk: 
-    dev: jpeg
 ---
-
-```
-#| include: false
-library(tidyverse)
-library(palmerpenguins)
-library(paletteer)
-library(ggrepel)
-
-base_size <- 15
-size_scale <- 2.8455 # text in plots vs. text in labels
-
-theme_base <- 
-    theme(
-    plot.margin = margin(10,5,5,5),
-    axis.text.x = element_text(hjust = 0),
-    axis.text.y = element_text(vjust = 0),
-    axis.ticks = element_line(),
-    axis.title = element_blank(),
-    axis.line = element_line(),
-    legend.position = "bottom"
-  )
-
-a <- theme_set(
-  theme_minimal(
-    base_size = base_size,
-  ) +
-    theme_base
-)
-
-map_to_circle_area <- function(val, max, max_out = 1) {
-  r <- sqrt(val/pi)
-  max_r <- sqrt(max/ pi)
-  r <- scales::rescale(r, from = c(0, max_r), to = c(0, max_out))
-  return(r)
-}
-  
-```
-
 
 ##
 
@@ -379,37 +338,33 @@ Seaborns has many function to explore, set and generate color palettes:
 
 :::
 
-## Colours in R - Continuous
+## Colors in Seaborn
 
-```{r}
+```{python}
+# All functions to manipulate data
+import pandas as pd
+
+# Seaborn Object Interface
+import seaborn.objects as so
+# and other Seaborn functions
+import seaborn as sns
+
+# The palmer penguins dataset;
+# that we are going to use for practice
+from palmerpenguins import load_penguins
+penguins = load_penguins()
+```
+
+## Colours in Seaborn - Continuous
+
+```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-diamonds %>%
-  ggplot() +
-  aes(x = carat,
-      y = price) +
-  geom_bin_2d(
-    binwidth = c(0.01, 50)
-  ) +
-  scale_x_continuous(
-    expand = expansion(0, 0),
-    limits = c(.2, .75)
-  ) +
-  scale_y_continuous(
-    expand = expansion(0, 0),
-    limits = c(0, 2500)
-  ) +
-  guides(
-    fill = guide_colourbar(
-      barwidth = 13,
-      barheight = 1)
-  )
+
 ```
 
 ## Colours in R - Continuous
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -442,7 +397,7 @@ diamonds %>%
 
 ## Colours in R - Categorical
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -456,7 +411,7 @@ penguins %>%
 
 ## Colours in R - Categorical
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -492,7 +447,7 @@ They can't be used to represent quantitative data. They could be used for ordere
 
 ## Shape
 
-```{r}
+```{python}
 #| eval: false
 penguins %>% 
   ggplot() +
@@ -504,7 +459,7 @@ penguins %>%
   scale_shape(solid = FALSE)
 ```
 
-```{r}
+```{python}
 #| include: false
 #| eval: false
 ggsave(
@@ -517,7 +472,7 @@ ggsave(
 
 ## Shape
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -556,7 +511,7 @@ Size is often used together with colour to display a quantiative value stratifie
 
 ## Size - Bar Chart
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -579,7 +534,7 @@ diamonds %>%
 
 ## Size - Bar Chart
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -617,7 +572,7 @@ Though, conceptually, if we would be mapping the data to  the bars' area instead
 
 ## Area - Pie Chart
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -679,13 +634,13 @@ You can map data to the radius of circles or to the area directly. Mapping data 
 
 ## Area of Circles
 
-```{r}
+```{python}
 #| include: false
 set.seed(8)
 ```
 
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -722,13 +677,13 @@ msleep %>%
 
 ## Radius of Circles
 
-```{r}
+```{python}
 #| include: false
 set.seed(8)
 ```
 
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -782,7 +737,7 @@ How to represent uncertainty intuituvely, is an active field of research.
 
 ## Area As Uncertainty
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -804,7 +759,7 @@ msleep %>%
 
 ## Area As Uncertainty
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -823,7 +778,7 @@ mpg %>%
   ) 
 ```
 
-```{r}
+```{python}
 #| eval: false 
 p <- 
   mpg %>% 
@@ -913,7 +868,7 @@ In ggplot there is no way to control the orientation of a plotting character dir
 
 ## Orientation
 
-```{r}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
@@ -961,7 +916,7 @@ wind %>%
 
 ## Orientation and Size
 
-```{r orientation-size}
+```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
