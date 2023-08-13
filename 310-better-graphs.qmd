@@ -9,7 +9,7 @@ knitr:
     dev: jpeg
 ---
 
-```{r}
+```
 #| include: false
 library(tidyverse)
 library(palmerpenguins)
@@ -92,26 +92,6 @@ The planar variables are the x and y coordinates on your planar screen, which re
 
 (f you use cartesian coordinates or to a transformed version of them if you use more elaborate coordinate systems)
 
-
-```{r}
-#| eval: false
-#| include: false
-diamonds %>%
-  ggplot() +
-  aes(x = carat,
-      y = price) +
-  geom_point(alpha = .05) +
-  geom_smooth() +
-  scale_x_continuous(expand = expansion(0, 0),
-                     limits = c(.2, .75)) +
-  scale_y_continuous(expand = expansion(0, 0),
-                     limits = c(0, 2500)) 
-
-ggsave(filename = 'img/planar-variables-raw.png',
-       width = 10,
-       height = 10)
-```
-
 ![](img/planar-variables.png){.absolute top=110 left=500 width=600}
 
 :::
@@ -133,23 +113,6 @@ Often there is no clear hypothetical relationship of cause effect between two va
 :::
 
 ![](img/planar-variables-categorical.png){.absolute top=110 left=500 width=600}
-
-```{r}
-#| include: false
-#| eval: false
-diamonds %>%
-    mutate(cut = fct_reorder(.f = cut, .x = carat)) %>% 
-  ggplot() +
-  aes(x = carat,
-      y = cut) +
-  geom_boxplot(size = 1.5) +
-  scale_x_continuous(position = "top") 
-
-ggsave(filename = 'img/planar-variables-categorical-raw.png',
-       width = 10,
-       height = 7)
-```
-
 
 ## Retinal Variables
 
@@ -184,33 +147,6 @@ With some caveats, colours are a multidimensional space:
 :::
 
 :::
-
-```{r}
-#| include: false
-#| eval: false
-diamonds %>%
-  ggplot() +
-  aes(x = carat,
-      y = price) +
-  geom_bin_2d(binwidth = c(0.01, 50)) +
-  scale_x_continuous(expand = expansion(0, 0),
-                     limits = c(.2, .75)
-                     ) +
-  scale_y_continuous(expand = expansion(0, 0),
-                     limits = c(0, 2500)
-  ) +
-  scale_fill_viridis_c(
-    direction = -1,
-    option = 'G'
-  ) +
-  guides(
-    fill = guide_colourbar(barwidth = 20, barheight = 1)
-  )
-
-ggsave(filename = 'img/retinal-variables-colours-1-raw.png',
-       width = 10,
-       height = 12)
-```
 
 ![](img/retinal-variables-colours-1.png){.absolute top=110 left=500 width=500}
 
@@ -266,26 +202,6 @@ Always check if your colour palette is accessible by colour blind people.
 :::
 
 :::
-
-```{r}
-#| include: false
-#| eval: false
-
-library(palmerpenguins)
-library(paletteer)
-
-penguins %>% 
-  ggplot() +
-  aes(x = bill_length_mm,
-      y = bill_depth_mm,
-      colour = species) +
-  geom_point(size  =4) +
-  scale_color_paletteer_d("awtools::mpalette")
-
-ggsave(filename = 'img/retinal-v-color-categorical-raw.png',
-       width = 10,
-       height = 11)
-```
 
 ![](img/retinal-v-color-categorical.png){.absolute top=110 left=500 width=550 style="z-index: -1;"}
 
@@ -381,7 +297,7 @@ Colours have meaning. Don't represent ice coverage in red, don't represent the w
 
 :::
 
-## Colours in R
+## Colours in Python
 
 ![](img/colour-paletteer-tokyo.png){.absolute top=0 left=500 style="z-index: -1;"}
 
@@ -389,11 +305,11 @@ Colours have meaning. Don't represent ice coverage in red, don't represent the w
 
 ::: {.column width="45%"}
 
-There are plenty of colour palette available in R, so it's unlikely that you'll have to design your own.
+There are plenty of colour palette available in Python though Seaborn or other tools, so it's unlikely that you'll have to design your own.
 
 It's more likely that you'll have to be able to choose a good one.
 
-The [palette gallery](https://pmassicotte.github.io/paletteer_gallery/#discrete-palettes) from the [paletteer](https://emilhvitfeldt.github.io/paletteer/) package is a great place to start.
+The [Seaborn's tutorial](https://seaborn.pydata.org/tutorial/color_palettes.html) on how to choose a colour palette, is a great place to start.
 
 :::
 
