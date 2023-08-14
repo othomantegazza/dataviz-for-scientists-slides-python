@@ -771,92 +771,32 @@ You can map data to the radius of circles or to the area directly. Mapping data 
 
 :::
 
-## Area of Circles
-
-```{python}
-#| include: false
-set.seed(8)
-```
-
-
-```{python}
-#| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-#| code-line-numbers: "1,6-12,24-28"
-msleep %>% 
-  drop_na(
-    bodywt, brainwt,
-    name, sleep_rem
-  ) %>% 
-  ggplot() +
-  aes(x = bodywt,
-      y = brainwt,
-      size = sleep_rem) +
-  geom_point(
-    alpha = .8
-  ) +
-  geom_text_repel(
-    data = . %>% 
-      sample_frac(.08),
-    aes(label = name),
-    size = base_size/size_scale,
-    min.segment.length = 0,
-    direction = 'y',
-    nudge_y = 1.2,
-    hjust = 1,
-    colour = '#f44702'
-  ) +
-  scale_x_log10() +
-  scale_y_log10() +
-  scale_size(
-    limits = c(0, NA)
-    )
-```
-
 ## Radius of Circles
 
 ```{python}
-#| include: false
-set.seed(8)
-```
-
-
-```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-#| code-line-numbers: "1,6-12,24-28"
-msleep %>% 
-  drop_na(
-    bodywt, brainwt,
-    name, sleep_rem
-  ) %>% 
-  ggplot() +
-  aes(x = bodywt,
-      y = brainwt,
-      size = sleep_rem) +
-  geom_point(
-    alpha = .8
-  ) +
-  geom_text_repel(
-    data = . %>% 
-      sample_frac(.08),
-    aes(label = name),
-    size = base_size/size_scale,
-    min.segment.length = 0,
-    direction = 'y',
-    nudge_y = 1.2,
-    hjust = 1,
-    colour = '#f44702'
-  ) +
-  scale_x_log10() +
-  scale_y_log10() +
-  scale_radius(
-    limits = c(0, NA)
-    )
+#| classes: "side-fig"
+# by default seaborn maps
+# the magnitude of the
+# data to the diameter of
+# the circles
+(
+  so.Plot(
+    data = planets,
+    x = 'distance',
+    y = 'orbital_period',
+    pointsize = 'mass'
+  )
+  .add(
+    so.Dots()
+  )
+  .scale(
+    x = 'log',
+    y = 'log'
+  )
+  .layout(size=(5, 6))
+)
 ```
-
 
 ## Area As Uncertainty
 
