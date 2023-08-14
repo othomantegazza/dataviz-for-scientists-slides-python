@@ -1037,4 +1037,6 @@ It can also be used to fill shapes in a semiquantitative way. This aspect fell i
 
 :::
 
-
+<!--- js dependencies -->
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="js/fix-figures.js"></script>
