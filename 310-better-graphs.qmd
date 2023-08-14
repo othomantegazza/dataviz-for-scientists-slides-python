@@ -738,7 +738,7 @@ plt.pie(
   labels = labels, 
   colors = colors, 
   autopct='%.0f%%'
-  )
+  );
 ```
 
 ## Area - Pie Chart
