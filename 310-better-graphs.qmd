@@ -690,30 +690,51 @@ Though, conceptually, if we would be mapping the data to  the bars' area instead
 
 ## Area - Pie Chart
 
+::: {.columns}
+
+::: {.column width="47%"}
+
+
+To make a pie chart in Python we have to use, instead of seaborn, the old interface of [Pyplot](https://matplotlib.org/stable/tutorials/introductory/pyplot.html).
+
+```{python}
+import matplotlib.pyplot as plt
+```
+
+:::
+
+:::
+
+## Area - Pie Chart
+
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-#| code-line-numbers: "3-7"
-diamonds %>%
-  filter(color == "J") %>% 
-  ggplot() +
-  aes(x = color,
-      fill = clarity) +
-  geom_bar(position = 'fill') +
-  coord_polar(theta = "y") +
-  scale_y_reverse(
-    expand = expansion(
-      mult = c(0, 0)
-    )
-  ) +
-  theme_void(
-    base_size = base_size
-  ) +
-  theme(
-    legend.position = "bottom",
-    plot.margin = margin(10,5,5,5)
-    )
+#| classes: "side-fig"
+# count diamonds by clarity
+counts = (diamonds
+    .query('color == "J"')
+    .groupby('clarity')
+    .size())
+
+# transform to percent
+perc = (counts.values/
+        counts.values.sum())
+labels = counts.index
+
+# define a color palete of the 
+# same length of the data
+colors = sns.color_palette(
+  'viridis', 
+  n_colors = perc.size
+  )
+
+# plot the py chart
+plt.pie(
+  perc,
+  labels = labels, 
+  colors = colors, 
+  autopct='%.0f%%'
+  )
 ```
 
 ## Area - Pie Chart
