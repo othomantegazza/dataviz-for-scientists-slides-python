@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - 'deploy'
+      - 'test-action'
     
   
 name: "Render and Publish"
