@@ -1021,7 +1021,7 @@ for index, row in wind.iterrows():
 ## Orientation and Size
 
 ![](img/orientation-labels.svg){.absolute top=130 left=0 width=400}
-![](310-better-graphs_files/figure-revealjs/orientation-size-1.jpeg){.absolute top=110 left=550 width=500}
+![](img/orientation-wind.jpeg){.absolute top=110 left=550 width=500}
 
 ## Texture
 
