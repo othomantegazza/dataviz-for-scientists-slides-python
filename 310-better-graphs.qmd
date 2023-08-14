@@ -729,7 +729,7 @@ diamonds %>%
 
 Pie charts get a bad reputation for not being a nuanced analytical graphs.
 
-Anyway pie charts are effective at representing percentages, and they outscore barcharts when the number of slices is high.
+But pie charts are effective at representing percentages, and they outscore barcharts when the number of slices is high.
 
 Can you describe the pie chart from the previous page in terms of the grammar of graphics?
 
