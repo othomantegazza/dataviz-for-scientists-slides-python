@@ -363,7 +363,7 @@ from seaborn import load_dataset
 diamonds = load_dataset('diamonds')
 ```
 
-## Colours in Seaborn - Continuous
+## Colours - Continuous
 
 ```{python}
 #| output-location: column
@@ -381,10 +381,10 @@ sns.histplot(
   x='carat',
   y='price',
   cbar=True
-)
+);
 ```
 
-## Colours in Seaborn - Continuous
+## Colours - Continuous
 
 ```{python}
 #| output-location: column
@@ -404,10 +404,10 @@ sns.histplot(
   cbar=True,
   # change color palette
   cmap='dark:#0A9_r'
-)
+);
 ```
 
-## Colours in Seaborn - Categorical
+## Colours - Categorical
 
 ```{python}
 #| output-location: column
@@ -426,7 +426,7 @@ sns.histplot(
 )
 ```
 
-## Colours in Seaborn - Categorical
+## Colours - Categorical
 
 ```{python}
 #| output-location: column
