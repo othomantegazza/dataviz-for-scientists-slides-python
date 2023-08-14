@@ -1,7 +1,7 @@
 ---
 title: "Instant Knowledge"
 subtitle: "Data visualization makes the content of data immediately  understandable, that's why we use it."
-author: "Otho Mantegazza _ Dataviz for Scientist _ Part 2.0"
+author: "Otho Mantegazza _ Dataviz for Scientists _ Part 2.0"
 editor_options: 
   chunk_output_type: console
 ---

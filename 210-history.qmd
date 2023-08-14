@@ -1,7 +1,7 @@
 ---
 title: "A Bit of History"
 subtitle: "Where did visual representation of information come from? How long has it been around?"
-author: "Otho Mantegazza _ Dataviz for Scientist _ Part 2.1"
+author: "Otho Mantegazza _ Dataviz for Scientists _ Part 2.1"
 editor_options: 
   chunk_output_type: console
 ---
