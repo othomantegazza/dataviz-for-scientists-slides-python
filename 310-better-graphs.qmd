@@ -605,16 +605,19 @@ Size is often used together with colour to display a quantiative value stratifie
 # color and clarity of diamonds
 # are ordered categorical 
 # variables
-diamonds %>%
-  ggplot() +
-  aes(y = color,
-      fill = clarity) +
-  geom_bar() +
-  scale_x_continuous(
-    expand = expansion(
-      mult = c(0, .01)
-    )
-  ) 
+(
+  so.Plot(
+    data = diamonds,
+    y = 'color',
+    color = 'clarity'
+  )
+  .add(
+    so.Bars(),
+    so.Count(),
+    so.Stack()
+  )
+  .layout(size=(5, 6))
+)
 ```
 
 
@@ -625,19 +628,53 @@ diamonds %>%
 #| fig-width: 5
 #| fig-height: 6
 #| code-line-numbers: "4-8"
-# You can show percentages
-# instead of the
-# absolute count
-diamonds %>% 
-  ggplot() +
-  aes(y = color,
-      fill = clarity) +
-  geom_bar(position = 'fill') +
-  scale_x_continuous(
-    expand = expansion(
-      mult = c(0, .01)
-    )
+(
+  so.Plot(
+    data = diamonds,
+    y = 'color',
+    color = 'clarity'
   )
+  .add(
+    so.Bars(),
+    so.Count(),
+    so.Stack()
+  )
+  # map the ordered variable
+  # "clarity" to an ordered
+  # color scale
+  .scale(color = 'flare')
+  .layout(size=(5, 6))
+)
+```
+
+## Size - Bar Chart
+
+```{python}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "4-8"
+# Map additional variables
+(
+  so.Plot(
+    data = diamonds,
+    y = 'color',
+    color = 'clarity'
+  )
+  .add(
+    so.Bars(),
+    so.Count(),
+    so.Stack()
+  )
+  .scale(
+    color = 'flare'
+    )
+  .facet(
+    row = 'cut',
+    wrap = 3
+  )
+  .layout(size=(5, 6))
+)
 ```
 
 ## Size - Bar Chart
