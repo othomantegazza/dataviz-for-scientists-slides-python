@@ -935,7 +935,7 @@ In Seaborn or Pyplot there is no way to control the orientation of a plotting ch
 from pyreadr import read_r
 from math import sin, cos, pi
 wind = read_r(
-  'data/wind.data.Rdata'
+  'data/wind.data.RData'
   )
 
 wind = wind['wind.data']

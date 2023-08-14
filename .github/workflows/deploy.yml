@@ -33,14 +33,11 @@ jobs:
           sudo apt-get update
           sudo apt-get install libcurl4-openssl-dev libudunits2-dev libharfbuzz-dev libfribidi-dev
           
-      - name: Install Jupyter
+      - name: Connect Quarto and Python
         run: |
-          python3 -m pip install jupyter
-          
-      - name: Install R Dependencies
-        uses: r-lib/actions/setup-renv@v2
-        with:
-          cache-version: 1
+          R -e "renv::use_python('/usr/bin/python3')"
+          R -e "renv::restore()"
+          python3 -m pip install -r requirements.txt
 
       - name: Render Slides
         run : |
