@@ -1,0 +1,48 @@
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'deploy'
+    
+  
+name: "Render and Publish"
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with: 
+          version: 1.3.433
+
+      - name: Install R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.3.0'
+        
+      - name: Install System Dependecies
+        run: |
+          sudo apt-get update
+          sudo apt-get install libcurl4-openssl-dev libudunits2-dev libharfbuzz-dev libfribidi-dev
+          
+      - name: Install R Dependencies
+        uses: r-lib/actions/setup-renv@v2
+        with:
+          cache-version: 1
+
+      - name: Render Slides
+        run : |
+          quarto render
+
+      - name: Deploy on Netlify
+        run: |
+          npm install netlify-cli
+          netlify deploy --dir=docs --prod --site=${{ secrets.NETLIFY_SITE_ID }} --auth=${{ secrets.NETLIFY_TOKEN }}
