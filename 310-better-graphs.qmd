@@ -929,16 +929,55 @@ In ggplot there is no way to control the orientation of a plotting character dir
 
 :::
 
-## Orientation
+## Orientation - Data
+
+```{python}
+from pyreadr import read_r
+wind = read_r(
+  'data/wind.data.Rdata'
+  )
+
+wind = wind['wind.data']
+```
+
+## Orientation 
 
 ```{python}
 #| output-location: column
 #| fig-width: 5
 #| fig-height: 6
 #| code-line-numbers: "4,6-24"
-load('data/wind.data.RData')
-wind <- wind.data
-rm(wind.data)
+# p = (
+#   so.Plot(
+#     data = wind,
+#     x = 'lon',
+#     y = 'lat'
+#   )
+# )
+# 
+# p = p.plot()._figure
+
+ax = plt.figure(figsize=(5,6))
+
+# ax = sns.scatterplot(
+#       data = wind,
+#       x = 'lon',
+#       y = 'lat'
+# )
+
+plt.plot(wind.lon, wind.lat, 'bo')
+
+for index, row in wind.iterrows():
+    plt.arrow(
+      x = row['lon'],
+      y = row['lat'],
+      dx = 1,
+      dy = 1
+      )
+
+ax
+
+
 wind %>%
   filter(lon > -7) %>%
   ggplot() +
