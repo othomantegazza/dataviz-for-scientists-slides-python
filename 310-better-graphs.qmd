@@ -599,9 +599,7 @@ Size is often used together with colour to display a quantiative value stratifie
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-#| code-line-numbers: "4-8"
+#| classes: "side-fig"
 # color and clarity of diamonds
 # are ordered categorical 
 # variables
@@ -625,8 +623,7 @@ Size is often used together with colour to display a quantiative value stratifie
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
+#| classes: "side-fig"
 #| code-line-numbers: "4-8"
 (
   so.Plot(
@@ -651,9 +648,7 @@ Size is often used together with colour to display a quantiative value stratifie
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-#| code-line-numbers: "4-8"
+#| classes: "side-fig"
 # Map additional variables
 (
   so.Plot(
@@ -681,7 +676,7 @@ Size is often used together with colour to display a quantiative value stratifie
 
 ::: {.columns}
 
-::: {.column width="45%"}
+::: {.column width="47%"}
 
 When we use a barolot, we  map the data to the length of the bars, not to the area.
 
