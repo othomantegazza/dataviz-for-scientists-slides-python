@@ -258,7 +258,11 @@ Colours have meaning. Don't represent ice coverage in red, don't represent the w
 
 ## Colours in Python
 
-![](img/colour-paletteer-tokyo.png){.absolute top=0 left=500 style="z-index: -1;"}
+![](img/cubehelix-example.jpg){.absolute top=133 left=500 width="450"}
+
+::: {.caption .absolute left=500 top=640}
+A presentation of the [cubehelix](https://www.mrao.cam.ac.uk/~dag/CUBEHELIX/) color palette.
+:::
 
 ::: {.columns}
 
