@@ -923,7 +923,7 @@ The orientation of plotting characters is often used combined with their length,
 
 ::: {.column width="45%"}
 
-In ggplot there is no way to control the orientation of a plotting character directly. So you'll have to use a segments, calculating their start and end points from data.
+In Seaborn or Pyplot there is no way to control the orientation of a plotting character directly. So you'll have to use an arrow, calculating their start and end points from data.
 
 :::
 
@@ -933,132 +933,85 @@ In ggplot there is no way to control the orientation of a plotting character dir
 
 ```{python}
 from pyreadr import read_r
+from math import sin, cos, pi
 wind = read_r(
   'data/wind.data.Rdata'
   )
 
 wind = wind['wind.data']
+
+wind = (
+  wind
+   .query('lon > -5')
+  )
 ```
 
 ## Orientation 
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-#| code-line-numbers: "4,6-24"
-# p = (
-#   so.Plot(
-#     data = wind,
-#     x = 'lon',
-#     y = 'lat'
-#   )
-# )
-# 
-# p = p.plot()._figure
+#| classes: "side-fig"
 
-ax = plt.figure(figsize=(5,6))
+ax = plt.figure(
+  figsize=(10,12)
+  )
 
-# ax = sns.scatterplot(
-#       data = wind,
-#       x = 'lon',
-#       y = 'lat'
-# )
+plt.scatter(
+  wind.lon,
+  wind.lat,
+  s = 1
+  )
 
-plt.plot(wind.lon, wind.lat, 'bo')
+arrow_scale = .15
 
 for index, row in wind.iterrows():
     plt.arrow(
       x = row['lon'],
       y = row['lat'],
-      dx = 1,
-      dy = 1
+      dx = cos(
+        row['dir']*pi/180
+      )*arrow_scale,
+      dy = sin(
+        row['dir']*pi/180
+      )*arrow_scale,
+      color = '#000',
+      head_width=0.1,
+      head_length=0.1
       )
-
-ax
-
-
-wind %>%
-  filter(lon > -7) %>%
-  ggplot() +
-  aes(
-    x = lon,
-    y = lat,
-    xend = (
-      lon + cos(
-        dir*pi/180
-      )/5
-    ),
-    yend = (
-      lat + sin(
-        dir*pi/180
-      )/5
-    )
-  ) +
-  geom_segment(
-    arrow = arrow(
-      length = unit(1, 'mm')
-    )
-  ) +
-  scale_x_continuous(
-    expand = expansion(
-      mult = c(.01, .01))
-  ) +
-  scale_y_continuous(
-    expand = expansion(
-      mult = c(.01, .01))
-  ) +
-  coord_map() +
-  theme(
-    plot.margin = margin(
-      0, 0, 0, 0
-    )
-    )
 ```
 
 ## Orientation and Size
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-#| code-line-numbers: "8,13"
-wind %>%
-  filter(lon > -7) %>%
-  ggplot() +
-  aes(
-    x = lon,
-    y = lat,
-    xend = (
-      lon + speed*cos(
-        dir*pi/180
-      )/20
-    ),
-    yend = (
-      lat + speed*sin(
-        dir*pi/180
-      )/20
-    )
-  ) +
-  geom_segment(
-    arrow = arrow(
-      length = unit(1, 'mm')
-    )
-  ) +
-  scale_x_continuous(
-    expand = expansion(
-      mult = c(.01, .01))
-  ) +
-  scale_y_continuous(
-    expand = expansion(
-      mult = c(.01, .01))
-  ) +
-  coord_map() +
-  theme(
-    plot.margin = margin(
-      0 ,0 ,0, 0
-    )
+#| classes: "side-fig"
+
+ax = plt.figure(
+  figsize=(10,12)
   )
+
+plt.scatter(
+  wind.lon,
+  wind.lat,
+  s = 1
+  )
+
+arrow_scale = .05
+
+for index, row in wind.iterrows():
+    plt.arrow(
+      x = row['lon'],
+      y = row['lat'],
+      dx = row['speed']*cos(
+        row['dir']*pi/180
+      )*arrow_scale,
+      dy = row['speed']*sin(
+        row['dir']*pi/180
+      )*arrow_scale,
+      color = '#000',
+      head_width=0.1,
+      head_length=0.1
+      )
 ```
 
 ## Orientation and Size
