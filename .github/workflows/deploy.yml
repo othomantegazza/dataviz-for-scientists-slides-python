@@ -33,9 +33,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install libcurl4-openssl-dev libudunits2-dev libharfbuzz-dev libfribidi-dev
           
-      - name: Install Jupyter
+      - name: Connect Quarto and Python
         run: |
-          which python3
+          R -e "renv::use_python('/usr/bin/python3')"
           
       - name: Install R Dependencies
         uses: r-lib/actions/setup-renv@v2
