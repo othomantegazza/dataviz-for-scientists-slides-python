@@ -771,6 +771,12 @@ You can map data to the radius of circles or to the area directly. Mapping data 
 
 :::
 
+## Radius of Circles - Data
+
+```{python}
+planets = sns.load_dataset('planets')
+```
+
 ## Radius of Circles
 
 ```{python}
