@@ -595,6 +595,7 @@ import statsmodels.formula.api as smf
 
 ```{python}
 #| output-location: column
+#| classes: "side-fig"
 # We can define a model
 # before plotting
 fit = smf.ols(
@@ -615,6 +616,7 @@ penguins_fit = (
 
 ```{python}
 #| output-location: column
+#| classes: "side-fig"
 #| code-line-numbers: "6-8"
 (
   so.Plot(
