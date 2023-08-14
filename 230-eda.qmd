@@ -692,7 +692,7 @@ sns.histplot(
   x='carat',
   y='price',
   cbar=True
-)
+);
 ```
 
 ## Heatmap
@@ -712,7 +712,7 @@ sns.histplot(
   x='carat',
   y='price',
   cbar=True, 
-)
+);
 ```
 
 
