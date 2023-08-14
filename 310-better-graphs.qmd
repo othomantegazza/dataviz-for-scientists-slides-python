@@ -818,66 +818,44 @@ How to represent uncertainty intuituvely, is an active field of research.
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-#| code-line-numbers: ""
-msleep %>%
-  ggplot() +
-  aes(
-    x = bodywt,
-    y = brainwt
-  ) +
-  geom_point() +
-  geom_smooth(
-    method = lm,
-    colour = '#f44702'
-  ) +
-  scale_x_log10() +
-  scale_y_log10()
+#| classes: "side-fig"
+sns.lmplot(
+  data = penguins,
+  x = 'body_mass_g',
+  y = 'flipper_length_mm'
+)
 ```
 
 ## Area As Uncertainty
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-#| code-line-numbers: ""
-mpg %>% 
-  ggplot() +
-  aes(
-    x = displ,
-    y = hwy
-  ) +
-  geom_point(
-    alpha = .7
-  ) +
-  geom_smooth(
-    colour = '#f44702'
-  ) 
-```
-
-```{python}
-#| eval: false 
-p <- 
-  mpg %>% 
-  ggplot() +
-  aes(
-    x = displ,
-    y = hwy
-  ) +
-  geom_point(
-    alpha = .7
-  ) +
-  geom_smooth(
-    colour = '#f44702'
-  ) 
-
-ggsave(
-  filename = 'img/uncertainty-area.svg',
-  plot = p
+#| classes: "side-fig"
+# a spurious correlation
+# with higher uncertainty
+sns.lmplot(
+  data = penguins,
+  x = 'bill_length_mm',
+  y = 'bill_depth_mm'
 )
 ```
+
+## Area As Uncertainty
+
+```{python}
+#| output-location: column
+#| classes: "side-fig"
+# That improves if we
+# stratify the data 
+# by species
+sns.lmplot(
+  data = penguins,
+  x = 'bill_length_mm',
+  y = 'bill_depth_mm',
+  hue = 'species'
+)
+```
+
 
 ## Area As Uncertainty
 
