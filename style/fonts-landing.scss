@@ -1,0 +1,55 @@
+/*-- scss:functions --*/
+
+/*-- scss:defaults --*/
+
+/*-- scss:rules --*/
+
+/*-- fonts --*/
+ 
+@font-face {
+  font-family:  Noto Serif;
+  src: url("fonts/notoserif-variable.ttf");
+  font-style: normal;
+}
+
+@font-face {
+  font-family:  IBM Plex Mono;
+  src: url("fonts/IBMPlexMono-Light.ttf");
+  font-weight: 300 399;
+  font-style: normal;
+}
+
+@font-face {
+  font-family:  IBM Plex Mono;
+  src: url("fonts/IBMPlexMono-LightItalic.ttf");
+  font-weight: 300 399;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Lato;
+  src: url("fonts/Lato-Bold.ttf");
+  font-weight: 400 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Lato;
+  src: url("fonts/Lato-Light.ttf");
+  font-weight: 200 399;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Lato;
+  src: url("fonts/Lato-BoldItalic.ttf");
+  font-weight: 400 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Lato;
+  src: url("fonts/Lato-LightItalic.ttf");
+  font-weight: 200 399;
+  font-style: italic;
+}

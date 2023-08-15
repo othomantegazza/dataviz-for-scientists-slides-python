@@ -9,10 +9,11 @@ project:
     - img/
     - fonts/
     - js/
+    - style/
   
 format:
   revealjs:
-    theme: [default, style/custom.scss]
+    theme: [default, style/fonts-slides.scss, style/custom.scss]
     template-partials:
       - style/title-slide.html
     echo: true
