@@ -13,10 +13,15 @@ Slides for the data visualization part of the [2023 Hackathon Workshop on Comput
 
 # Slides
 
+## Day 1
+
 1. [Instant Knowledge](200-instant-data.html)
 2. [Quick history of Dataviz](210-history.html)
 3. [The Grammar of Graphics](220-gg.html)
 4. [Exploratory Data Analysis](230-eda.html)
+
+## Day 2
+
 5. [Better Graphs - Part I](310-better-graphs.html)
 6. [Better Graphs - Part II](320-better-graphs-2.html)
 
