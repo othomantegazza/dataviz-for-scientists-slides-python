@@ -48,7 +48,7 @@ Year: ~1250 BC
 
 Photo: British Museum
 
-*Hieroglyphs originated as logographyc symbols, and later evolved in syllabic and alphabetic elements, like these ones on the [Papirus of Ani](https://en.wikipedia.org/wiki/Papyrus_of_Ani).*
+*Hieroglyphs originated as logographic symbols, and later evolved in syllabic and alphabetic elements, like these ones on the [Papyrus of Ani](https://en.Wikipedia.org/wiki/Papyrus_of_Ani).*
 
 :::
 
@@ -64,7 +64,7 @@ Year: ~1000 BC
 
 Photo: [Luca Giarelli / CC-BY-SA 3.0](https://commons.wikimedia.org/wiki/File:Composizione_geometrica_chiamata_mappa_di_Bedolina_-_Bedolina_R_1_-_Capo_di_Ponte_(Foto_Luca_Giarelli).jpg)
 
-*The [Bedolina Map](https://en.wikipedia.org/wiki/Bedolina_Map) is one of the most ancient topographical map. It contains around 109 figures of paths, warriors, animals, and wooden huts.*
+*The [Bedolina Map](https://en.Wikipedia.org/wiki/Bedolina_Map) is one of the most ancient topographical map. It contains around 109 figures of paths, warriors, animals, and wooden huts.*
 
 :::
 
@@ -121,9 +121,9 @@ Year: ~1400 BC
 
 Photo: [Hilprecht, H. V.](https://archive.org/details/cu31924019176217)
 
-*In [ancient Babylonia](https://en.wikipedia.org/wiki/Babylonia), maps were accurately drawn on clay tablets.*
+*In [ancient Babylonia](https://en.Wikipedia.org/wiki/Babylonia), maps were accurately drawn on clay tablets.*
 
-Is a map an abstraction? One have to argue that what's represented in a map is definitely observable in real life, at least in theory. Though, very few of the people drawing maps had the chance to. They relied on measurements and data, representing them on the cartesian plane.
+Is a map an abstraction? One have to argue that what's represented in a map is definitely observable in real life, at least in theory. Though, very few of the people drawing maps had the chance to. They relied on measurements and data, representing them on the Cartesian plane.
 
 :::
 
@@ -139,7 +139,7 @@ Year: 1137 AD
 
 Media: Impression of Carved Stone 
 
-*The [Yu Ji Tu](https://en.wikipedia.org/wiki/File:Song_Dynasty_Map.JPG) (Map of the Tracks of Yu the Great) represents the coastal line and rivers of China in a gridded cartesian plane, with elevated precision.*
+*The [Yu Ji Tu](https://en.Wikipedia.org/wiki/File:Song_Dynasty_Map.JPG) (Map of the Tracks of Yu the Great) represents the coastal line and rivers of China in a gridded Cartesian plane, with elevated precision.*
 
 :::
 
@@ -155,7 +155,7 @@ Year: ~900 AD
 
 Topic: Gregorian Chant
 
-*[Musical Neumes](https://en.wikipedia.org/wiki/Neume#Western_plainchant) are one of the earliest graphical representation of music, drawing over vowels would represent the pitch and modulation in which the text shouldx be sung.*
+*[Musical Neumes](https://en.Wikipedia.org/wiki/Neume#Western_plainchant) are one of the earliest graphical representation of music, drawing over vowels would represent the pitch and modulation in which the text should be sung.*
 
 :::
 
@@ -177,12 +177,12 @@ Year: Current
 
 ::: {.column width="30%"}
 
-*The [staff musical notation](https://en.wikipedia.org/wiki/Staff_(music)), was developed in the last 1000 years. It represents graphically pitch timing and modulation of music, across 5 parallel lines.*
+*The [staff musical notation](https://en.Wikipedia.org/wiki/Staff_(music)), was developed in the last 1000 years. It represents graphically pitch timing and modulation of music, across 5 parallel lines.*
 
 :::
 ::: {.column width="30%"}
 
-Colud it be one of the first way to abstract data and then represent them graphically in a new way?
+Could it be one of the first way to abstract data and then represent them graphically in a new way?
 
 :::
 
@@ -218,9 +218,9 @@ In that period, data visualization as we know i, was born under the name of "Sta
 
 Analytical Geometry started with the work on the [Cartesian System](https://en.wikipedia.org/wiki/Cartesian_coordinate_system).
 
-In a plane, the cartesian system is a coordinate system that specifies each point univocally as a pair of real numbers, the distances from two perpendicular axes.
+In a plane, the Cartesian system is a coordinate system that specifies each point univocally as a pair of real numbers, the distances from two perpendicular axes.
 
-It was invented in parallel by Descartes and Fermat in 17^th^ centurty.
+It was invented in parallel by Descartes and Fermat in 17^th^ century.
 :::
 
 ::: {.column width="45%"}
@@ -255,7 +255,7 @@ Year: 1640
 
 ::: {.column width="30%"}
 
-*This [Longitudinal Distance Chart](https://commons.wikimedia.org/wiki/File:Grados_de_la_Longitud.jpg) represents separate measurements of the distance between Toledo and Rome. Each measurement is a labelled point on a x-axis of a one-dimensinal chart. All measurements overestimate the real distance, which is at ~16˚.*
+*This [Longitudinal Distance Chart](https://commons.wikimedia.org/wiki/File:Grados_de_la_Longitud.jpg) represents separate measurements of the distance between Toledo and Rome. Each measurement is a labelled point on a x-axis of a one-dimensional chart. All measurements overestimate the real distance, which is at ~16˚.*
 
 :::
 ::: {.column width="30%"}
@@ -283,7 +283,7 @@ Year:  1669
 
 Author: [Christiaan Huygens](https://en.wikipedia.org/wiki/Christiaan_Huygens)
 
-*This density plot shows the age on the x-axis and the survival probability on the y-axis. Hygens estimated Survival probabilities from John Gaunt's life expectancy data in London.*
+*This density plot shows the age on the x-axis and the survival probability on the y-axis. Huygens estimated Survival probabilities from John Gaunt's life expectancy data in London.*
 
 The graphs doesn't show data points but an empirical probability density.
 
@@ -301,7 +301,7 @@ Year: 1685
 
 Author: [Robert Plot](https://es.wikipedia.org/wiki/Robert_Plot)
 
-*A  vertical line plot of the barometrical pressure in Oxford for the year 1684.*
+*A  vertical line plot of the barometric pressure in Oxford for the year 1684.*
 
 This 2-dimensional line plot shows the data for each day of one solar year in two lines of facets.
 
@@ -355,7 +355,7 @@ Year:  1816
 
 Author: [Heinrich Wilhelm Brandes](https://en.wikipedia.org/wiki/Heinrich_Wilhelm_Brandes)
 
-*The first weather map, showing data collected from 1783. Brandes overlayed isobar lines over the map of Europe.*
+*The first weather map, showing data collected from 1783. Brandes overlaid isobar lines over the map of Europe.*
 
 This map introduces isolines, which are lines that connect points with the same value over a continuous gradient.
 
@@ -425,7 +425,7 @@ Author: [W. E. B. Dubois](https://en.wikipedia.org/wiki/W._E._B._Du_Bois)
 
 *Time is represented on the y-axis; the size of the path on the x-axis represents populations size. The colors show how to ethnic groups slowly mix together*
 
-an American-born Ghanaian sociologist, socialist, historian, and Pan-Africanist civil rights activist. At the universal exposition of Paris, in 1990 he collected [photos and charts](https://commons.wikimedia.org/wiki/Category:American_Negro_Exhibit_at_the_Exposition_Universelle_(1900)) on the life of african americans, to challenge stereotypes.
+an American-born Ghanaian sociologist, socialist, historian, and Pan-Africanist civil rights activist. At the universal exposition of Paris, in 1990 he collected [photos and charts](https://commons.wikimedia.org/wiki/Category:American_Negro_Exhibit_at_the_Exposition_Universelle_(1900)) on the life of African Americans, to challenge stereotypes.
 
 :::
 
@@ -480,14 +480,14 @@ Today, with the web based resurgence of graphics and typography, data visualizat
 
 ::: {.column width="45%"}
 
-Visual communication is the oldest form of graphical communication. It predates phonems and other abstract forms of writing.
+Visual communication is the oldest form of graphical communication. It predates phonemes and other abstract forms of writing.
 
 Visual communication is a powerful tool for storytelling, it's intuitive, and it relies on our skills to process broad visual inputs quickly and in parallel.
 
 :::
 ::: {.column width="45%"}
 
-Since visual communication is intuitive, it delivers (almost) immediate messages. This immediacy makes it potentially misleading. The responsability for making it clear and not ambiguous is yours (the author).
+Since visual communication is intuitive, it delivers (almost) immediate messages. This immediacy makes it potentially misleading. The responsibility for making it clear and not ambiguous is yours (the author).
 
 Data visualization is a part of the broader discipline of visual and graphical communication. Let this whole field inspire you.
 
