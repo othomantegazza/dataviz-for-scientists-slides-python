@@ -12,7 +12,7 @@ editor_options:
 
 ::: {.caption .absolute left=760 top=340}
 
-AUTHOR: Jaques Bertin
+AUTHOR: Jacques Bertin
 
 YEAR: 1967
 
@@ -33,7 +33,7 @@ When you draw a data visualization on a two dimensional screen, you map values f
 - Planar Variables: *x, y*.
 - Retinal Variables: *colour hue, color value, shape, orientation, size, area, texture*.
 
-In terms of the grammar of graphics, the graphical variables are the aesthetics that you map yor data to.
+In terms of the grammar of graphics, the graphical variables are the aesthetics that you map your data to.
 
 :::
 
@@ -133,7 +133,7 @@ On a screen, colours are **defined** as [three hexadecimal strings](https://duck
 
 Colors are perceived non linearly, and the model of how colors are perceived by people gets constantly updated. The most used model is [CIECAM02](https://en.wikipedia.org/wiki/CIECAM02).
 
-What shoud interest you is:
+What should interest you is:
 
 - HUE: what we call colour.
 - LIGHTNESS: how close to black?
@@ -248,7 +248,7 @@ You should handle **ordered categorical variables** as if they were quantitative
 
 ::: {.column width="45%"}
 
-Remember, data viusalization is processed intuitively by the readers.
+Remember, data visualization is processed intuitively by the readers.
 
 Colours have meaning. Don't represent ice coverage in red, don't represent the warming of the ocean in blue, ask yourself if your colour palette is appropriate for the topic your data are about.
 
@@ -324,7 +324,7 @@ The y axis is not mapped to the data.
 
 ## Exercise
 
-Check the climate stripes with a tool to simulate colour blind vision. Are the climate stripes colour blind friendly? Motivate your anwser.
+Check the climate stripes with a tool to simulate colour blind vision. Are the climate stripes colour blind friendly? Motivate your answer.
 
 
 ## Colours in Seaborn
@@ -593,7 +593,7 @@ They can't be used to represent quantitative data. They could be used for ordere
 
 Linear size and area are often mapped to quantitative values, such as absolute measurements and percentages.
 
-Size is often used together with colour to display a quantiative value stratified by a qualitative factor.
+Size is often used together with colour to display a quantitative value stratified by a qualitative factor.
 
 :::
 
@@ -699,7 +699,7 @@ Though, conceptually, if we would be mapping the data to  the bars' area instead
 ::: {.column width="47%"}
 
 
-To make a pie chart in Python we have to use, instead of seaborn, the old interface of [Pyplot](https://matplotlib.org/stable/tutorials/introductory/pyplot.html).
+To make a pie chart in Python we have to use, instead of Seaborn, the old interface of [Pyplot](https://matplotlib.org/stable/tutorials/introductory/pyplot.html).
 
 ```{python}
 import matplotlib.pyplot as plt
@@ -725,7 +725,7 @@ perc = (counts.values/
         counts.values.sum())
 labels = counts.index
 
-# define a color palete of the 
+# define a color palette of the 
 # same length of the data
 colors = sns.color_palette(
   'viridis', 
@@ -769,7 +769,7 @@ You can encode a continuous variable in the area of the circles in a scatterplot
 
 Our perception is not as good at comparing areas, so use this retinal variable with parsimony.
 
-You can map data to the radius of circles or to the area directly. Mapping data to the area directly might be slightly better, although neither chioice is optimal, 
+You can map data to the radius of circles or to the area directly. Mapping data to the area directly might be slightly better, although neither choice is optimal, 
 
 :::
 
@@ -818,7 +818,7 @@ A light coloured area is often used to encode for a measurement of uncertainty o
 
 For example, the confidence interval of a regression model, or the prediction of how a natural phenomena will evolve in space and time.
 
-How to represent uncertainty intuituvely, is an active field of research.
+How to represent uncertainty intuitively, is an active field of research.
 
 :::
 
@@ -883,7 +883,7 @@ Year: Current
 
 Website: [NOAA - Hurricane Center](https://www.nhc.noaa.gov/aboutcone.shtml)
 
-*The cone shows the forcasted path of the hurricane, from its current position. The size of the cone grows with the uncertainty in the path's forecast*
+*The cone shows the foretasted path of the hurricane, from its current position. The size of the cone grows with the uncertainty in the path's forecast*
 
 There's evidence that we intuitively associate the size of the cone to the forecasted size of the hurricane, not to the uncertainty of its path.
 
@@ -1031,7 +1031,7 @@ for index, row in wind.iterrows():
 
 The texture is often used to distinguish various types of lines.
 
-It can also be used to fill shapes in a semiquantitative way. This aspect fell in disuse, but it can be a good choice for printer-friendly visualization.
+It can also be used to fill shapes in a semi-quantitative way. This aspect fell in disuse, but it can be a good choice for printer-friendly visualization.
 
 :::
 
