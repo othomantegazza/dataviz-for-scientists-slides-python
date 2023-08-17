@@ -18,6 +18,7 @@ format:
       - style/title-slide.html
     echo: true
     footer: "[< HOME](..)"
+    slide-number: true
 
 knitr:
   opts_chunk: 
