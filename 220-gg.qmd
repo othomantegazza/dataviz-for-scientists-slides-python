@@ -54,7 +54,7 @@ Recently, a new API in the style of ggplot2 was included in a new version of [Se
 
 ::: {.column width="70%"}
 
-The layered grammar of graphics states that:
+The layered grammar of graphics defines graphics as composed of:
 
 - A default dataset and set of mappings from variables to aesthetics.
 - One or more layers, with each layer having one geometric object, one statistical transformation, one position adjustment, and optionally, one dataset and set of aesthetic mappings.
