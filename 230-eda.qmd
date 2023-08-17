@@ -54,7 +54,7 @@ But there's no point in testing the statistical relevance of poorly formulated h
 
 ::: {.column width="45%"}
 
-When you explore data, you have to turn them into insightful formats. Most of the time this involves turning data into grafical and visual shapes.
+When you explore data, you have to turn them into insightful formats. Most of the time this involves turning data into graphical and visual shapes.
 
 :::
 
@@ -270,7 +270,7 @@ penguins = load_penguins()
 
 Describe an histogram in terms of the grammar of graphics.
 
-Which step do you have to define explicitely? Which step are defined implicitely by ggplot2?
+Which step do you have to define explicitly? Which step are defined implicitly by ggplot2?
 
 :::
 
@@ -371,7 +371,7 @@ Which step do you have to define explicitely? Which step are defined implicitely
 
 ## Two variables
 
-Lets's use the diamonds dataset.
+Let's use the diamonds dataset.
 
 ```{python}
 from seaborn import load_dataset
@@ -533,7 +533,7 @@ diamonds = load_dataset('diamonds')
 
 Describe the faceted scatterplot, that you can find on the previous page in terms of the grammar of graphics.
 
-Which step do you have to define explicitely? Which step are defined implicitely by Seaborn?
+Which step do you have to define explicitly? Which step are defined implicitly by Seaborn?
 
 :::
 
@@ -670,7 +670,7 @@ import seaborn as sns
 
 Heatmap are useful for exploring big datasets, where many observation are similar to one another. To avoid overplotting, on those datasets, you can turn scatterplots into heatmaps.
 
-In a heatmap we map a quantitative value to a color. Heatmaps can be used both with categorical x and y axes, or binned continous axes.
+In a heatmap we map a quantitative value to a color. Heatmaps can be used both with categorical x and y axes, or binned continuous axes.
 
 :::
 
@@ -802,7 +802,7 @@ The aim of this exercise is to let you practice making many exploratory graphs, 
 
 Visualize the content of [this dataset](https://github.com/othomantegazza/dataviz-for-scientists-slides/blob/main/data/secret-message.csv) in different ways, until you find the secret message. Be fast, you have a lot of data to explore.
 
-Be essential. You, right here, right now, are the only person that needs to undestand these graphs. Do not waste your time making the graphs nicer, change only what you need to change to understand them better.
+Be essential. You, right here, right now, are the only person that needs to understand these graphs. Do not waste your time making the graphs nicer, change only what you need to change to understand them better.
 
 Show the data. The message is often well hidden, if you summarize the data too much, they might get lost.
 
