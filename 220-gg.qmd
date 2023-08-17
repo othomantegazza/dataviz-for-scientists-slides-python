@@ -16,7 +16,7 @@ editor_options:
 
 If we find a way to describe graphs systematically, then we can design and develop them more easily.
 
-Most technical graphs can be declared with a system of rules called "Grammar of Grapihcs".
+Most technical graphs can be declared with a system of rules called "Grammar of Graphics".
 
 This system of rules is the basis for many data visualization packages, such as [ggplot2](https://ggplot2.tidyverse.org/), [Seaborn](https://seaborn.pydata.org/) and [Altair](https://altair-viz.github.io/).
 
@@ -54,7 +54,7 @@ Recently, a new API in the style of ggplot2 was included in a new version of [Se
 
 ::: {.column width="70%"}
 
-The layered grammar of grapics states that:
+The layered grammar of graphics states that:
 
 - A default dataset and set of mappings from variables to aesthetics.
 - One or more layers, with each layer having one geometric object, one statistical transformation, one position adjustment, and optionally, one dataset and set of aesthetic mappings.
@@ -113,7 +113,7 @@ Describe the weather history by Robert Plot.
 - Aesthetics Mapping: 
   - x: atmospheric pressure
   - y: day of the month
-- Statistical Trasformation:
+- Statistical Transformation:
   - none / identity
 - Geometric Object:
   - stepped line
@@ -135,7 +135,7 @@ Describe this semigraph by Lambert.
 - Aesthetics Mapping: 
   - x: ...
   - y: ...
-- Statistical Trasformation:
+- Statistical Transformation:
   - ...
 - Geometric Object:
   - ...
@@ -159,7 +159,7 @@ Describe the radial histogram by Nightingale
 - Aesthetics Mapping: 
   - x: ...
   - y: ...
-- Statistical Trasformation:
+- Statistical Transformation:
   - ...
 - Geometric Object:
   - ...
@@ -201,7 +201,7 @@ Describe the weather map by the app [Windy](https://www.windy.com/).
 - Aesthetics Mapping: 
   - x: ...
   - y: ...
-- Statistical Trasformation:
+- Statistical Transformation:
   - ...
 - Geometric Object:
   - ...
@@ -222,7 +222,7 @@ For the main data visualization, how many layers of information do you notice?
 
 [Seaborn](https://seaborn.pydata.org/index.html) is one of the main tools for declaring graphics in Python, together with [Pyplot](https://matplotlib.org/stable/tutorials/introductory/pyplot.html) and [Altair](https://altair-viz.github.io/).
 
-[Seaborn's object interface](https://seaborn.pydata.org/tutorial/objects_interface.html) is under active developement and is based on the layered grammar of graphics.
+[Seaborn's object interface](https://seaborn.pydata.org/tutorial/objects_interface.html) is under active development and is based on the layered grammar of graphics.
 
 It can be used both for explorative analysis and for publication ready graphs.
 
@@ -241,7 +241,7 @@ It can be used both for explorative analysis and for publication ready graphs.
 # Seaborn Object Interface
 import seaborn.objects as so
 
-# The palmer penguins dataset;
+# The Palmer penguins dataset;
 # that we are going to use for practice
 from palmerpenguins import load_penguins
 penguins = load_penguins()
@@ -661,7 +661,7 @@ Remove empty bars.
 
 ##
 
-Change the position adjustement.
+Change the position adjustment.
 
 ```{python}
 #| output-location: column
