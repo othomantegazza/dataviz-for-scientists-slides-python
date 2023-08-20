@@ -1,0 +1,333 @@
+---
+title: "Better Graphs II"
+subtitle: "Show the data. Declutter. Foster intuition. Know your audience."
+author: "Otho Mantegazza"
+editor_options:  
+  chunk_output_type: console
+---
+
+##
+
+![](img/ggmaplot-3.jpg){.absolute top=0 left=0}
+
+::: {.caption .absolute left=0 bottom=0}
+
+::: {.columns}
+
+::: {.column width="31%"}
+
+MA PLOT
+
+Source: [ggpubr](https://rpkgs.datanovia.com/ggpubr/index.html)
+
+Field: Omics Disciplines
+
+:::
+
+::: {.column width="31%"}
+
+*A highly specialized diagnostic visual model used in the omics disciplines.*
+
+
+
+*He designed the concept of climate stripes, removing everything that's not a direct mapping of data from an heatmap of average temperature.*
+
+:::
+::: {.column width="31%"}
+
+On the x axis, each stripe is a year, from the year when the first data recording is available reliably.
+
+The colour represents the relative change in temperature.
+
+The y axis is not mapped to the data.
+
+:::
+
+:::
+
+:::
+
+## Communicating to Others
+
+::: {.columns}
+
+::: {.column width="50%"}
+
+When you explore your data, your goal should be to produce quickly as many graphs as possible, to gain insights.
+
+When you want to communicate results to other, you goal should be to make as few graphs as possible that convey a message to your audience in a clear and informative way.
+
+As a scientist, the most likely scenario would be that you are communicating very complex results to an highly educated and informed audience.
+
+:::
+
+:::
+
+## Keep in Mind
+
+::: {.columns}
+
+::: {.column width="50%"}
+
+1. Show the data (as much as you can).
+2. Declutter.
+3. Use intuition.
+4. Know your audience's expectations.
+
+:::
+
+:::
+
+## Show the Data
+
+```{python}
+# All functions to manipulate data
+import pandas as pd
+
+# Seaborn Object Interface
+import seaborn.objects as so
+# and other Seaborn functions
+import seaborn as sns
+
+# The palmer penguins dataset;
+# that we are going to use for practice
+from palmerpenguins import load_penguins
+penguins = load_penguins()
+
+# The diamonds dataset
+from seaborn import load_dataset
+diamonds = load_dataset('diamonds')
+```
+
+## Show the Data
+
+```{python}
+#| output-location: column
+#| classes: "side-fig"
+(
+    so.Plot(
+      penguins, 
+      x="sex", 
+      y="body_mass_g")
+    .add(
+      so.Bar(), 
+      so.Agg(
+        func = "mean"
+      )
+    )
+    .layout(
+      size=(5, 6)
+    )
+)
+```
+
+## Show the Data
+
+```{python}
+#| output-location: column
+#| classes: "side-fig"
+(
+    so.Plot(
+      penguins, 
+      x="sex", 
+      y="body_mass_g")
+    .add(
+      so.Bar(), 
+      so.Agg(
+        func = "mean"
+      )
+    )
+    .add(
+      so.Range(
+        color = '#000'
+      ), 
+      so.Est(
+        errorbar=("ci", 95)
+      ),
+    )
+    .layout(
+      size=(5, 6)
+    )
+)
+```
+
+## Show the Data
+
+```{python}
+#| output-location: column
+#| classes: "side-fig"
+(
+    so.Plot(
+      penguins, 
+      x="sex", 
+      y="body_mass_g")
+    .add(
+      so.Dot(), 
+      so.Agg(
+        func = "median"
+      )
+    )
+    .add(
+      so.Range(
+        color = '#000'
+      ), 
+      so.Est(
+        errorbar=("pi", 50)
+      ),
+    )
+    .layout(
+      size=(5, 6)
+    )
+)
+```
+
+## Show the Data
+
+```{python}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "7-9"
+(
+    so.Plot(
+      penguins, 
+      x="sex", 
+      y="body_mass_g")
+    .add(
+      so.Dots(), 
+      so.Jitter(.5)
+    )
+    .add(
+      so.Dot(
+        pointsize = 10,
+        color = 'black',
+        fill = False,
+        stroke = 2
+      ), 
+      so.Agg(
+        func = "median"
+      )
+    )
+    .add(
+      so.Range(
+        color = '#000'
+      ), 
+      so.Est(
+        errorbar=("pi", 50)
+      ),
+    )
+    .layout(
+      size=(5, 6)
+    )
+)
+```
+
+
+## Show the Data
+
+```{python}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "7-9"
+(
+    so.Plot(
+      penguins, 
+      x="sex", 
+      y="body_mass_g",
+      color = "species")
+    .add(
+      so.Dots(), 
+      so.Jitter(.5)
+    )
+    .add(
+      so.Dot(
+        pointsize = 10,
+        color = 'black',
+        fill = False,
+        stroke = 2
+      ), 
+      so.Agg(
+        func = "median"
+      )
+    )
+    .add(
+      so.Range(
+        color = '#000'
+      ), 
+      so.Est(
+        errorbar=("pi", 50)
+      ),
+    )
+    .layout(
+      size=(5, 6)
+    )
+)
+```
+
+## Show the data
+
+```{python}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 6
+#| code-line-numbers: "7-9"
+(
+    so.Plot(
+      penguins, 
+      x="sex", 
+      y="body_mass_g",
+      color = "species")
+    .add(
+      so.Dots(), 
+      so.Jitter(.5)
+    )
+    .add(
+      so.Dot(
+        pointsize = 10,
+        color = 'black',
+        fill = False,
+        stroke = 2
+      ), 
+      so.Agg(
+        func = "median"
+      )
+    )
+    .add(
+      so.Range(
+        color = '#000'
+      ), 
+      so.Est(
+        errorbar=("pi", 50)
+      ),
+    )
+    .facet(col = 'species')
+    .layout(
+      size=(5, 6)
+    )
+)
+```
+
+
+##
+
+Obviously, you should craft your message analyzing your data rigorously.
+
+Be sure to make few graphs, which convey a message that you want to get through to your audience.
+
+The goal of a data visualization in scientific communication is to convey a message. That message should be clear to yourself, first of all, and then clear to your audience. 
+
+To help inform your audience, add as many details you can into your data visualization, but not too many. They should not overcrowd your message.
+
+## Show the Data
+
+- As much as you can, as nuanced as you can.
+- If it can be turned into a table, is to simple.
+- If the message isn't clear, is too complex
+
+## Declutter
+
+## Spatial organization, ordering
+
+## Gestalt Prangranz
+
