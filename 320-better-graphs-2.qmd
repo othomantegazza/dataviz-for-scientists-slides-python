@@ -331,3 +331,7 @@ To help inform your audience, add as many details you can into your data visuali
 
 ## Gestalt Prangranz
 
+
+<!--- js dependencies -->
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="js/fix-figures.js"></script>
