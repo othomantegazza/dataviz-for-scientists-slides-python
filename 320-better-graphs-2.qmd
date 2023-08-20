@@ -8,6 +8,7 @@ editor_options:
 
 ##
 
+
 ![](img/ggmaplot-3.jpg){.absolute top=0 left=0}
 
 ::: {.caption .absolute left=0 bottom=0}
@@ -185,9 +186,7 @@ diamonds = load_dataset('diamonds')
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-#| code-line-numbers: "7-9"
+#| classes: "side-fig"
 (
     so.Plot(
       penguins, 
@@ -227,9 +226,7 @@ diamonds = load_dataset('diamonds')
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-#| code-line-numbers: "7-9"
+#| classes: "side-fig"
 (
     so.Plot(
       penguins, 
@@ -260,7 +257,7 @@ diamonds = load_dataset('diamonds')
       ),
     )
     .layout(
-      size=(5, 6)
+      size=(4, 6)
     )
 )
 ```
@@ -269,9 +266,7 @@ diamonds = load_dataset('diamonds')
 
 ```{python}
 #| output-location: column
-#| fig-width: 5
-#| fig-height: 6
-#| code-line-numbers: "7-9"
+#| classes: "side-fig"
 (
     so.Plot(
       penguins, 
@@ -303,7 +298,7 @@ diamonds = load_dataset('diamonds')
     )
     .facet(col = 'species')
     .layout(
-      size=(5, 6)
+      size=(4, 6)
     )
 )
 ```
