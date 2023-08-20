@@ -29,6 +29,7 @@ Book: Exploratory Data Analysis
 :::: {.columns}
 
 ::: {.column width="45%"}
+
 ### Investigative Work 
 
 Exploratory data analysis, as stated by Tukey, is the investigative work on data.
@@ -39,6 +40,7 @@ When you explore data, you leave no stone unturned. Relying on graphical methods
 :::
 
 ::: {.column width="45%"}
+
 ### Confirmation
 
 After you have done your investigative work, you should switch from inspector to judge and test your hypothesis with inference and tests.

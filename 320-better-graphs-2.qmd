@@ -81,6 +81,16 @@ As a scientist, the most likely scenario would be that you are communicating ver
 
 ## Show the Data
 
+::: {.columns}
+
+::: {.column width="47%"}
+
+Load all the libraries that we need.
+
+:::
+
+::: {.column width="47%"}
+
 ```{python}
 # All functions to manipulate data
 import pandas as pd
@@ -99,6 +109,10 @@ penguins = load_penguins()
 from seaborn import load_dataset
 diamonds = load_dataset('diamonds')
 ```
+
+:::
+
+:::
 
 ## Show the Data
 
