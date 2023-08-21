@@ -116,6 +116,22 @@ diamonds = load_dataset('diamonds')
 
 ## Show the Data
 
+::: {.columns}
+
+::: {.column width="50%"}
+
+You should use graphs to deliver a message to your audience.
+
+But while convey that message, show as many details of the data as you can. In this way you'll provide precious information to your audience.
+
+When you visualize data, show as much data as you can, and if you hide your data behind a statistical transformation, use one which is as simple as possible.
+
+:::
+
+:::
+
+## Show the Data
+
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
@@ -461,7 +477,7 @@ diamonds_binned = (
   )
   .add(
     so.Dot(
-      pointsize = 2,
+      pointsize = 4,
       color = 'black',
       fill = False,
       stroke = 2
