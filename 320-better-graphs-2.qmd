@@ -398,6 +398,23 @@ When you visualize data, show as much data as you can, and if you hide your data
 
 ## Show as Much Data as You Can
 
+::: {.columns}
+
+::: {.column width="50%"}
+
+Show the data is a good mindset to make informative plots.
+
+Though, for the sake of clarity and simplicity, you might decide to hide some of the raw data behind statistical transformation.
+
+It's up to you to find the balance between detail and simplicity that suits your audience.
+
+:::
+
+:::
+
+
+## Show as Much Data as You Can
+
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
