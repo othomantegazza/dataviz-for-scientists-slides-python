@@ -397,6 +397,9 @@ diamonds = load_dataset('diamonds')
   .add(
     so.Dots()
   )
+  .layout(
+    size=(5, 6)
+  )
 )
 ```
  
@@ -419,31 +422,8 @@ diamonds = load_dataset('diamonds')
       alpha = .01
     )
   )
-)
-```
-
-## Show as Much Data as You Can
-
-```{python}
-#| output-location: column
-#| classes: "side-fig"
-#| code-line-numbers: ""
-(
-  so.Plot(
-   data = diamonds.query(
-      'carat < 3', 
-      ),
-    x = 'carat',
-    y = 'price'
-  )
-  .add(
-    so.Dots(
-      alpha = .1
-    )
-  )
-  .add(
-    so.Line(color = 'black'),
-    so.PolyFit()
+  .layout(
+    size=(5, 6)
   )
 )
 ```
@@ -454,26 +434,54 @@ diamonds = load_dataset('diamonds')
 #| output-location: column
 #| classes: "side-fig"
 #| code-line-numbers: ""
-diamonds["carat_bin"] = pd.cut(
-  diamonds["carat"], 3
+
+
+diamonds_binned = (
+  diamonds
+    .query(
+      'carat < 3'
+    )
+    .assign(
+      carat_bin = lambda x: round(
+        x.carat, 1
+      )
   )
+)
 
 (
   so.Plot(
-   data = diamonds.query(
-      'carat < 3', 
-      ),
+   data = diamonds_binned,
     x = 'carat',
     y = 'price'
   )
   .add(
-    so.Dots(
-      alpha = .1
+    so.Dot(
+      alpha = .005
     )
   )
   .add(
-    so.Line(color = 'black'),
-    so.PolyFit()
+    so.Dot(
+      pointsize = 2,
+      color = 'black',
+      fill = False,
+      stroke = 2
+    ), 
+    so.Agg(
+      func = "median"
+    ),
+    x = 'carat_bin'
+  )
+  .add(
+    so.Range(
+      color = '#000'
+    ), 
+    so.Est(
+      errorbar=("pi", 50)
+    ),
+    x = 'carat_bin'
+  )
+  .layout(
+    size=(5, 6)
   )
 )
 ```
