@@ -335,7 +335,7 @@ diamonds = load_dataset('diamonds')
 )
 ```
 
-## Show the data
+## Show the Data
 
 ```{python}
 #| output-location: column
@@ -379,6 +379,105 @@ diamonds = load_dataset('diamonds')
     )
 )
 ```
+
+## Show as Much Data as You Can
+
+```{python}
+#| output-location: column
+#| classes: "side-fig"
+#| code-line-numbers: ""
+(
+  so.Plot(
+   data = diamonds.query(
+      'carat < 3', 
+      ),
+    x = 'carat',
+    y = 'price'
+  )
+  .add(
+    so.Dots()
+  )
+)
+```
+ 
+## Show as Much Data as You Can
+
+```{python}
+#| output-location: column
+#| classes: "side-fig"
+#| code-line-numbers: ""
+(
+  so.Plot(
+   data = diamonds.query(
+      'carat < 3', 
+      ),
+    x = 'carat',
+    y = 'price'
+  )
+  .add(
+    so.Dot(
+      alpha = .01
+    )
+  )
+)
+```
+
+## Show as Much Data as You Can
+
+```{python}
+#| output-location: column
+#| classes: "side-fig"
+#| code-line-numbers: ""
+(
+  so.Plot(
+   data = diamonds.query(
+      'carat < 3', 
+      ),
+    x = 'carat',
+    y = 'price'
+  )
+  .add(
+    so.Dots(
+      alpha = .1
+    )
+  )
+  .add(
+    so.Line(color = 'black'),
+    so.PolyFit()
+  )
+)
+```
+
+## Show as Much Data as You Can
+
+```{python}
+#| output-location: column
+#| classes: "side-fig"
+#| code-line-numbers: ""
+diamonds["carat_bin"] = pd.cut(
+  diamonds["carat"], 3
+  )
+
+(
+  so.Plot(
+   data = diamonds.query(
+      'carat < 3', 
+      ),
+    x = 'carat',
+    y = 'price'
+  )
+  .add(
+    so.Dots(
+      alpha = .1
+    )
+  )
+  .add(
+    so.Line(color = 'black'),
+    so.PolyFit()
+  )
+)
+```
+
 
 
 ##
