@@ -497,6 +497,8 @@ They can't be used to represent quantitative data. They could be used for ordere
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "1,11-18"
+# set markers manually
 (
   so.Plot(
     data = penguins,
@@ -507,7 +509,6 @@ They can't be used to represent quantitative data. They could be used for ordere
  .add(
   so.Dot()
  )
- # set markers manually
  .scale(
   marker = [
     'o',
@@ -524,7 +525,8 @@ They can't be used to represent quantitative data. They could be used for ordere
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
-#| code-line-numbers: "15-21"
+#| code-line-numbers: "1,11-12"
+# use empty shapes  
 (
   so.Plot(
     data = penguins,
@@ -533,7 +535,6 @@ They can't be used to represent quantitative data. They could be used for ordere
     marker = 'species'
  )
  .add(
-  # empty shapes  
   so.Dot(
     fill = False,
     stroke = 1.5
@@ -555,14 +556,15 @@ They can't be used to represent quantitative data. They could be used for ordere
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "1-2,8-9"
+# double encode species
+# with shape and colour
 (
   so.Plot(
     data = penguins,
     x = 'bill_length_mm',
     y = 'bill_depth_mm',
     marker = 'species',
-    # double encode species
-    # with shape and colour
     color = 'species'
  )
  .add(
@@ -630,7 +632,10 @@ Size is often used together with colour to display a quantitative value stratifi
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
-#| code-line-numbers: "4-8"
+#| code-line-numbers: "1-3,15"
+# map the ordered variable
+# "clarity" to an ordered
+# color scale
 (
   so.Plot(
     data = diamonds,
@@ -642,9 +647,6 @@ Size is often used together with colour to display a quantitative value stratifi
     so.Count(),
     so.Stack()
   )
-  # map the ordered variable
-  # "clarity" to an ordered
-  # color scale
   .scale(color = 'flare')
   .layout(size=(5, 6))
 )
@@ -655,7 +657,9 @@ Size is often used together with colour to display a quantitative value stratifi
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "1-2,16-20"
 # Map additional variables
+# to facets
 (
   so.Plot(
     data = diamonds,
@@ -991,6 +995,7 @@ for index, row in wind.iterrows():
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "17-22"
 
 ax = plt.figure(
   figsize=(10,12)
