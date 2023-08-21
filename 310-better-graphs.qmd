@@ -372,7 +372,7 @@ diamonds = load_dataset('diamonds')
 # set the right size for the figure
 sns.set(
   rc={
-    'figure.figsize':(5,6)
+    'figure.figsize':(4.5,6)
   })
 
 sns.histplot(
@@ -389,11 +389,11 @@ sns.histplot(
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
-
+#| code-line-numbers: "13-14"
 # set the right size for the figure
 sns.set(
   rc={
-    'figure.figsize':(5,6)
+    'figure.figsize':(4.5,6)
   })
 
 sns.histplot(
@@ -431,6 +431,7 @@ sns.histplot(
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "11-16"
 (
   so.Plot(
     data = penguins,
@@ -506,7 +507,7 @@ They can't be used to represent quantitative data. They could be used for ordere
  .add(
   so.Dot()
  )
- # map markers manually
+ # set markers manually
  .scale(
   marker = [
     'o',
@@ -523,6 +524,7 @@ They can't be used to represent quantitative data. They could be used for ordere
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
+#| code-line-numbers: "15-21"
 (
   so.Plot(
     data = penguins,
