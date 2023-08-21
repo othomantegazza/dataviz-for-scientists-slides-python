@@ -263,9 +263,11 @@ A default dataset...
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
-#| code-line-numbers: "2"
+#| code-line-numbers: "2-4"
 (
-    so.Plot(penguins)
+    so.Plot(
+      data = penguins
+      )
     .layout(size=(5, 6))
 )
 ```
@@ -277,7 +279,7 @@ A set of mappings from variables to aesthetics...
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
-#| code-line-numbers: "3-4"
+#| code-line-numbers: "4-5"
 (
   so.Plot(
       data = penguins,
@@ -311,23 +313,23 @@ One or more layers, with geometric object, related to the aesthetic mappings.
 
 ##
 
-More variables mapped to aesthetics and represented in the geometric object.
+More variables mapped to aesthetics and represented by the geometric object.
 
 
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
-#| code-line-numbers: "6-7"
+#| code-line-numbers: "6,10"
 (
   so.Plot(
       data = penguins,
       x = 'bill_length_mm',
       y = 'bill_depth_mm',
       color = 'species',
-      marker = 'sex'
       )
     .add(
-      so.Dot()
+      so.Dot(),
+      marker = 'sex'
     )
     .layout(size=(5, 6))
   )
@@ -347,11 +349,11 @@ A layer with a different geometric object and a statistical transformation.
       data = penguins,
       x = 'bill_length_mm',
       y = 'bill_depth_mm',
-      color = 'species',
-      marker = 'sex'
+      color = 'species'
       )
     .add(
-      so.Dot()
+      so.Dot(),
+      marker = 'sex'
     )
     .add(
       so.Line(),
@@ -364,7 +366,7 @@ A layer with a different geometric object and a statistical transformation.
 
 ##
 
-Map data to the aesthetics of only one layer:
+Aesthetics can be mapped to all or to just one layer.
 
 ```{python}
 #| output-location: column
@@ -392,7 +394,7 @@ Map data to the aesthetics of only one layer:
 
 ##
 
-The facet specification.
+A facet specification.
 
 ```{python}
 #| output-location: column
