@@ -656,10 +656,8 @@ Checking the data to ink ratio of your graphs is a good way to help your message
 
 :::
 
+## User Research
 
-## Spatial organization, ordering
-
-## Gestalt Prangranz
 
 
 <!--- js dependencies -->
