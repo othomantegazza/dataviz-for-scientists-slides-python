@@ -203,7 +203,7 @@ Could it be one of the first way to abstract data and then represent them graphi
 
 In the 17^th^ Century, interest for the natural sciences and disciplines such as astronomy, geography, physics, demographic, grew exponentially.
 
-In that period, data visualization as we know i, was born under the name of "Statistical Diagrams".
+In that period, data visualization as we know it, was born under the name of "Statistical Diagrams".
 
 :::
 ::::
