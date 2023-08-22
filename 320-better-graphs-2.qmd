@@ -160,7 +160,7 @@ If you have to hide your data behind a statistical transformation, use one which
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
-#| code-line-numbers: "1-5,14,17-24"
+#| code-line-numbers: "1-5,17-24"
 # showing mean and 
 # confidence interval
 # is generally accepted,
@@ -419,6 +419,8 @@ It's up to you to find the balance between detail and simplicity that suits your
 #| output-location: column
 #| classes: "side-fig"
 #| code-line-numbers: ""
+# In this case overplotting 
+# saturates the plot
 (
   so.Plot(
    data = diamonds.query(
@@ -441,7 +443,9 @@ It's up to you to find the balance between detail and simplicity that suits your
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
-#| code-line-numbers: ""
+#| code-line-numbers: "1-2,13"
+# We can use transparency 
+# to overcome overplotting a bit
 (
   so.Plot(
    data = diamonds.query(
@@ -466,8 +470,11 @@ It's up to you to find the balance between detail and simplicity that suits your
 ```{python}
 #| output-location: column
 #| classes: "side-fig"
-#| code-line-numbers: ""
-
+#| code-line-numbers: "1-4,6-17,29-49"
+# But, to help the reader,
+# I would add a statistical 
+# transformation over the data
+# Showing mean and IQR range
 
 diamonds_binned = (
   diamonds
@@ -523,8 +530,10 @@ diamonds_binned = (
 
 ```{python}
 #| output-location: column
-#| classes: "side-fig"
-#| code-line-numbers: ""
+#| #| classes: "side-fig"
+#| code-line-numbers: "1-2"
+# Should we hide the data
+# completely?
 
 diamonds_binned = (
   diamonds
@@ -577,6 +586,9 @@ diamonds_binned = (
 #| output-location: column
 #| classes: "side-fig"
 #| code-line-numbers: ""
+
+# Otherwise we can swich to a
+# different vislal model
 
 sns.set(
   rc={
