@@ -530,7 +530,7 @@ diamonds_binned = (
 
 ```{python}
 #| output-location: column
-#| #| classes: "side-fig"
+#| classes: "side-fig"
 #| code-line-numbers: "1-2"
 # Should we hide the data
 # completely?
@@ -604,21 +604,24 @@ sns.histplot(
 );
 ```
 
-##
-
-Obviously, you should craft your message analyzing your data rigorously.
-
-Be sure to make few graphs, which convey a message that you want to get through to your audience.
-
-The goal of a data visualization in scientific communication is to convey a message. That message should be clear to yourself, first of all, and then clear to your audience. 
-
-To help inform your audience, add as many details you can into your data visualization, but not too many. They should not overcrowd your message.
-
 ## Show the Data
 
-- As much as you can, as nuanced as you can.
-- If it can be turned into a table, is to simple.
-- If the message isn't clear, is too complex
+::: {.columns}
+
+::: {.column width="50%"}
+
+Your graph should deliver a message.
+
+While delivering this message, you should provide as much information as possible, showing the data.
+
+If your graph gets too crowded, feel free to hide some of the data behind a statistical transformation.
+
+Graphs are processed intuitively by your audience, be sure not to mislead them.
+
+:::
+
+:::
+
 
 ## Declutter
 
