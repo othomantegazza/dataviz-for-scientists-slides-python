@@ -54,7 +54,7 @@ The y axis is not mapped to the data.
 
 ::: {.column width="50%"}
 
-When you explore your data, your goal should be to produce quickly as many graphs as possible, to gain insights.
+When you explore your data, your goal should be to produce, quickly, as many graphs as possible, to gain insights.
 
 When you want to communicate results to other, you goal should be to make as few graphs as possible that convey a message to your audience in a clear and informative way.
 
@@ -122,9 +122,9 @@ diamonds = load_dataset('diamonds')
 
 You should use graphs to deliver a message to your audience.
 
-But while convey that message, show as many details of the data as you can. In this way you'll provide precious information to your audience.
+When you do it, show as many details of the data as you can. In this way you'll provide precious information to your audience.
 
-When you visualize data, show as much data as you can, and if you hide your data behind a statistical transformation, use one which is as simple as possible.
+If you have to hide your data behind a statistical transformation, use one which is as simple as possible.
 
 :::
 
