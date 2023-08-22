@@ -622,8 +622,39 @@ Graphs are processed intuitively by your audience, be sure not to mislead them.
 
 :::
 
-
 ## Declutter
+
+::: {.columns}
+
+::: {.column width="50%"}
+
+Keep your message in front. 
+
+One of the main mindset for decluttering a graph is the "data to ink ratio" concept, developed by [E. Tufte](https://en.wikipedia.org/wiki/Edward_Tufte).
+
+According to it, most ink in your graph should be used to represent data.
+
+:::
+
+:::
+
+##
+
+![](img/tufte-data-to-ink.jpg){.absolute top=0 left=370 height="700"}
+
+::: {.caption .rev .absolute right=710 bottom=0}
+
+DATA TO INK RATIO
+
+Year: 1826
+
+Author: [Edward Tufte](https://en.wikipedia.org/wiki/Edward_Tufte).
+
+*Edward Tufte shows that removing ink from axes and other graphical elements that are not directly mapped to the data, the message of the graph might become more evident.*
+
+In [this choropleth map](https://commons.wikimedia.org/wiki/File:Carte_figurative_de_l'instruction_populaire_de_la_France.jpg), the darker the region the higher is the average education level.
+:::
+
 
 ## Spatial organization, ordering
 
