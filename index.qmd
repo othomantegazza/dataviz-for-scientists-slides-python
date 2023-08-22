@@ -7,8 +7,6 @@ author: "[Otho Mantegazza](https://othomantegazza.com/)"
 
 ---
 
-<span style="background-color: yellow;">Work in progress!</span>
-
 Slides for the data visualization part of the [2023 Hackathon Workshop on Computational Modeling](https://innovateaihealthlab.co.ke/events/) at the University of Embu, Kenya.
 
 # Slides
