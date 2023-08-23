@@ -25,7 +25,7 @@ Slides for the data visualization part of the [2023 Hackathon Workshop on Comput
 
 # Resources
 
-Besides the slides, you can consult any of these [open access books](https://othomantegazza.com/textbook-library) on the topics of data analysis, statistics, programming and data visualization.
+Besides the slides, you can consult any of these [open access books](https://othomantegazza.com/textbook-library) on the topics of data analysis, statistics, programming and data visualization. The authors of those books made them open access, so they can be consulted online anytime.
 
 # License
 
