@@ -633,8 +633,23 @@ When you commiunicate your results, data visualization are your products, and yo
 :::
 
 
-##
+## Know Expectations
 
+::: {.columns}
+
+::: {.column width="50%"}
+
+Probably, you'll collaborate with people from many different fields and disciplines.
+
+Each field has its own way to represent specific types of data.
+
+People in each field expect to see the graphs that they are used to.
+
+:::
+
+:::
+
+##
 
 ![](img/ggmaplot-3.jpg){.absolute top=0 left=0}
 
@@ -677,3 +692,4 @@ The y axis is not mapped to the data.
 <!--- js dependencies -->
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script src="js/fix-figures.js"></script>
+

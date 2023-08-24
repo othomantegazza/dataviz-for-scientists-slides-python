@@ -272,7 +272,7 @@ penguins = load_penguins()
 
 Describe an histogram in terms of the grammar of graphics.
 
-Which step do you have to define explicitly? Which step are defined implicitly by ggplot2?
+Which step do you have to define explicitly? Which step are defined implicitly by Seaborn?
 
 :::
 

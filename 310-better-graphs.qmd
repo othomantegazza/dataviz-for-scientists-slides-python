@@ -1032,6 +1032,8 @@ for index, row in wind.iterrows():
 
 ## Texture
 
+![](img/texture.jpg){.absolute top=110 left=500 width=300}
+
 ::: {.columns}
 
 ::: {.column width="45%"}
@@ -1040,9 +1042,32 @@ The texture is often used to distinguish various types of lines.
 
 It can also be used to fill shapes in a semi-quantitative way. This aspect fell in disuse, but it can be a good choice for printer-friendly visualization.
 
+Unfortunately python does not have good support for texture filling areas; the example on the side is from [texture.js](https://riccardoscalco.it/textures/).
+
 :::
 
 :::
+
+## Texture - Line Type
+
+```{python}
+#| output-location: column
+#| classes: "side-fig"
+
+healthexp = sns.load_dataset('healthexp')
+
+(
+  so.Plot(
+    data = healthexp,
+    x="Year",
+    y="Life_Expectancy",
+    linestyle="Country"
+  )
+  .add(
+    so.Line()
+  )
+)
+```
 
 <!--- js dependencies -->
 <script src="https://d3js.org/d3.v7.min.js"></script>
