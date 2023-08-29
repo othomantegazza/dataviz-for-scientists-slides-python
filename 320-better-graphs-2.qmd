@@ -622,11 +622,11 @@ Checking the data to ink ratio of your graphs is a good way to help your message
 
 ::: {.column width="50%"}
 
-User research is a design practice centered on researching what your users would expect, how they interact with your product, where they find your product difficult to use.
+User research is a design practice about researching how user interact with a tools or products like websites. Asking what would the user expects from a tool and how they interact with it.
 
-User research proceeds throughn methods from behavioural psychology and etnography, such as interviews, surveys, tests.
+User research proceeds through methods from behavioral psychology and ethnography, such as interviews, surveys, tests.
 
-When you commiunicate your results, data visualization are your products, and your audience is your users.
+When you communicate your data driven results, graphs and charts are your products, and your audience is their user.
 
 :::
 
@@ -643,7 +643,9 @@ Probably, you'll collaborate with people from many different fields and discipli
 
 Each field has its own way to represent specific types of data.
 
-People in each field expect to see the graphs that they are used to.
+People in each field expect to see data represented in a way that they are used too.
+
+In a few words, people don't like change.
 
 :::
 
