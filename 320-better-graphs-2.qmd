@@ -653,7 +653,7 @@ In a few words, people don't like change.
 
 ##
 
-![](img/ggmaplot-3.jpg){.absolute top=0 left=0}
+![](img/ggmaplot-3.jpg){.absolute top=0 right=0 height="400"}
 
 ::: {.caption .absolute left=0 bottom=0}
 
@@ -673,16 +673,14 @@ Field: Omics Disciplines
 
 *A highly specialized diagnostic visual model used in the omics disciplines.*
 
-*He designed the concept of climate stripes, removing everything that's not a direct mapping of data from an heatmap of average temperature.*
+*The MA plots shows the average expression level against the log fold change in multiple parallel measurements between two conditions.*
 
 :::
 ::: {.column width="31%"}
 
-On the x axis, each stripe is a year, from the year when the first data recording is available reliably.
+When you compare the expression levels of several transcripts, such as with a transcriptomic experiment, you expect few genes to be differentially expressed.
 
-The colour represents the relative change in temperature.
-
-The y axis is not mapped to the data.
+With the MA plot you can check if this assumption is supported by the data, or you can detect normalization issues.
 
 :::
 
