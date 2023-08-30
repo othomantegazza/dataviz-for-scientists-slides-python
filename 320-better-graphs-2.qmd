@@ -688,6 +688,54 @@ With the MA plot you can check if this assumption is supported by the data, or y
 
 :::
 
+##
+
+![](img/candle-chart.png){.absolute top=0 left=0  height="370"}
+
+::: {.caption .absolute left=0 bottom=0}
+
+::: {.columns}
+
+::: {.column width="31%"}
+
+CANDLESTICK CHART
+
+Source: [The Data Visualization Catalogue](https://datavizcatalogue.com)
+
+Field: Stock Trading
+
+:::
+
+::: {.column width="31%"}
+
+*A quick way to check if the stocks values increased or decreased between the opening and the closing of given day, and to check also the highest and the lowest value that they reached*
+
+:::
+::: {.column width="31%"}
+
+For each day, the box represents the opening and the closing value, and the whiskers represent the highest and the lowest value of the stock. The color shows if the stock value increased or decreased during the day.
+
+This graph is similar to a boxplot, but represents different values.
+
+:::
+
+:::
+
+:::
+
+
+## Biplot
+
+## Manhattan Plot
+
+## Circular Plots
+
+genomics
+
+migration: https://www.r-bloggers.com/2016/05/updated-circular-plots-for-directional-bilateral-migration-data/
+
+## Hurricane?
+
 
 <!--- js dependencies -->
 <script src="https://d3js.org/d3.v7.min.js"></script>
