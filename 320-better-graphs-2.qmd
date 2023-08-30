@@ -723,8 +723,38 @@ This graph is similar to a boxplot, but represents different values.
 
 :::
 
+##
 
-## Biplot
+![](img/biplot.jpeg){.absolute top=0 right=0  height="500"}
+
+::: {.caption .absolute left=0 bottom=0}
+
+::: {.columns}
+
+::: {.column width="31%"}
+
+BIPLOT
+
+Source: [Exapmles on the Palmer Penguins Dataset](https://allisonhorst.github.io/palmerpenguins/articles/pca.html#plot-pca-loadings-scores)
+
+Field: Multivariate Analysis
+
+:::
+
+::: {.column width="31%"}
+
+*A way to display, together, the loadings and projections of the first two components while performing a principal component analysis.*
+
+:::
+::: {.column width="31%"}
+
+This graphs overlay two informations: the projected data are shown as a scatterplot, and the loadings are shown as arrows starting from the center.
+
+:::
+
+:::
+
+:::
 
 ## Manhattan Plot
 
