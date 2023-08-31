@@ -809,6 +809,24 @@ The outer ring represents the chromosomes, the inner ring represents genomic rea
 
 :::
 
+##
+
+![](img/circular-chord-migrations.jpg){.absolute top=0 left=0}
+
+::: {.caption .absolute left=710 bottom=0}
+
+CIRCULAR CHORD PLOT - MIGRATIONS
+
+Source: [Guy J. Abel - migest R package](https://guyabel.github.io/migest/index.html)
+
+Field: Humanitarian Studies / Migration
+
+*The same specialized visual model, can be used to represent analogous phenomenon across multiple disciplines, in this case the circular chord plot is used to represent migrations within and across continents.*
+
+The outer ring represents the scale of the migration by continent. The size of the migration is represented on the x axis and it is mapped to the theta angle in polar coordinates. The inner ring represent the direction and size of the migration.
+
+:::
+
 ## Circular Plots
 
 genomics
