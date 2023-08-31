@@ -545,8 +545,8 @@ diamonds_binned = (
 #| classes: "side-fig"
 #| code-line-numbers: ""
 
-# Otherwise we can swich to a
-# different vislal model
+# Otherwise we can switch to a
+# different visual model
 
 sns.set(
   rc={
@@ -748,7 +748,7 @@ Field: Multivariate Analysis
 :::
 ::: {.column width="31%"}
 
-This graphs overlay two informations: the projected data are shown as a scatterplot, and the loadings are shown as arrows starting from the center.
+This graphs overlay two information: the projected data are shown as a scatterplot, and the loadings are shown as arrows starting from the center.
 
 :::
 
@@ -781,7 +781,7 @@ Field: Genomics / Genome Wide Association Studies
 :::
 ::: {.column width="31%"}
 
-The x axis represents the loci, the position across all chromosomes, which are diplayed by color. The y axis represents the minus log p-value of the association test between the loci and the phenotypic trait which is being studied.
+The x axis represents the loci, the position across all chromosomes, which are displayed by color. The y axis represents the minus log p-value of the association test between the loci and the phenotypic trait which is being studied.
 :::
 
 :::
@@ -855,7 +855,7 @@ We've seen examples that for each data driven discipline there's a set of specif
 
 You might think that they are great or that they are bad, but they are the plots being used.
 
-If you try to change them you'll encounter opposition, because you'll require your readers to go through a mental burdenn, when they are exposed to a change to the visual model that they are used to process intuitively.
+If you try to change them you'll encounter opposition, because you'll require your readers to go through a mental burden, when they are exposed to a change to the visual model that they are used to process intuitively.
 
 :::
 
@@ -885,7 +885,7 @@ Change things gradually and with caution.
 
 When changing the status quo, when you want to apply a new visual model to a known problem, test your changes.
 
-They might be an improvements for you, but be miselading to others.
+They might be an improvements for you, but be misleading to others.
 
 Your resources will probably fall short of what is needed for a full cognitive test. Nevertheless you can ask your colleagues, coworkers and friends to go through your graphs and give you feedback about what they understand and what they don't.
 
