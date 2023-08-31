@@ -894,6 +894,18 @@ Your resources will probably fall short of what is needed for a full cognitive t
 :::
 
 
+## Exercise
+
+- Assign the Axes.
+- Describe a point
+- Describe the overall pattern
+
+Explain and Q&A
+
+
+## GEneric Cognitive experiment
+
+https://medium.com/@kennelliott/39-studies-about-human-perception-in-30-minutes-4728f9e31a73
 
 
 <!--- js dependencies -->
