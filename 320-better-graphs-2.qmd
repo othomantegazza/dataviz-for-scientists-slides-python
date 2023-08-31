@@ -795,9 +795,11 @@ The x axis represents the loci, the position across all chromosomes, which are d
 
 ::: {.caption .absolute left=710 bottom=0}
 
-CIRCULAR PLOT - GENOMICS
+CIRCULAR CHORD PLOT - GENOMICS
 
-Source: [Gupta et al., 2015, PNAS](https://doi.org/10.1073/pnas.1418577112) 
+Source: [Gupta et al., 2015, PNAS](https://doi.org/10.1073/pnas.1418577112)
+
+Field: Genomics / Evolution
 
 *Circular Plots are often used in genomics to represent translocation and rearrangements of chromosome fragments across the chromosome of an organism. In general, circular visual models are very common in genomics.*
 
