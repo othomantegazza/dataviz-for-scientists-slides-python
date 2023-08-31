@@ -756,7 +756,37 @@ This graphs overlay two informations: the projected data are shown as a scatterp
 
 :::
 
-## Manhattan Plot
+##
+
+![](img/manhattan_plot.jpeg){.absolute top=0 left=0}
+
+::: {.caption .absolute left=0 bottom=0}
+
+::: {.columns}
+
+::: {.column width="31%"}
+
+MANHATTAN PLOT
+
+Source: [Wikimedia Commons - M. Kamran Ikram et al](https://commons.wikimedia.org/wiki/File:Manhattan_Plot.png)
+
+Field: Genomics / Genome Wide Association Studies   
+
+:::
+
+::: {.column width="31%"}
+
+*Across all chromosomes, which genetic marker is statistically associated with a phenotypic trait or an illness?*
+
+:::
+::: {.column width="31%"}
+
+The x axis represents the loci, the position across all chromosomes, which are diplayed by color. The y axis represents the minus log p-value of the association test between the loci and the phenotypic trait which is being studied.
+:::
+
+:::
+
+:::
 
 ## Circular Plots
 
