@@ -827,13 +827,24 @@ The outer ring represents the scale of the migration by continent. The size of t
 
 :::
 
-## Circular Plots
+##
 
-genomics
+![](img/uncertainty-cone.jpg){.absolute top=0 left=0 width=700}
 
-migration: https://www.r-bloggers.com/2016/05/updated-circular-plots-for-directional-bilateral-migration-data/
+::: {.caption .absolute left=730 top=0}
 
-## Hurricane?
+HURRICANE PROBABILITY CONE
+
+Source: [NOAA - Hurricane Center](https://www.nhc.noaa.gov/aboutcone.shtml)
+
+Field: Weather Forecast / Hurricane Warning
+
+*The uncertainty of the hurricane's path is mapped to the cone. There's evidence that, instead, we intuitively associate the size of the cone to the forecasted size of the hurricane, which we perceive as getting bigger with time.*
+
+The cone shows the foretasted path of the hurricane, from its current position. The size of the cone grows with the uncertainty in the path's forecast
+
+:::
+
 
 
 <!--- js dependencies -->
