@@ -845,6 +845,55 @@ The cone shows the foretasted path of the hurricane, from its current position. 
 
 :::
 
+## Changing Expectations
+
+::: {.columns}
+
+::: {.column width="70%"}
+
+We've seen examples that for each data driven discipline there's a set of specific and elaborated visual models that are used often and repeatedly.
+
+You might think that they are great or that they are bad, but they are the plots being used.
+
+If you try to change them you'll encounter opposition, because you'll require your readers to go through a mental burdenn, when they are exposed to a change to the visual model that they are used to process intuitively.
+
+:::
+
+:::
+
+## Changing Expectations
+
+::: {.columns}
+
+::: {.column width="70%"}
+
+[Data visualization is often processed intuitively](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6091269/). This is its power, that let's us process complex information with very little cognitive burden.
+
+If you change to much what people expect, you will place a burden on them. They might have a hard time understand the message you are trying to convey, or they might apply the wrong mental model to it, and be misled to wrong conclusions.
+
+Change things gradually and with caution.
+
+:::
+
+:::
+
+## Test Your new Ideas
+
+::: {.columns}
+
+::: {.column width="70%"}
+
+When changing the status quo, when you want to apply a new visual model to a known problem, test your changes.
+
+They might be an improvements for you, but be miselading to others.
+
+Your resources will probably fall short of what is needed for a full cognitive test. Nevertheless you can ask your colleagues, coworkers and friends to go through your graphs and give you feedback about what they understand and what they don't.
+
+:::
+
+:::
+
+
 
 
 <!--- js dependencies -->
