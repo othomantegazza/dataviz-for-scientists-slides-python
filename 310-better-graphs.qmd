@@ -1074,7 +1074,7 @@ healthexp = sns.load_dataset('healthexp')
 
 ::: {.columns}
 
-::: {.column width="45%"}
+::: {.column width="70%"}
 
 On *2021-02-16*, [TidyTuesday](https://github.com/rfordatascience/tidytuesday/tree/master) published a challenge to remember the work of [W.E.B Du Bois](https://en.wikipedia.org/wiki/W._E._B._Du_Bois).
 
@@ -1090,7 +1090,7 @@ Redesign or just redraw one or more of Du Bois' graphs. Feel free to modify them
 
 ::: {.columns}
 
-::: {.column width="45%"}
+::: {.column width="70%"}
 
 On *2023-08-22*, [TidyTuesday](https://github.com/rfordatascience/tidytuesday/tree/master) published a challenge on [UNHCR's migration data](https://www.unhcr.org/refugee-statistics/).
 
