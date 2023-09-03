@@ -940,7 +940,7 @@ Afterwards, go to your colleagues and ask them to read your graphs. →
 
 Let your colleagues ask you questions and note down the difficulties that they are facing. These are precious information on how to improve your graphs.
 
-Remeber, you are NOT testing your colleagues' skills, you are testing the readability of your graphs.
+Remember, you are NOT testing your colleagues' skills, you are testing the readability of your graphs.
 
 :::
 
