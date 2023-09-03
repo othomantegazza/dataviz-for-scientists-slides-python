@@ -912,11 +912,39 @@ If you want to study this topic, a great place to start is Kennedy Elliot's blog
 
 ## Exercise
 
-- Assign the Axes.
-- Describe a point
-- Describe the overall pattern
+::: {.columns}
 
-Explain and Q&A
+::: {.column width="70%"}
+
+Recover your graphs from the exercises at the end of [section 5 - Better Graphs Part 1](310-better-graphs.html#/exercise-1).
+
+If you feel is needed, take 30 minutes to improve them, based on what you have learned in this lesson.
+
+Afterwards, go to your colleagues and ask them to read your graphs. →
+
+:::
+
+:::
+
+## Exercise
+
+::: {.columns}
+
+::: {.column width="70%"}
+
+→ Your colleagues should read your graph and:
+
+- Describe how the graphical variables are mapped to the data variables (i.e. what's on the x axis, what's on the y axis, is some variable encoded by colour, etc.)
+- Select a point in the graph and explain it's value.
+- Describe the overall trend of the data.
+
+Let your colleagues ask you questions and note down the difficulties that they are facing. These are precious information on how to improve your graphs.
+
+Remeber, you are NOT testing your colleagues' skills, you are testing the readability of your graphs.
+
+:::
+
+:::
 
 
 <!--- js dependencies -->
