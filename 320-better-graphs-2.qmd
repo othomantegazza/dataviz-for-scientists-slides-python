@@ -76,7 +76,7 @@ diamonds = load_dataset('diamonds')
 
 ::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="70%"}
 
 You should use graphs to deliver a message to your audience.
 
@@ -358,7 +358,7 @@ If you have to hide your data behind a statistical transformation, use one which
 
 ::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="70%"}
 
 Show the data is a good mindset to make informative plots.
 
@@ -566,7 +566,7 @@ sns.histplot(
 
 ::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="70%"}
 
 Your graph should deliver a message.
 
@@ -584,7 +584,7 @@ Graphs are processed intuitively by your audience, be sure not to mislead them.
 
 ::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="70%"}
 
 Keep your message in front. 
 
@@ -620,7 +620,7 @@ Checking the data to ink ratio of your graphs is a good way to help your message
 
 ::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="70%"}
 
 User research is a design practice about researching how user interact with a tools or products like websites. Asking what would the user expects from a tool and how they interact with it.
 
@@ -637,7 +637,7 @@ When you communicate your data driven results, graphs and charts are your produc
 
 ::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="70%"}
 
 Probably, you'll collaborate with people from many different fields and disciplines.
 
