@@ -10,7 +10,7 @@ editor_options:
 
 ::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="70%"}
 
 When you explore your data, your goal should be to produce, quickly, as many graphs as possible, to gain insights.
 
@@ -893,6 +893,22 @@ Your resources will probably fall short of what is needed for a full cognitive t
 
 :::
 
+## Basic Perception
+
+![](img/39-perception-studies.jpg){.absolute top=130 left=550 height="500"}
+
+::: {.columns}
+
+::: {.column width="47%"}
+
+Nevertheless, there are fundamental perception experiments that tell us how accurately we tent to read different shapes of visual information.
+
+If you want to study this topic, a great place to start is Kennedy Elliot's blog post: [39 studies about human perception in 30 minutes](https://medium.com/@kennelliott/39-studies-about-human-perception-in-30-minutes-4728f9e31a73
+).
+
+:::
+
+:::
 
 ## Exercise
 
@@ -901,11 +917,6 @@ Your resources will probably fall short of what is needed for a full cognitive t
 - Describe the overall pattern
 
 Explain and Q&A
-
-
-## GEneric Cognitive experiment
-
-https://medium.com/@kennelliott/39-studies-about-human-perception-in-30-minutes-4728f9e31a73
 
 
 <!--- js dependencies -->
