@@ -1069,6 +1069,39 @@ healthexp = sns.load_dataset('healthexp')
 )
 ```
 
+
+## Exercise #1
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+On 2021-02-16, [TidyTuesday](https://github.com/rfordatascience/tidytuesday/tree/master) published a challenge to remember the work of [W.E.B Du Bois](https://en.wikipedia.org/wiki/W._E._B._Du_Bois).
+
+On [this Github Page](https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-02-16) you can find the data for 10 of the renown Du Bois' charts
+
+Redesign or just redraw one or more of Du Bois' graphs. Feel free to modify them as much as you want, but explain your design choices and how they improve the original graph.
+
+:::
+
+:::
+
+## Exercise #2
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+On 202, [TidyTuesday](https://github.com/rfordatascience/tidytuesday/tree/master) published a challenge on [UNHCR's migration data](https://www.unhcr.org/refugee-statistics/).
+
+You can find data and further information in [this github repository](https://www.unhcr.org/refugee-statistics/).
+
+Explore those data, find a message that you would like to communicate, and design a graph to convey that message. Explain your stylistical choices, how do they help you convey your message.
+
+:::
+
+:::
+
 <!--- js dependencies -->
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script src="js/fix-figures.js"></script>
