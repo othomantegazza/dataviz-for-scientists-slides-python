@@ -268,7 +268,7 @@ A presentation of the [cubehelix](https://www.mrao.cam.ac.uk/~dag/CUBEHELIX/) co
 
 ::: {.column width="45%"}
 
-There are plenty of colour palette available in Python though Seaborn or other tools, so it's unlikely that you'll have to design your own.
+There are plenty of colour palette available in Python through Seaborn or other tools, so it's unlikely that you'll have to design your own.
 
 It's more likely that you'll have to be able to choose a good one.
 
@@ -324,8 +324,15 @@ The y axis is not mapped to the data.
 
 ## Exercise
 
-Check the climate stripes with a tool to simulate colour blind vision. Are the climate stripes colour blind friendly? Motivate your answer.
+::: {.columns}
 
+::: {.column width="70%"}
+
+Check the climate stripes with a [tool to simulate colour blind vision](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/simulation/index.html). Are the climate stripes colour blind friendly? Motivate your anwser.
+
+:::
+
+:::
 
 ## Colours in Seaborn
 
@@ -775,7 +782,7 @@ You can encode a continuous variable in the area of the circles in a scatterplot
 
 Our perception is not as good at comparing areas, so use this retinal variable with parsimony.
 
-You can map data to the radius of circles or to the area directly. Mapping data to the area directly might be slightly better, although neither choice is optimal, 
+You can map data to the radius of circles or to the area directly. Mapping data to the radius might be perceptually better, although neither choice is optimal.
 
 :::
 
@@ -889,7 +896,7 @@ Year: Current
 
 Website: [NOAA - Hurricane Center](https://www.nhc.noaa.gov/aboutcone.shtml)
 
-*The cone shows the foretasted path of the hurricane, from its current position. The size of the cone grows with the uncertainty in the path's forecast*
+*The cone shows the forecasted path of the hurricane, from its current position. The size of the cone grows with the uncertainty in the path's forecast*
 
 There's evidence that we intuitively associate the size of the cone to the forecasted size of the hurricane, not to the uncertainty of its path.
 
